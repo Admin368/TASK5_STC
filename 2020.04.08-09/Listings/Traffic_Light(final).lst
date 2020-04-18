@@ -1,0 +1,193 @@
+C51 COMPILER V9.60.0.0   TRAFFIC_LIGHT_FINAL_                                              04/10/2020 05:25:10 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE TRAFFIC_LIGHT_FINAL_
+OBJECT MODULE PLACED IN .\Objects\Traffic_Light(final).obj
+COMPILER INVOKED BY: E:\Space_X\ProgramFiles_X\Keil\C51\BIN\C51.EXE Traffic_Light(final).c OPTIMIZE(8,SPEED) BROWSE DEBU
+                    -G OBJECTEXTEND PRINT(.\Listings\Traffic_Light(final).lst) TABS(2) OBJECT(.\Objects\Traffic_Light(final).obj)
+
+line level    source
+
+   1          //Place paulo.h in Keil\C51\INC
+   2          #include <reg52.h>
+   3          #include <paulo.h>
+   4          #define uchar unsigned char
+   5          
+   6          
+   7          
+   8          int t;
+   9          t = 1;
+  10          on = 1;
+  11          off = 0;
+  12          //declaire fuctions//
+  13          void countdown();
+  14          void countgreen();
+  15          void countred();
+  16          void countyellow();
+  17          void countwhite();
+  18          
+  19          
+  20          void main()
+  21            {
+  22   1          while(1)
+  23   1            {
+  24   2              P1 = ledalloff;
+  25   2              buzzer = off;
+  26   2              seconds(1);
+  27   2              countred();
+  28   2              countyellow();
+  29   2              P1 = green;
+  30   2              countdown();
+  31   2              countyellow();
+  32   2            }
+  33   1        }
+  34          
+  35          
+  36          void countgreen()
+  37            {
+  38   1        segment1();
+  39   1        P1 = green;
+  40   1        digit5();
+  41   1        seconds(1);
+  42   1        digit4();
+  43   1        seconds(1);
+  44   1        digit3();
+  45   1        seconds(1);
+  46   1        digit2();
+  47   1        seconds(1);
+  48   1        digit1();
+  49   1        seconds(1);
+  50   1        digit0();
+  51   1        seconds(1);
+  52   1        }
+  53          void countred()
+  54            {
+C51 COMPILER V9.60.0.0   TRAFFIC_LIGHT_FINAL_                                              04/10/2020 05:25:10 PAGE 2   
+
+  55   1        segment1(); 
+  56   1        P1 = red;
+  57   1        digit5();
+  58   1        seconds(1);
+  59   1        digit4();
+  60   1        seconds(1);
+  61   1        digit3();
+  62   1        seconds(1);
+  63   1        digit2();
+  64   1        seconds(1);
+  65   1        digit1();
+  66   1        seconds(1);
+  67   1        digit0();
+  68   1        seconds(1);
+  69   1        } 
+  70          void countyellow()
+  71            {
+  72   1        segment1();
+  73   1        P1 = yellow;
+  74   1        digit2();
+  75   1        seconds(1);
+  76   1        digit1();
+  77   1        seconds(1);
+  78   1        digit0();
+  79   1        seconds(1);
+  80   1        }
+  81          void countwhite()
+  82            {
+  83   1        segment1();
+  84   1        P1 = white;
+  85   1        digit5();
+  86   1        seconds(1);
+  87   1        digit4();
+  88   1        seconds(1);
+  89   1        digit3();
+  90   1        seconds(1);
+  91   1        digit2();
+  92   1        seconds(1);
+  93   1        digit1();
+  94   1        seconds(1);
+  95   1        digit0();
+  96   1        seconds(1);
+  97   1        } 
+  98          void countdown()
+  99          {
+ 100   1          segment1();
+ 101   1          //segment1();
+ 102   1          digit0();
+ 103   1          buzzer = on;
+ 104   1          seconds(2);
+ 105   1          buzzer = off;
+ 106   1          delay (1000);
+ 107   1          
+ 108   1          //9
+ 109   1          //segment1();
+ 110   1          digit9();
+ 111   1          beep();
+ 112   1          seconds(1);
+ 113   1          
+ 114   1          //8
+ 115   1          //segment1();
+ 116   1          digit8();
+C51 COMPILER V9.60.0.0   TRAFFIC_LIGHT_FINAL_                                              04/10/2020 05:25:10 PAGE 3   
+
+ 117   1          beep();
+ 118   1          seconds(1);
+ 119   1          
+ 120   1          //7
+ 121   1          //segment1();
+ 122   1          digit7();
+ 123   1          beep();
+ 124   1          seconds(1);
+ 125   1          
+ 126   1          //6
+ 127   1          //segment1();
+ 128   1          digit6();
+ 129   1          beep();
+ 130   1          seconds(1);
+ 131   1          
+ 132   1          //5
+ 133   1          //segment1();
+ 134   1          digit5();
+ 135   1          beep();
+ 136   1          seconds(1);
+ 137   1          
+ 138   1          //4
+ 139   1          //segment1();
+ 140   1          digit4();
+ 141   1          beep();
+ 142   1          seconds(1);
+ 143   1      
+ 144   1          //3
+ 145   1          //segment1();
+ 146   1          digit3();
+ 147   1          beep();
+ 148   1          seconds(1);
+ 149   1          
+ 150   1          //2
+ 151   1          //segment1();
+ 152   1          digit2();
+ 153   1          beep();
+ 154   1          seconds(1);
+ 155   1          
+ 156   1          //1
+ 157   1          //segment1();
+ 158   1          digit1();
+ 159   1          beep();
+ 160   1          seconds(1);
+ 161   1      }
+ 162          
+ 163          
+ 164          
+ 165          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    548    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =    101       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

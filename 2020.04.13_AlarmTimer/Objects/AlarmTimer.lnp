@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\AlarmTimer.obj" 
+TO ".\Objects\AlarmTimer" 
+PRINT(".\Listings\AlarmTimer.m51") RAMSIZE(256) 

@@ -1,0 +1,74 @@
+C51 COMPILER V9.60.0.0   TESTLIB                                                           04/09/2020 23:58:26 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE TESTLIB
+OBJECT MODULE PLACED IN .\Objects\testlib.obj
+COMPILER INVOKED BY: E:\Space_X\ProgramFiles_X\Keil\C51\BIN\C51.EXE testlib.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEN
+                    -D PRINT(.\Listings\testlib.lst) TABS(2) OBJECT(.\Objects\testlib.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <paulo.h>
+   3          #define uchar unsigned char
+   4          sbit buzzer = P2^0;
+   5          uchar i,j,y,x,d,a;
+   6          int t;
+   7          t = 1000;
+   8          
+   9          
+  10          
+  11          void delay(uchar x);
+  12          //void digit1();
+  13          //void countdown(uchar d);
+  14          void main()
+  15          {
+  16   1        segdef = 1;
+  17   1          seg1 = 0;
+  18   1        segdef = 0;
+  19   1        
+  20   1      // digdef = 1;
+  21   1          P0 = dig2;
+  22   1      // digdef = 0;
+  23   1        while(1)
+  24   1        {
+  25   2          buzzer = 0;
+  26   2          P1 = ledalloff;
+  27   2          delay(t);
+  28   2          buzzer = 1;
+  29   2          P1 = ledallon;
+  30   2          delay(t);
+  31   2        }
+  32   1      }
+  33          void delay(uchar x)
+  34          {
+  35   1        for (i=0;i<x;i++){
+  36   2          for (y=0;y<120;y++){}
+  37   2          }
+  38   1      }
+  39          
+  40          /*
+  41          void countdown(uchar d)
+  42          {
+  43            for (a=0;a<d;a++){
+  44            if(a=1){void digit1();}
+  45            }
+  46          }
+  47          
+  48          */
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     63    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.60.0.0   TESTLIB                                                           04/09/2020 23:58:26 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     72    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

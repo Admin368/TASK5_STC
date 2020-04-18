@@ -1,0 +1,158 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/02/2020  21:12:26  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+E:\SPACE_X\PROGRAMFILES_X\KEIL\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\Led.obj TO .\Objects\Task5_led light Re
+>> do PRINT (.\Listings\Task5_led light Redo.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\Led.obj (LED)
+  E:\SPACE_X\PROGRAMFILES_X\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\Task5_led light Redo (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0021H     UNIT         ?DT?LED
+            IDATA   0029H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0035H     UNIT         ?C_INITSEG
+            CODE    08C1H     0020H     UNIT         ?PR?_DELAY?LED
+            CODE    08E1H     0010H     UNIT         ?PR?MAIN?LED
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Task5_led light Redo (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LED
+  +--> ?C_INITSEG
+
+?PR?MAIN?LED
+  +--> ?PR?_DELAY?LED
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Task5_led light Redo (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0800H         SEGMENT       ?C_C51STARTUP
+  I:0029H         SEGMENT       ?STACK
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/02/2020  21:12:26  PAGE 2
+
+
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0803H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0800H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0800H         LINE#         133
+  C:0802H         LINE#         134
+  C:0803H         LINE#         135
+  C:0804H         LINE#         136
+  C:0806H         LINE#         185
+  C:0809H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:08C1H         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  C:08E1H         PUBLIC        main
+  D:0008H         PUBLIC        halfon1
+  D:000AH         PUBLIC        halfon2
+  D:000CH         PUBLIC        ledalloff
+  B:0090H.2       PUBLIC        ledx
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:000EH         PUBLIC        ledallon
+  D:0010H         PUBLIC        b
+  D:0012H         PUBLIC        g
+  D:0014H         PUBLIC        led1
+  D:0016H         PUBLIC        h
+  D:00C8H         PUBLIC        T2CON
+  D:0017H         PUBLIC        led2
+  D:0019H         PUBLIC        i
+  D:001AH         PUBLIC        led3
+  D:001CH         PUBLIC        j
+  D:001DH         PUBLIC        led4
+  D:001FH         PUBLIC        led5
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/02/2020  21:12:26  PAGE 3
+
+
+  D:0021H         PUBLIC        led6
+  D:0023H         PUBLIC        led7
+  D:0025H         PUBLIC        led8
+  D:0027H         PUBLIC        t
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:08E1H         LINE#         25
+  C:08E1H         LINE#         26
+  C:08E1H         LINE#         28
+  C:08E1H         LINE#         29
+  C:08E1H         LINE#         30
+  C:08E3H         LINE#         31
+  C:08E8H         LINE#         32
+  C:08EAH         LINE#         33
+  C:08EFH         LINE#         34
+  -------         ENDPROC       MAIN
+  -------         PROC          _DELAY
+  D:0007H         SYMBOL        x
+  C:08C1H         LINE#         37
+  C:08C1H         LINE#         38
+  C:08C1H         LINE#         39
+  C:08CAH         LINE#         40
+  C:08CAH         LINE#         41
+  C:08DCH         LINE#         42
+  C:08E0H         LINE#         43
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        LED
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0073H BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=42.0 xdata=0 code=244
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

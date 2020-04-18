@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\Led.obj" 
+TO ".\Objects\Task5_led light Redo" 
+PRINT(".\Listings\Task5_led light Redo.m51") RAMSIZE(256) 

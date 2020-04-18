@@ -1,0 +1,464 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/12/2020  18:57:34  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+E:\SPACE_X\PROGRAMFILES_X\KEIL\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\traffic.obj TO .\Objects\Traffic_Light_
+>> 2 PRINT (.\Listings\Traffic_Light_2.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\traffic.obj (TRAFFIC)
+  E:\SPACE_X\PROGRAMFILES_X\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\Traffic_Light_2 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     005FH     UNIT         ?DT?TRAFFIC
+            DATA    0067H     0002H     UNIT         ?DT?_SECONDS?TRAFFIC
+            IDATA   0069H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00B5H     UNIT         ?C_INITSEG
+            CODE    08B5H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0941H     002CH     UNIT         ?PR?MAIN?TRAFFIC
+            CODE    096DH     0022H     UNIT         ?PR?_SECONDS?TRAFFIC
+            CODE    098FH     001AH     UNIT         ?PR?_DELAY?TRAFFIC
+            CODE    09A9H     000FH     UNIT         ?PR?DELAYMS?TRAFFIC
+            CODE    09B8H     000AH     UNIT         ?PR?BEEP?TRAFFIC
+            CODE    09C2H     0008H     UNIT         ?PR?DIGIT1?TRAFFIC
+            CODE    09CAH     0008H     UNIT         ?PR?DIGIT2?TRAFFIC
+            CODE    09D2H     0008H     UNIT         ?PR?DIGIT3?TRAFFIC
+            CODE    09DAH     0008H     UNIT         ?PR?DIGIT4?TRAFFIC
+            CODE    09E2H     0008H     UNIT         ?PR?DIGIT5?TRAFFIC
+            CODE    09EAH     0008H     UNIT         ?PR?DIGIT6?TRAFFIC
+            CODE    09F2H     0008H     UNIT         ?PR?DIGIT7?TRAFFIC
+            CODE    09FAH     0008H     UNIT         ?PR?DIGIT8?TRAFFIC
+            CODE    0A02H     0008H     UNIT         ?PR?DIGIT9?TRAFFIC
+            CODE    0A0AH     0008H     UNIT         ?PR?DIGIT0?TRAFFIC
+            CODE    0A12H     0007H     UNIT         ?PR?SEGMENT1?TRAFFIC
+            CODE    0A19H     0007H     UNIT         ?PR?SEGMENT2?TRAFFIC
+            CODE    0A20H     0007H     UNIT         ?PR?SEGMENT3?TRAFFIC
+            CODE    0A27H     0007H     UNIT         ?PR?SEGMENT4?TRAFFIC
+            CODE    0A2EH     0007H     UNIT         ?PR?SEGMENT5?TRAFFIC
+            CODE    0A35H     0007H     UNIT         ?PR?SEGMENT6?TRAFFIC
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Traffic_Light_2 (?C_STARTUP)
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/12/2020  18:57:34  PAGE 2
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?TRAFFIC
+  +--> ?C_INITSEG
+
+?PR?MAIN?TRAFFIC
+  +--> ?PR?SEGMENT1?TRAFFIC
+  +--> ?PR?_DELAY?TRAFFIC
+  +--> ?PR?DIGIT1?TRAFFIC
+  +--> ?PR?SEGMENT2?TRAFFIC
+  +--> ?PR?DIGIT0?TRAFFIC
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Traffic_Light_2 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:08B5H         SEGMENT       ?C_C51STARTUP
+  I:0069H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:08B8H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:08B5H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:08B5H         LINE#         133
+  C:08B7H         LINE#         134
+  C:08B8H         LINE#         135
+  C:08B9H         LINE#         136
+  C:08BBH         LINE#         185
+  C:08BEH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        TRAFFIC
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/12/2020  18:57:34  PAGE 3
+
+
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:098FH         PUBLIC        _delay
+  D:0008H         PUBLIC        green
+  D:00B8H         PUBLIC        IP
+  C:09B8H         PUBLIC        beep
+  D:000AH         PUBLIC        yellow
+  D:000CH         PUBLIC        white
+  B:00A0H.0       PUBLIC        buzzer
+  C:0941H         PUBLIC        main
+  C:0A12H         PUBLIC        segment1
+  C:0A19H         PUBLIC        segment2
+  C:0A20H         PUBLIC        segment3
+  C:0A27H         PUBLIC        segment4
+  C:0A2EH         PUBLIC        segment5
+  D:000EH         PUBLIC        halfon1
+  C:0A35H         PUBLIC        segment6
+  D:0010H         PUBLIC        halfon2
+  D:0012H         PUBLIC        ledalloff
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:0014H         PUBLIC        red
+  C:0A0AH         PUBLIC        digit0
+  C:09C2H         PUBLIC        digit1
+  C:09CAH         PUBLIC        digit2
+  C:09D2H         PUBLIC        digit3
+  C:09DAH         PUBLIC        digit4
+  C:09E2H         PUBLIC        digit5
+  C:09EAH         PUBLIC        digit6
+  C:09F2H         PUBLIC        digit7
+  D:0016H         PUBLIC        level0
+  C:09FAH         PUBLIC        digit8
+  D:0018H         PUBLIC        level1
+  C:0A02H         PUBLIC        digit9
+  D:001AH         PUBLIC        level2
+  D:001CH         PUBLIC        level3
+  D:001EH         PUBLIC        level4
+  D:0020H         PUBLIC        level5
+  D:0022H         PUBLIC        ledallon
+  D:0024H         PUBLIC        level6
+  D:0026H         PUBLIC        level7
+  D:0028H         PUBLIC        level8
+  D:002AH         PUBLIC        wdig0
+  D:002CH         PUBLIC        wdig1
+  D:002EH         PUBLIC        wdig2
+  D:0030H         PUBLIC        wdig3
+  D:0032H         PUBLIC        wdig4
+  D:0034H         PUBLIC        wdig5
+  D:0036H         PUBLIC        wdig6
+  D:0038H         PUBLIC        wdig7
+  D:003AH         PUBLIC        wdig8
+  D:003CH         PUBLIC        dig0
+  D:003EH         PUBLIC        wdig9
+  D:0040H         PUBLIC        dig1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/12/2020  18:57:34  PAGE 4
+
+
+  B:00A0H.6       PUBLIC        digdef
+  D:0042H         PUBLIC        ss
+  D:0044H         PUBLIC        led1
+  D:0046H         PUBLIC        dig2
+  D:00C8H         PUBLIC        T2CON
+  D:0048H         PUBLIC        led2
+  D:004AH         PUBLIC        dig3
+  D:004CH         PUBLIC        led3
+  D:004EH         PUBLIC        dig4
+  D:0050H         PUBLIC        led4
+  D:0052H         PUBLIC        dig5
+  D:0054H         PUBLIC        led5
+  D:0056H         PUBLIC        dig6
+  D:0058H         PUBLIC        led6
+  D:005AH         PUBLIC        dig7
+  D:005CH         PUBLIC        led7
+  D:005EH         PUBLIC        dig8
+  D:0060H         PUBLIC        led8
+  D:0062H         PUBLIC        dig9
+  D:0064H         PUBLIC        xx
+  B:0080H.0       PUBLIC        seg1
+  B:00A0H.7       PUBLIC        segdef
+  B:0080H.1       PUBLIC        seg2
+  D:0065H         PUBLIC        s
+  C:09A9H         PUBLIC        delayms
+  C:096DH         PUBLIC        _seconds
+  B:0080H.2       PUBLIC        seg3
+  B:0080H.3       PUBLIC        seg4
+  B:0080H.4       PUBLIC        seg5
+  B:0080H.5       PUBLIC        seg6
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          SEGMENT1
+  C:0A12H         LINE#         166
+  C:0A12H         LINE#         167
+  C:0A14H         LINE#         168
+  C:0A16H         LINE#         169
+  C:0A18H         LINE#         170
+  -------         ENDPROC       SEGMENT1
+  -------         PROC          SEGMENT2
+  C:0A19H         LINE#         171
+  C:0A19H         LINE#         172
+  C:0A1BH         LINE#         173
+  C:0A1DH         LINE#         174
+  C:0A1FH         LINE#         175
+  -------         ENDPROC       SEGMENT2
+  -------         PROC          SEGMENT3
+  C:0A20H         LINE#         176
+  C:0A20H         LINE#         177
+  C:0A22H         LINE#         178
+  C:0A24H         LINE#         179
+  C:0A26H         LINE#         180
+  -------         ENDPROC       SEGMENT3
+  -------         PROC          SEGMENT4
+  C:0A27H         LINE#         181
+  C:0A27H         LINE#         182
+  C:0A29H         LINE#         183
+  C:0A2BH         LINE#         184
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/12/2020  18:57:34  PAGE 5
+
+
+  C:0A2DH         LINE#         185
+  -------         ENDPROC       SEGMENT4
+  -------         PROC          SEGMENT5
+  C:0A2EH         LINE#         186
+  C:0A2EH         LINE#         187
+  C:0A30H         LINE#         188
+  C:0A32H         LINE#         189
+  C:0A34H         LINE#         190
+  -------         ENDPROC       SEGMENT5
+  -------         PROC          SEGMENT6
+  C:0A35H         LINE#         191
+  C:0A35H         LINE#         192
+  C:0A37H         LINE#         193
+  C:0A39H         LINE#         194
+  C:0A3BH         LINE#         195
+  -------         ENDPROC       SEGMENT6
+  -------         PROC          DIGIT1
+  C:09C2H         LINE#         197
+  C:09C2H         LINE#         198
+  C:09C4H         LINE#         199
+  C:09C7H         LINE#         200
+  C:09C9H         LINE#         201
+  -------         ENDPROC       DIGIT1
+  -------         PROC          DIGIT2
+  C:09CAH         LINE#         203
+  C:09CAH         LINE#         204
+  C:09CCH         LINE#         205
+  C:09CFH         LINE#         206
+  C:09D1H         LINE#         207
+  -------         ENDPROC       DIGIT2
+  -------         PROC          DIGIT3
+  C:09D2H         LINE#         209
+  C:09D2H         LINE#         210
+  C:09D4H         LINE#         211
+  C:09D7H         LINE#         212
+  C:09D9H         LINE#         213
+  -------         ENDPROC       DIGIT3
+  -------         PROC          DIGIT4
+  C:09DAH         LINE#         215
+  C:09DAH         LINE#         216
+  C:09DCH         LINE#         217
+  C:09DFH         LINE#         218
+  C:09E1H         LINE#         219
+  -------         ENDPROC       DIGIT4
+  -------         PROC          DIGIT5
+  C:09E2H         LINE#         222
+  C:09E2H         LINE#         223
+  C:09E4H         LINE#         224
+  C:09E7H         LINE#         225
+  C:09E9H         LINE#         226
+  -------         ENDPROC       DIGIT5
+  -------         PROC          DIGIT6
+  C:09EAH         LINE#         229
+  C:09EAH         LINE#         230
+  C:09ECH         LINE#         231
+  C:09EFH         LINE#         232
+  C:09F1H         LINE#         233
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/12/2020  18:57:34  PAGE 6
+
+
+  -------         ENDPROC       DIGIT6
+  -------         PROC          DIGIT7
+  C:09F2H         LINE#         236
+  C:09F2H         LINE#         237
+  C:09F4H         LINE#         238
+  C:09F7H         LINE#         239
+  C:09F9H         LINE#         240
+  -------         ENDPROC       DIGIT7
+  -------         PROC          DIGIT8
+  C:09FAH         LINE#         243
+  C:09FAH         LINE#         244
+  C:09FCH         LINE#         245
+  C:09FFH         LINE#         246
+  C:0A01H         LINE#         247
+  -------         ENDPROC       DIGIT8
+  -------         PROC          DIGIT9
+  C:0A02H         LINE#         250
+  C:0A02H         LINE#         251
+  C:0A04H         LINE#         252
+  C:0A07H         LINE#         253
+  C:0A09H         LINE#         254
+  -------         ENDPROC       DIGIT9
+  -------         PROC          DIGIT0
+  C:0A0AH         LINE#         257
+  C:0A0AH         LINE#         258
+  C:0A0CH         LINE#         259
+  C:0A0FH         LINE#         260
+  C:0A11H         LINE#         261
+  -------         ENDPROC       DIGIT0
+  -------         PROC          _SECONDS
+  D:0067H         SYMBOL        mm
+  -------         DO            
+  D:0068H         SYMBOL        mmm
+  -------         ENDDO         
+  C:096DH         LINE#         263
+  C:096FH         LINE#         264
+  C:096FH         LINE#         266
+  C:0987H         LINE#         267
+  C:0987H         LINE#         268
+  C:098AH         LINE#         269
+  C:098EH         LINE#         270
+  -------         ENDPROC       _SECONDS
+  -------         PROC          DELAYMS
+  -------         DO            
+  D:0007H         SYMBOL        ii
+  D:0006H         SYMBOL        jj
+  D:0005H         SYMBOL        kk
+  -------         ENDDO         
+  C:09A9H         LINE#         272
+  C:09A9H         LINE#         273
+  C:09A9H         LINE#         276
+  C:09AAH         LINE#         277
+  C:09ABH         LINE#         278
+  C:09ADH         LINE#         279
+  C:09AFH         LINE#         280
+  C:09B1H         LINE#         282
+  C:09B1H         LINE#         284
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/12/2020  18:57:34  PAGE 7
+
+
+  C:09B1H         LINE#         285
+  C:09B3H         LINE#         286
+  C:09B5H         LINE#         287
+  C:09B7H         LINE#         288
+  -------         ENDPROC       DELAYMS
+  -------         PROC          BEEP
+  C:09B8H         LINE#         290
+  C:09B8H         LINE#         291
+  C:09BAH         LINE#         292
+  C:09BFH         LINE#         293
+  C:09C1H         LINE#         295
+  -------         ENDPROC       BEEP
+  -------         PROC          _DELAY
+  D:0007H         SYMBOL        xx
+  -------         DO            
+  D:0005H         SYMBOL        zx
+  D:0006H         SYMBOL        xz
+  -------         ENDDO         
+  C:098FH         LINE#         297
+  C:098FH         LINE#         299
+  C:0996H         LINE#         300
+  C:09A5H         LINE#         301
+  C:09A8H         LINE#         302
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0941H         LINE#         4
+  C:0941H         LINE#         5
+  C:0941H         LINE#         6
+  C:0941H         LINE#         7
+  C:0941H         LINE#         8
+  C:0943H         LINE#         9
+  C:0946H         LINE#         10
+  C:0948H         LINE#         11
+  C:094DH         LINE#         12
+  C:094FH         LINE#         13
+  C:0952H         LINE#         14
+  C:0954H         LINE#         16
+  C:0957H         LINE#         18
+  C:0959H         LINE#         19
+  C:095CH         LINE#         20
+  C:095EH         LINE#         21
+  C:0961H         LINE#         22
+  C:0963H         LINE#         23
+  C:0966H         LINE#         24
+  C:0968H         LINE#         25
+  C:096BH         LINE#         26
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TRAFFIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SEGMENT3?TRAFFIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SEGMENT4?TRAFFIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SEGMENT5?TRAFFIC
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/12/2020  18:57:34  PAGE 8
+
+
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SEGMENT6?TRAFFIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DIGIT2?TRAFFIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DIGIT3?TRAFFIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DIGIT4?TRAFFIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DIGIT5?TRAFFIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DIGIT6?TRAFFIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DIGIT7?TRAFFIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DIGIT8?TRAFFIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DIGIT9?TRAFFIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SECONDS?TRAFFIC
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?BEEP?TRAFFIC
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 01BEH BYTE (21%) *
+******************************************************************************
+
+Program Size: data=106.0 xdata=0 code=575
+LINK/LOCATE RUN COMPLETE.  14 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,51 @@
+C51 COMPILER V9.60.0.0   TRAFFIC                                                           04/12/2020 18:57:34 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE TRAFFIC
+OBJECT MODULE PLACED IN .\Objects\traffic.obj
+COMPILER INVOKED BY: E:\Space_X\ProgramFiles_X\Keil\C51\BIN\C51.EXE traffic.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEN
+                    -D PRINT(.\Listings\traffic.lst) TABS(2) OBJECT(.\Objects\traffic.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <paulo.h>
+   3          
+   4          void main()
+   5          {
+   6   1       while(1)
+   7   1       {
+   8   2        segdef = 1;
+   9   2        segment1();
+  10   2        segdef = 0;
+  11   2        delay(100);
+  12   2        digdef = 1;
+  13   2        digit1();
+  14   2        digdef = 0;
+  15   2         
+  16   2        delay(100);
+  17   2         
+  18   2        segdef = 1;
+  19   2        segment2();
+  20   2        segdef = 0;
+  21   2        delay(100);
+  22   2        digdef = 1;
+  23   2        digit0();
+  24   2        digdef = 0;
+  25   2        delay(100);
+  26   2       }
+  27   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    251    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     95       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

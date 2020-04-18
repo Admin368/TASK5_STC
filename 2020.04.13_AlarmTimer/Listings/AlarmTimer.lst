@@ -1,0 +1,181 @@
+C51 COMPILER V9.60.0.0   ALARMTIMER                                                        04/16/2020 21:20:29 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE ALARMTIMER
+OBJECT MODULE PLACED IN .\Objects\AlarmTimer.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE AlarmTimer.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listing
+                    -s\AlarmTimer.lst) TABS(2) OBJECT(.\Objects\AlarmTimer.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <paulobeta.h>
+   3          #define uchar unsigned char
+   4          sbit key1 = P3^4;
+   5          sbit key2 = P3^5;
+   6          sbit key3 = P3^6;
+   7          sbit key4 = P3^7;
+   8          int count=0;
+   9          uchar defalarm,selectxdone,sx,sx2,selectydone,sy,sy2,freq;
+  10          ndd = 170; //Number Display Delay
+  11          nsd = 120; //Number Select Delay
+  12          
+  13          void alarm();
+  14          void selectx();
+  15          void selecty();
+  16          void showsx();
+  17          void showsy();
+  18          
+  19          void main()
+  20          {
+  21   1        defalarm = 0;
+  22   1        soundbeep = 0;
+  23   1      
+  24   1        sx = 5;
+  25   1        sy = 6;
+  26   1        freq=50;
+  27   1        selectx();
+  28   1        while(1)
+  29   1          {
+  30   2            
+  31   2            if(key4 == 0)
+  32   2                {
+  33   3                  delay(100);
+  34   3                  defalarm = 1;
+  35   3                  alarm();
+  36   3                }
+  37   2          }
+  38   1      }
+  39          
+  40          void selectx()
+  41            {
+  42   1      //    segment(1);
+  43   1          selectxdone = 0;
+  44   1          while (selectxdone == 0)
+  45   1          { 
+  46   2            count=count+1;
+  47   2            if (count>10000000)
+  48   2            {
+  49   3              count=0;
+  50   3            }
+  51   2            if (count%freq==0)
+  52   2            {
+  53   3              showsx();
+  54   3            }
+C51 COMPILER V9.60.0.0   ALARMTIMER                                                        04/16/2020 21:20:29 PAGE 2   
+
+  55   2                        
+  56   2              delay(1); // middle delay
+  57   2      
+  58   2              showsy();
+  59   2      
+  60   2              delay(1);
+  61   2          }
+  62   1        }
+  63          void showsx()
+  64          {
+  65   1                          segment(1);
+  66   1                          digit(sx); //
+  67   1                          delay(5);
+  68   1        
+  69   1      }
+  70          
+  71          void showsy()
+  72          {
+  73   1                        segment(2);
+  74   1                        digit(sy);
+  75   1                        delay(5);
+  76   1      }
+  77                /*      
+  78                            delay(ndd);
+  79                            segment(2);
+  80                            digit(sy);
+  81                            led(8);
+  82                            delay(ndd);
+  83                            seconds(1);
+  84          */
+  85          /*
+  86                            if (key3 == 0){selectxdone = 1;}
+  87                            while(key2 == 0)
+  88                            {
+  89                                  segment(1);
+  90                                  digit(sx);
+  91                                  led(11);
+  92                                  delay(nsd);
+  93                                  sx2 = sx;
+  94                                  sx = sx2+1;
+  95                                  if (sx == 10){sx = 0;}
+  96            //                    seconds(1);                     
+  97                            }
+  98                }
+  99          //  selecty();
+ 100            led(10);
+ 101            seconds(5);
+ 102            }
+ 103          */  
+ 104          
+ 105          void selecty()
+ 106            {
+ 107   1      //    segment(1);
+ 108   1          selectydone = 0;
+ 109   1          while (selectydone == 0)
+ 110   1          {
+ 111   2                        segment(1);
+ 112   2                        digit(sy);
+ 113   2                        led(11);
+ 114   2                        delay(ndd);
+ 115   2                        segment(0);
+ 116   2                        led(0);
+C51 COMPILER V9.60.0.0   ALARMTIMER                                                        04/16/2020 21:20:29 PAGE 3   
+
+ 117   2                        delay(ndd);
+ 118   2        //              seconds(1);
+ 119   2                        if (key3 == 0){selectydone = 1;}
+ 120   2                        while(key2 == 0)
+ 121   2                        {
+ 122   3                              segment(1);
+ 123   3                              digit(sy);
+ 124   3                              led(11);
+ 125   3                              delay(nsd);
+ 126   3                              sy2 = sy;
+ 127   3                              sy = sy2+1;
+ 128   3                              if (sy == 10){sy = 0;}
+ 129   3        //                    seconds(1);                     
+ 130   3                        }
+ 131   2            }
+ 132   1        selecty();
+ 133   1        }
+ 134            
+ 135          void alarm()
+ 136          {
+ 137   1        while(defalarm == 1)
+ 138   1          {
+ 139   2      //      delay(400);
+ 140   2            while(key1 == 1)
+ 141   2            {
+ 142   3              soundbeep = 0;
+ 143   3              led(0);
+ 144   3              seconds(1);
+ 145   3              soundbeep = 1;
+ 146   3              led(11);
+ 147   3              seconds(1);
+ 148   3            }
+ 149   2            soundbeep = 0;
+ 150   2            led(0);
+ 151   2            defalarm = 0;
+ 152   2          }
+ 153   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    788    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =    110       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

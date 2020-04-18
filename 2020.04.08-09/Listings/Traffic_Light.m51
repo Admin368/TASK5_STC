@@ -1,0 +1,598 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/10/2020  05:25:10  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+E:\SPACE_X\PROGRAMFILES_X\KEIL\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\Traffic_Light(final).obj TO .\Objects\T
+>> raffic_Light PRINT (.\Listings\Traffic_Light.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\Traffic_Light(final).obj (TRAFFIC_LIGHT_FINAL_)
+  E:\SPACE_X\PROGRAMFILES_X\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\Traffic_Light (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0065H     UNIT         ?DT?TRAFFIC_LIGHT_FINAL_
+            DATA    006DH     0002H     UNIT         _DATA_GROUP_
+            IDATA   006FH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00C1H     UNIT         ?C_INITSEG
+            CODE    08C1H     008CH     UNIT         ?C_C51STARTUP
+            CODE    094DH     0083H     UNIT         ?PR?COUNTDOWN?TRAFFIC_LIGHT_FINAL_
+            CODE    09D0H     0031H     UNIT         ?PR?COUNTGREEN?TRAFFIC_LIGHT_FINAL_
+            CODE    0A01H     0031H     UNIT         ?PR?COUNTRED?TRAFFIC_LIGHT_FINAL_
+            CODE    0A32H     0031H     UNIT         ?PR?COUNTWHITE?TRAFFIC_LIGHT_FINAL_
+            CODE    0A63H     0027H     UNIT         ?PR?_SECONDS?TRAFFIC_LIGHT_FINAL_
+            CODE    0A8AH     0021H     UNIT         ?PR?MAIN?TRAFFIC_LIGHT_FINAL_
+            CODE    0AABH     001AH     UNIT         ?PR?_DELAY?TRAFFIC_LIGHT_FINAL_
+            CODE    0AC5H     0019H     UNIT         ?PR?COUNTYELLOW?TRAFFIC_LIGHT_FINAL_
+            CODE    0ADEH     000FH     UNIT         ?PR?DELAYMS?TRAFFIC_LIGHT_FINAL_
+            CODE    0AEDH     000AH     UNIT         ?PR?BEEP?TRAFFIC_LIGHT_FINAL_
+            CODE    0AF7H     0008H     UNIT         ?PR?DIGIT1?TRAFFIC_LIGHT_FINAL_
+            CODE    0AFFH     0008H     UNIT         ?PR?DIGIT2?TRAFFIC_LIGHT_FINAL_
+            CODE    0B07H     0008H     UNIT         ?PR?DIGIT3?TRAFFIC_LIGHT_FINAL_
+            CODE    0B0FH     0008H     UNIT         ?PR?DIGIT4?TRAFFIC_LIGHT_FINAL_
+            CODE    0B17H     0008H     UNIT         ?PR?DIGIT5?TRAFFIC_LIGHT_FINAL_
+            CODE    0B1FH     0008H     UNIT         ?PR?DIGIT6?TRAFFIC_LIGHT_FINAL_
+            CODE    0B27H     0008H     UNIT         ?PR?DIGIT7?TRAFFIC_LIGHT_FINAL_
+            CODE    0B2FH     0008H     UNIT         ?PR?DIGIT8?TRAFFIC_LIGHT_FINAL_
+            CODE    0B37H     0008H     UNIT         ?PR?DIGIT9?TRAFFIC_LIGHT_FINAL_
+            CODE    0B3FH     0008H     UNIT         ?PR?DIGIT0?TRAFFIC_LIGHT_FINAL_
+            CODE    0B47H     0007H     UNIT         ?PR?SEGMENT1?TRAFFIC_LIGHT_FINAL_
+            CODE    0B4EH     0007H     UNIT         ?PR?SEGMENT2?TRAFFIC_LIGHT_FINAL_
+            CODE    0B55H     0007H     UNIT         ?PR?SEGMENT3?TRAFFIC_LIGHT_FINAL_
+            CODE    0B5CH     0007H     UNIT         ?PR?SEGMENT4?TRAFFIC_LIGHT_FINAL_
+            CODE    0B63H     0007H     UNIT         ?PR?SEGMENT5?TRAFFIC_LIGHT_FINAL_
+            CODE    0B6AH     0007H     UNIT         ?PR?SEGMENT6?TRAFFIC_LIGHT_FINAL_
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/10/2020  05:25:10  PAGE 2
+
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Traffic_Light (?C_STARTUP)
+
+
+SEGMENT                                        DATA_GROUP 
+  +--> CALLED SEGMENT                        START    LENGTH
+------------------------------------------------------------
+?C_C51STARTUP                                -----    -----
+  +--> ?PR?MAIN?TRAFFIC_LIGHT_FINAL_
+  +--> ?C_INITSEG
+
+?PR?MAIN?TRAFFIC_LIGHT_FINAL_                -----    -----
+  +--> ?PR?_SECONDS?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?COUNTRED?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?COUNTYELLOW?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?COUNTDOWN?TRAFFIC_LIGHT_FINAL_
+
+?PR?_SECONDS?TRAFFIC_LIGHT_FINAL_            006DH    0002H
+  +--> ?PR?DIGIT2?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DELAYMS?TRAFFIC_LIGHT_FINAL_
+
+?PR?COUNTRED?TRAFFIC_LIGHT_FINAL_            -----    -----
+  +--> ?PR?SEGMENT1?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT5?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?_SECONDS?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT4?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT3?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT1?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT0?TRAFFIC_LIGHT_FINAL_
+
+?PR?COUNTYELLOW?TRAFFIC_LIGHT_FINAL_         -----    -----
+  +--> ?PR?SEGMENT1?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?_SECONDS?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT1?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT0?TRAFFIC_LIGHT_FINAL_
+
+?PR?COUNTDOWN?TRAFFIC_LIGHT_FINAL_           -----    -----
+  +--> ?PR?SEGMENT1?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT0?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?_SECONDS?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?_DELAY?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT9?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?BEEP?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT8?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT7?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT6?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT5?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT4?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT3?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT2?TRAFFIC_LIGHT_FINAL_
+  +--> ?PR?DIGIT1?TRAFFIC_LIGHT_FINAL_
+
+?PR?BEEP?TRAFFIC_LIGHT_FINAL_                -----    -----
+  +--> ?PR?_DELAY?TRAFFIC_LIGHT_FINAL_
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/10/2020  05:25:10  PAGE 3
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Traffic_Light (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:08C1H         SEGMENT       ?C_C51STARTUP
+  I:006FH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:08C4H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:08C1H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:08C1H         LINE#         133
+  C:08C3H         LINE#         134
+  C:08C4H         LINE#         135
+  C:08C5H         LINE#         136
+  C:08C7H         LINE#         185
+  C:08CAH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        TRAFFIC_LIGHT_FINAL_
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:0AABH         PUBLIC        _delay
+  D:0008H         PUBLIC        green
+  D:00B8H         PUBLIC        IP
+  C:0AEDH         PUBLIC        beep
+  D:000AH         PUBLIC        yellow
+  D:000CH         PUBLIC        white
+  B:00A0H.0       PUBLIC        buzzer
+  C:0A8AH         PUBLIC        main
+  C:0B47H         PUBLIC        segment1
+  C:0B4EH         PUBLIC        segment2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/10/2020  05:25:10  PAGE 4
+
+
+  C:0B55H         PUBLIC        segment3
+  C:0B5CH         PUBLIC        segment4
+  C:0B63H         PUBLIC        segment5
+  D:000EH         PUBLIC        halfon1
+  C:0B6AH         PUBLIC        segment6
+  D:0010H         PUBLIC        halfon2
+  D:0012H         PUBLIC        ledalloff
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:0014H         PUBLIC        off
+  D:0016H         PUBLIC        red
+  C:09D0H         PUBLIC        countgreen
+  C:0B3FH         PUBLIC        digit0
+  C:0AF7H         PUBLIC        digit1
+  C:0AFFH         PUBLIC        digit2
+  C:0B07H         PUBLIC        digit3
+  C:0B0FH         PUBLIC        digit4
+  C:0B17H         PUBLIC        digit5
+  C:0B1FH         PUBLIC        digit6
+  C:0B27H         PUBLIC        digit7
+  D:0018H         PUBLIC        level0
+  C:0B2FH         PUBLIC        digit8
+  D:001AH         PUBLIC        level1
+  C:0AC5H         PUBLIC        countyellow
+  C:0B37H         PUBLIC        digit9
+  D:001CH         PUBLIC        level2
+  D:001EH         PUBLIC        level3
+  D:0020H         PUBLIC        level4
+  D:0022H         PUBLIC        level5
+  D:0024H         PUBLIC        ledallon
+  C:0A32H         PUBLIC        countwhite
+  D:0026H         PUBLIC        level6
+  D:0028H         PUBLIC        level7
+  D:002AH         PUBLIC        level8
+  D:002CH         PUBLIC        on
+  D:002EH         PUBLIC        wdig0
+  D:0030H         PUBLIC        wdig1
+  D:0032H         PUBLIC        wdig2
+  D:0034H         PUBLIC        wdig3
+  D:0036H         PUBLIC        wdig4
+  D:0038H         PUBLIC        wdig5
+  D:003AH         PUBLIC        wdig6
+  D:003CH         PUBLIC        wdig7
+  D:003EH         PUBLIC        wdig8
+  D:0040H         PUBLIC        dig0
+  D:0042H         PUBLIC        wdig9
+  D:0044H         PUBLIC        dig1
+  B:00A0H.6       PUBLIC        digdef
+  D:0046H         PUBLIC        ss
+  C:094DH         PUBLIC        countdown
+  D:0048H         PUBLIC        led1
+  D:004AH         PUBLIC        dig2
+  D:00C8H         PUBLIC        T2CON
+  D:004CH         PUBLIC        led2
+  D:004EH         PUBLIC        dig3
+  C:0A01H         PUBLIC        countred
+  D:0050H         PUBLIC        led3
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/10/2020  05:25:10  PAGE 5
+
+
+  D:0052H         PUBLIC        dig4
+  D:0054H         PUBLIC        led4
+  D:0056H         PUBLIC        dig5
+  D:0058H         PUBLIC        led5
+  D:005AH         PUBLIC        dig6
+  D:005CH         PUBLIC        led6
+  D:005EH         PUBLIC        dig7
+  D:0060H         PUBLIC        led7
+  D:0062H         PUBLIC        dig8
+  D:0064H         PUBLIC        led8
+  D:0066H         PUBLIC        dig9
+  D:0068H         PUBLIC        xx
+  B:0080H.0       PUBLIC        seg1
+  B:00A0H.7       PUBLIC        segdef
+  B:0080H.1       PUBLIC        seg2
+  D:0069H         PUBLIC        s
+  D:006BH         PUBLIC        t
+  C:0ADEH         PUBLIC        delayms
+  C:0A68H         PUBLIC        _seconds
+  B:0080H.2       PUBLIC        seg3
+  B:0080H.3       PUBLIC        seg4
+  B:0080H.4       PUBLIC        seg5
+  B:0080H.5       PUBLIC        seg6
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          SEGMENT1
+  C:0B47H         LINE#         166
+  C:0B47H         LINE#         167
+  C:0B49H         LINE#         168
+  C:0B4BH         LINE#         169
+  C:0B4DH         LINE#         170
+  -------         ENDPROC       SEGMENT1
+  -------         PROC          SEGMENT2
+  C:0B4EH         LINE#         171
+  C:0B4EH         LINE#         172
+  C:0B50H         LINE#         173
+  C:0B52H         LINE#         174
+  C:0B54H         LINE#         175
+  -------         ENDPROC       SEGMENT2
+  -------         PROC          SEGMENT3
+  C:0B55H         LINE#         176
+  C:0B55H         LINE#         177
+  C:0B57H         LINE#         178
+  C:0B59H         LINE#         179
+  C:0B5BH         LINE#         180
+  -------         ENDPROC       SEGMENT3
+  -------         PROC          SEGMENT4
+  C:0B5CH         LINE#         181
+  C:0B5CH         LINE#         182
+  C:0B5EH         LINE#         183
+  C:0B60H         LINE#         184
+  C:0B62H         LINE#         185
+  -------         ENDPROC       SEGMENT4
+  -------         PROC          SEGMENT5
+  C:0B63H         LINE#         186
+  C:0B63H         LINE#         187
+  C:0B65H         LINE#         188
+  C:0B67H         LINE#         189
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/10/2020  05:25:10  PAGE 6
+
+
+  C:0B69H         LINE#         190
+  -------         ENDPROC       SEGMENT5
+  -------         PROC          SEGMENT6
+  C:0B6AH         LINE#         191
+  C:0B6AH         LINE#         192
+  C:0B6CH         LINE#         193
+  C:0B6EH         LINE#         194
+  C:0B70H         LINE#         195
+  -------         ENDPROC       SEGMENT6
+  -------         PROC          DIGIT1
+  C:0AF7H         LINE#         197
+  C:0AF7H         LINE#         198
+  C:0AF9H         LINE#         199
+  C:0AFCH         LINE#         200
+  C:0AFEH         LINE#         201
+  -------         ENDPROC       DIGIT1
+  -------         PROC          DIGIT2
+  C:0AFFH         LINE#         203
+  C:0AFFH         LINE#         204
+  C:0B01H         LINE#         205
+  C:0B04H         LINE#         206
+  C:0B06H         LINE#         207
+  -------         ENDPROC       DIGIT2
+  -------         PROC          DIGIT3
+  C:0B07H         LINE#         209
+  C:0B07H         LINE#         210
+  C:0B09H         LINE#         211
+  C:0B0CH         LINE#         212
+  C:0B0EH         LINE#         213
+  -------         ENDPROC       DIGIT3
+  -------         PROC          DIGIT4
+  C:0B0FH         LINE#         215
+  C:0B0FH         LINE#         216
+  C:0B11H         LINE#         217
+  C:0B14H         LINE#         218
+  C:0B16H         LINE#         219
+  -------         ENDPROC       DIGIT4
+  -------         PROC          DIGIT5
+  C:0B17H         LINE#         222
+  C:0B17H         LINE#         223
+  C:0B19H         LINE#         224
+  C:0B1CH         LINE#         225
+  C:0B1EH         LINE#         226
+  -------         ENDPROC       DIGIT5
+  -------         PROC          DIGIT6
+  C:0B1FH         LINE#         229
+  C:0B1FH         LINE#         230
+  C:0B21H         LINE#         231
+  C:0B24H         LINE#         232
+  C:0B26H         LINE#         233
+  -------         ENDPROC       DIGIT6
+  -------         PROC          DIGIT7
+  C:0B27H         LINE#         236
+  C:0B27H         LINE#         237
+  C:0B29H         LINE#         238
+  C:0B2CH         LINE#         239
+  C:0B2EH         LINE#         240
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/10/2020  05:25:10  PAGE 7
+
+
+  -------         ENDPROC       DIGIT7
+  -------         PROC          DIGIT8
+  C:0B2FH         LINE#         243
+  C:0B2FH         LINE#         244
+  C:0B31H         LINE#         245
+  C:0B34H         LINE#         246
+  C:0B36H         LINE#         247
+  -------         ENDPROC       DIGIT8
+  -------         PROC          DIGIT9
+  C:0B37H         LINE#         250
+  C:0B37H         LINE#         251
+  C:0B39H         LINE#         252
+  C:0B3CH         LINE#         253
+  C:0B3EH         LINE#         254
+  -------         ENDPROC       DIGIT9
+  -------         PROC          DIGIT0
+  C:0B3FH         LINE#         257
+  C:0B3FH         LINE#         258
+  C:0B41H         LINE#         259
+  C:0B44H         LINE#         260
+  C:0B46H         LINE#         261
+  -------         ENDPROC       DIGIT0
+  C:0A63H         SYMBOL        L?0047
+  -------         PROC          L?0046
+  -------         ENDPROC       L?0046
+  C:0A63H         SYMBOL        L?0047
+  -------         PROC          _SECONDS
+  D:006DH         SYMBOL        mm
+  -------         DO            
+  D:006EH         SYMBOL        mmm
+  -------         ENDDO         
+  C:0A68H         LINE#         263
+  C:0A6AH         LINE#         264
+  C:0A6AH         LINE#         266
+  C:0A82H         LINE#         267
+  C:0A82H         LINE#         268
+  C:0A85H         LINE#         269
+  C:0A89H         LINE#         270
+  -------         ENDPROC       _SECONDS
+  -------         PROC          DELAYMS
+  -------         DO            
+  D:0007H         SYMBOL        ii
+  D:0006H         SYMBOL        jj
+  D:0005H         SYMBOL        kk
+  -------         ENDDO         
+  C:0ADEH         LINE#         272
+  C:0ADEH         LINE#         273
+  C:0ADEH         LINE#         276
+  C:0ADFH         LINE#         277
+  C:0AE0H         LINE#         278
+  C:0AE2H         LINE#         279
+  C:0AE4H         LINE#         280
+  C:0AE6H         LINE#         282
+  C:0AE6H         LINE#         284
+  C:0AE6H         LINE#         285
+  C:0AE8H         LINE#         286
+  C:0AEAH         LINE#         287
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/10/2020  05:25:10  PAGE 8
+
+
+  C:0AECH         LINE#         288
+  -------         ENDPROC       DELAYMS
+  -------         PROC          BEEP
+  C:0AEDH         LINE#         290
+  C:0AEDH         LINE#         291
+  C:0AEFH         LINE#         292
+  C:0AF4H         LINE#         293
+  C:0AF6H         LINE#         295
+  -------         ENDPROC       BEEP
+  -------         PROC          _DELAY
+  D:0007H         SYMBOL        xx
+  -------         DO            
+  D:0005H         SYMBOL        zx
+  D:0006H         SYMBOL        xz
+  -------         ENDDO         
+  C:0AABH         LINE#         297
+  C:0AABH         LINE#         299
+  C:0AB2H         LINE#         300
+  C:0AC1H         LINE#         301
+  C:0AC4H         LINE#         302
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0A8AH         LINE#         20
+  C:0A8AH         LINE#         21
+  C:0A8AH         LINE#         22
+  C:0A8AH         LINE#         23
+  C:0A8AH         LINE#         24
+  C:0A8DH         LINE#         25
+  C:0A95H         LINE#         26
+  C:0A9AH         LINE#         27
+  C:0A9DH         LINE#         28
+  C:0AA0H         LINE#         29
+  C:0AA3H         LINE#         30
+  C:0AA6H         LINE#         31
+  C:0AA9H         LINE#         32
+  -------         ENDPROC       MAIN
+  -------         PROC          COUNTGREEN
+  C:09D0H         LINE#         36
+  C:09D0H         LINE#         37
+  C:09D0H         LINE#         38
+  C:09D3H         LINE#         39
+  C:09D6H         LINE#         40
+  C:09D9H         LINE#         41
+  C:09DEH         LINE#         42
+  C:09E1H         LINE#         43
+  C:09E6H         LINE#         44
+  C:09E9H         LINE#         45
+  C:09EEH         LINE#         46
+  C:09EEH         LINE#         47
+  C:09F1H         LINE#         48
+  C:09F4H         LINE#         49
+  C:09F9H         LINE#         50
+  C:09FCH         LINE#         51
+  -------         ENDPROC       COUNTGREEN
+  -------         PROC          COUNTRED
+  C:0A01H         LINE#         53
+  C:0A01H         LINE#         54
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/10/2020  05:25:10  PAGE 9
+
+
+  C:0A01H         LINE#         55
+  C:0A04H         LINE#         56
+  C:0A07H         LINE#         57
+  C:0A0AH         LINE#         58
+  C:0A0FH         LINE#         59
+  C:0A12H         LINE#         60
+  C:0A17H         LINE#         61
+  C:0A1AH         LINE#         62
+  C:0A1FH         LINE#         63
+  C:0A1FH         LINE#         64
+  C:0A22H         LINE#         65
+  C:0A25H         LINE#         66
+  C:0A2AH         LINE#         67
+  C:0A2DH         LINE#         68
+  -------         ENDPROC       COUNTRED
+  -------         PROC          COUNTYELLOW
+  C:0AC5H         LINE#         70
+  C:0AC5H         LINE#         71
+  C:0AC5H         LINE#         72
+  C:0AC8H         LINE#         73
+  C:0ACBH         LINE#         74
+  C:0ACBH         LINE#         75
+  C:0ACEH         LINE#         76
+  C:0AD1H         LINE#         77
+  C:0AD6H         LINE#         78
+  C:0AD9H         LINE#         79
+  -------         ENDPROC       COUNTYELLOW
+  -------         PROC          COUNTWHITE
+  C:0A32H         LINE#         81
+  C:0A32H         LINE#         82
+  C:0A32H         LINE#         83
+  C:0A35H         LINE#         84
+  C:0A38H         LINE#         85
+  C:0A3BH         LINE#         86
+  C:0A40H         LINE#         87
+  C:0A43H         LINE#         88
+  C:0A48H         LINE#         89
+  C:0A4BH         LINE#         90
+  C:0A50H         LINE#         91
+  C:0A50H         LINE#         92
+  C:0A53H         LINE#         93
+  C:0A56H         LINE#         94
+  C:0A5BH         LINE#         95
+  C:0A5EH         LINE#         96
+  -------         ENDPROC       COUNTWHITE
+  -------         PROC          COUNTDOWN
+  C:094DH         LINE#         98
+  C:094DH         LINE#         99
+  C:094DH         LINE#         100
+  C:0950H         LINE#         102
+  C:0953H         LINE#         103
+  C:095BH         LINE#         104
+  C:0960H         LINE#         105
+  C:0968H         LINE#         106
+  C:096DH         LINE#         110
+  C:0970H         LINE#         111
+  C:0973H         LINE#         112
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/10/2020  05:25:10  PAGE 10
+
+
+  C:0978H         LINE#         116
+  C:097BH         LINE#         117
+  C:097EH         LINE#         118
+  C:0983H         LINE#         122
+  C:0986H         LINE#         123
+  C:0989H         LINE#         124
+  C:098EH         LINE#         128
+  C:0991H         LINE#         129
+  C:0994H         LINE#         130
+  C:0999H         LINE#         134
+  C:099CH         LINE#         135
+  C:099FH         LINE#         136
+  C:09A4H         LINE#         140
+  C:09A7H         LINE#         141
+  C:09AAH         LINE#         142
+  C:09AFH         LINE#         146
+  C:09B2H         LINE#         147
+  C:09B5H         LINE#         148
+  C:09BAH         LINE#         152
+  C:09BDH         LINE#         153
+  C:09C0H         LINE#         154
+  C:09C5H         LINE#         158
+  C:09C8H         LINE#         159
+  C:09CBH         LINE#         160
+  -------         ENDPROC       COUNTDOWN
+  -------         ENDMOD        TRAFFIC_LIGHT_FINAL_
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SEGMENT2?TRAFFIC_LIGHT_FINAL_
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SEGMENT3?TRAFFIC_LIGHT_FINAL_
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SEGMENT4?TRAFFIC_LIGHT_FINAL_
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SEGMENT5?TRAFFIC_LIGHT_FINAL_
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SEGMENT6?TRAFFIC_LIGHT_FINAL_
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?COUNTGREEN?TRAFFIC_LIGHT_FINAL_
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?COUNTWHITE?TRAFFIC_LIGHT_FINAL_
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 02F3H BYTE (36%) *
+******************************************************************************
+
+Program Size: data=112.0 xdata=0 code=884
+LINK/LOCATE RUN COMPLETE.  7 WARNING(S),  0 ERROR(S)
