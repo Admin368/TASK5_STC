@@ -1,2 +1,2 @@
 # TASK5_STC
- TSC 8051 Projects
+ STC 8051 Projects
