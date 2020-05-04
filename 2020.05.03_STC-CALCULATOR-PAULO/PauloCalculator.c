@@ -11,7 +11,7 @@ void getkey();
 void main(){
 while (1)
 	{
-		segment(1);
+		xsegment(1);
 		digit(1);
 	}
 }
