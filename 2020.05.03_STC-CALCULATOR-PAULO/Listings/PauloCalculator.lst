@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   PAULOCALCULATOR                                                   05/04/2020 11:31:48 PAGE 1   
+C51 COMPILER V9.60.0.0   PAULOCALCULATOR                                                   05/04/2020 13:09:47 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE PAULOCALCULATOR
@@ -10,25 +10,19 @@ line level    source
 
    1          #include <reg52.h>
    2          #include "paulobeta.c"
-*** ERROR C141 IN LINE 141 OF paulobeta.c: syntax error near ';', expected ':'
-*** ERROR C141 IN LINE 144 OF paulobeta.c: syntax error near ';', expected ':'
-*** ERROR C141 IN LINE 147 OF paulobeta.c: syntax error near ';', expected ':'
-*** ERROR C141 IN LINE 150 OF paulobeta.c: syntax error near ';', expected ':'
-*** ERROR C141 IN LINE 153 OF paulobeta.c: syntax error near ';', expected ':'
-*** ERROR C141 IN LINE 156 OF paulobeta.c: syntax error near ';', expected ':'
-*** ERROR C141 IN LINE 159 OF paulobeta.c: syntax error near ';', expected ':'
    3          #define uchar unsigned char
    4            
    5          //uchar columnCheck = 0xf0;
    6          //uchar rowCheck = 0x0f;
    7          uchar xdigit,digitx,xdigity,ans;
+*** ERROR C231 IN LINE 7 OF PauloCalculator.c: '_xdigit': redefinition
    8          
    9          void changestate();
   10          void getkey();
   11          void main(){
   12   1      while (1)
   13   1        {
-  14   2          segment(1);
+  14   2          xsegment(1);
   15   2          digit(1);
   16   2        }
   17   1      }
@@ -48,53 +42,63 @@ line level    source
   31   4                      case 0xee:                  
   32   4                        P1 = key;  // light LED
   33   4                        xdigit = 1;
+*** ERROR C183 IN LINE 33 OF PauloCalculator.c: unmodifiable lvalue
   34   4                        changestate();
   35   4                        break;
   36   4                      case 0xde:                  
   37   4                        P1 = key;  // light LED
   38   4                        xdigit = 2;
+*** ERROR C183 IN LINE 38 OF PauloCalculator.c: unmodifiable lvalue
   39   4                        changestate();
   40   4                        break;                
   41   4                      case 0xbe:                  
   42   4                        P1 = key;  // light LED
   43   4                        xdigit = 3;
+*** ERROR C183 IN LINE 43 OF PauloCalculator.c: unmodifiable lvalue
   44   4                        changestate();
   45   4                        break;                
   46   4                      case 0x7e:                  
   47   4                        P1 = key;  // light LED
-C51 COMPILER V9.60.0.0   PAULOCALCULATOR                                                   05/04/2020 11:31:48 PAGE 2   
-
   48   4                        xdigit = 4; 
+*** ERROR C183 IN LINE 48 OF PauloCalculator.c: unmodifiable lvalue
   49   4                        changestate();
+C51 COMPILER V9.60.0.0   PAULOCALCULATOR                                                   05/04/2020 13:09:47 PAGE 2   
+
   50   4                        break;
   51   4                      case 0xed:                  
   52   4                        P1 = key;  // light LED
   53   4                        xdigit = 5; 
+*** ERROR C183 IN LINE 53 OF PauloCalculator.c: unmodifiable lvalue
   54   4                        changestate();
   55   4                        break;
   56   4                      case 0xdd:                  
   57   4                        P1 = key;  // light LED
   58   4                        xdigit = 6; 
+*** ERROR C183 IN LINE 58 OF PauloCalculator.c: unmodifiable lvalue
   59   4                        changestate();
   60   4                        break;                
   61   4                      case 0xbd:                  
   62   4                        P1 = key;  // light LED
   63   4                        xdigit = 7; 
+*** ERROR C183 IN LINE 63 OF PauloCalculator.c: unmodifiable lvalue
   64   4                        changestate();
   65   4                        break;                
   66   4                      case 0x7d:                  
   67   4                        P1 = key;  // light LED
   68   4                        xdigit = 8; 
+*** ERROR C183 IN LINE 68 OF PauloCalculator.c: unmodifiable lvalue
   69   4                        changestate();
   70   4                        break;                  
   71   4                      case 0xeb:                  
   72   4                        P1 = key;  // light LED
   73   4                        xdigit = 9; 
+*** ERROR C183 IN LINE 73 OF PauloCalculator.c: unmodifiable lvalue
   74   4                        changestate();
   75   4                        break;
   76   4                      case 0xdb:                  
   77   4                        P1 = key;  // light LED
   78   4                        xdigit = 0; 
+*** ERROR C183 IN LINE 78 OF PauloCalculator.c: unmodifiable lvalue
   79   4                        changestate();
   80   4                        break;                
   81   4                      case 0xbb:                  
@@ -122,14 +126,15 @@ line level    source
  103   4                        changestate();
  104   4                        break;                
  105   4                      default:
+C51 COMPILER V9.60.0.0   PAULOCALCULATOR                                                   05/04/2020 13:09:47 PAGE 3   
+
  106   4                        P1 = 0xff;// turn off
  107   4                        xdigit =0;
+*** ERROR C183 IN LINE 107 OF PauloCalculator.c: unmodifiable lvalue
  108   4                        
  109   4                    }
-C51 COMPILER V9.60.0.0   PAULOCALCULATOR                                                   05/04/2020 11:31:48 PAGE 3   
-
  110   3                  }
  111   2                }
  112   1      }
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  7 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  12 ERROR(S)

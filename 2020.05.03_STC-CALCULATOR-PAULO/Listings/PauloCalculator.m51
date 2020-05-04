@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/04/2020  00:19:29  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/04/2020  11:44:18  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -30,10 +30,9 @@ LINK MAP OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
             DATA    006EH     0002H     UNIT         ?DT?_SECONDS?PAULOBETA
             DATA    0070H     0001H     UNIT         ?DT?CHANGESTATE?PAULOCALCULATOR
             DATA    0071H     0001H     UNIT         ?DT?GETKEY?PAULOCALCULATOR
-            DATA    0072H     0001H     UNIT         ?DT?_SEGMENT?PAULOBETA
-            DATA    0073H     0001H     UNIT         ?DT?_DIGIT?PAULOBETA
-            DATA    0074H     0001H     UNIT         _DATA_GROUP_
-            IDATA   0075H     0001H     UNIT         ?STACK
+            DATA    0072H     0001H     UNIT         ?DT?_DIGIT?PAULOBETA
+            DATA    0073H     0001H     UNIT         _DATA_GROUP_
+            IDATA   0074H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
@@ -45,56 +44,42 @@ LINK MAP OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
             CODE    0B20H     0074H     UNIT         ?PR?_LED?PAULOBETA
             CODE    0B94H     005AH     UNIT         ?PR?_DIGIT?PAULOCALCULATOR
             CODE    0BEEH     005AH     UNIT         ?PR?_DIGIT?PAULOBETA
-            CODE    0C48H     003FH     UNIT         ?PR?_SEGMENT?PAULOCALCULATOR
-            CODE    0C87H     003FH     UNIT         ?PR?_SEGMENT?PAULOBETA
-            CODE    0CC6H     0026H     UNIT         ?C?LIB_CODE
-            CODE    0CECH     0022H     UNIT         ?PR?_SECONDS?PAULOCALCULATOR
-            CODE    0D0EH     0022H     UNIT         ?PR?_SECONDS?PAULOBETA
-            CODE    0D30H     001AH     UNIT         ?PR?_DELAY?PAULOCALCULATOR
-            CODE    0D4AH     001AH     UNIT         ?PR?_DELAY?PAULOBETA
-            CODE    0D64H     000FH     UNIT         ?PR?DELAYMS?PAULOCALCULATOR
-            CODE    0D73H     000FH     UNIT         ?PR?DELAYMS?PAULOBETA
-            CODE    0D82H     000CH     UNIT         ?PR?SEGMENT0?PAULOCALCULATOR
-            CODE    0D8EH     000CH     UNIT         ?PR?SEGMENT1?PAULOCALCULATOR
-            CODE    0D9AH     000CH     UNIT         ?PR?SEGMENT2?PAULOCALCULATOR
-            CODE    0DA6H     000CH     UNIT         ?PR?SEGMENT3?PAULOCALCULATOR
-            CODE    0DB2H     000CH     UNIT         ?PR?SEGMENT4?PAULOCALCULATOR
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 2
+            CODE    0C48H     0052H     UNIT         ?PR?_XSEGMENT?PAULOCALCULATOR
+            CODE    0C9AH     0052H     UNIT         ?PR?_XSEGMENT?PAULOBETA
+            CODE    0CECH     0026H     UNIT         ?C?LIB_CODE
+            CODE    0D12H     0022H     UNIT         ?PR?_SECONDS?PAULOCALCULATOR
+            CODE    0D34H     0022H     UNIT         ?PR?_SECONDS?PAULOBETA
+            CODE    0D56H     001AH     UNIT         ?PR?_DELAY?PAULOCALCULATOR
+            CODE    0D70H     001AH     UNIT         ?PR?_DELAY?PAULOBETA
+            CODE    0D8AH     000FH     UNIT         ?PR?DELAYMS?PAULOCALCULATOR
+            CODE    0D99H     000FH     UNIT         ?PR?DELAYMS?PAULOBETA
+            CODE    0DA8H     000CH     UNIT         ?PR?DIGIT1?PAULOCALCULATOR
+            CODE    0DB4H     000CH     UNIT         ?PR?DIGIT2?PAULOCALCULATOR
+            CODE    0DC0H     000CH     UNIT         ?PR?DIGIT3?PAULOCALCULATOR
+            CODE    0DCCH     000CH     UNIT         ?PR?DIGIT4?PAULOCALCULATOR
+            CODE    0DD8H     000CH     UNIT         ?PR?DIGIT5?PAULOCALCULATOR
+            CODE    0DE4H     000CH     UNIT         ?PR?DIGIT6?PAULOCALCULATOR
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 2
 
 
-            CODE    0DBEH     000CH     UNIT         ?PR?SEGMENT5?PAULOCALCULATOR
-            CODE    0DCAH     000CH     UNIT         ?PR?SEGMENT6?PAULOCALCULATOR
-            CODE    0DD6H     000CH     UNIT         ?PR?DIGIT1?PAULOCALCULATOR
-            CODE    0DE2H     000CH     UNIT         ?PR?DIGIT2?PAULOCALCULATOR
-            CODE    0DEEH     000CH     UNIT         ?PR?DIGIT3?PAULOCALCULATOR
-            CODE    0DFAH     000CH     UNIT         ?PR?DIGIT4?PAULOCALCULATOR
-            CODE    0E06H     000CH     UNIT         ?PR?DIGIT5?PAULOCALCULATOR
-            CODE    0E12H     000CH     UNIT         ?PR?DIGIT6?PAULOCALCULATOR
-            CODE    0E1EH     000CH     UNIT         ?PR?DIGIT7?PAULOCALCULATOR
-            CODE    0E2AH     000CH     UNIT         ?PR?DIGIT8?PAULOCALCULATOR
-            CODE    0E36H     000CH     UNIT         ?PR?DIGIT9?PAULOCALCULATOR
-            CODE    0E42H     000CH     UNIT         ?PR?DIGIT0?PAULOCALCULATOR
-            CODE    0E4EH     000CH     UNIT         ?PR?MAIN?PAULOCALCULATOR
-            CODE    0E5AH     000CH     UNIT         ?PR?SEGMENT0?PAULOBETA
-            CODE    0E66H     000CH     UNIT         ?PR?SEGMENT1?PAULOBETA
-            CODE    0E72H     000CH     UNIT         ?PR?SEGMENT2?PAULOBETA
-            CODE    0E7EH     000CH     UNIT         ?PR?SEGMENT3?PAULOBETA
-            CODE    0E8AH     000CH     UNIT         ?PR?SEGMENT4?PAULOBETA
-            CODE    0E96H     000CH     UNIT         ?PR?SEGMENT5?PAULOBETA
-            CODE    0EA2H     000CH     UNIT         ?PR?SEGMENT6?PAULOBETA
-            CODE    0EAEH     000CH     UNIT         ?PR?DIGIT1?PAULOBETA
-            CODE    0EBAH     000CH     UNIT         ?PR?DIGIT2?PAULOBETA
-            CODE    0EC6H     000CH     UNIT         ?PR?DIGIT3?PAULOBETA
-            CODE    0ED2H     000CH     UNIT         ?PR?DIGIT4?PAULOBETA
-            CODE    0EDEH     000CH     UNIT         ?PR?DIGIT5?PAULOBETA
-            CODE    0EEAH     000CH     UNIT         ?PR?DIGIT6?PAULOBETA
-            CODE    0EF6H     000CH     UNIT         ?PR?DIGIT7?PAULOBETA
-            CODE    0F02H     000CH     UNIT         ?PR?DIGIT8?PAULOBETA
-            CODE    0F0EH     000CH     UNIT         ?PR?DIGIT9?PAULOBETA
-            CODE    0F1AH     000CH     UNIT         ?PR?DIGIT0?PAULOBETA
-            CODE    0F26H     000AH     UNIT         ?PR?BEEP?PAULOCALCULATOR
-            CODE    0F30H     000AH     UNIT         ?PR?BEEP?PAULOBETA
-            CODE    0F3AH     0004H     UNIT         ?PR?CHANGESTATE?PAULOCALCULATOR
+            CODE    0DF0H     000CH     UNIT         ?PR?DIGIT7?PAULOCALCULATOR
+            CODE    0DFCH     000CH     UNIT         ?PR?DIGIT8?PAULOCALCULATOR
+            CODE    0E08H     000CH     UNIT         ?PR?DIGIT9?PAULOCALCULATOR
+            CODE    0E14H     000CH     UNIT         ?PR?DIGIT0?PAULOCALCULATOR
+            CODE    0E20H     000CH     UNIT         ?PR?MAIN?PAULOCALCULATOR
+            CODE    0E2CH     000CH     UNIT         ?PR?DIGIT1?PAULOBETA
+            CODE    0E38H     000CH     UNIT         ?PR?DIGIT2?PAULOBETA
+            CODE    0E44H     000CH     UNIT         ?PR?DIGIT3?PAULOBETA
+            CODE    0E50H     000CH     UNIT         ?PR?DIGIT4?PAULOBETA
+            CODE    0E5CH     000CH     UNIT         ?PR?DIGIT5?PAULOBETA
+            CODE    0E68H     000CH     UNIT         ?PR?DIGIT6?PAULOBETA
+            CODE    0E74H     000CH     UNIT         ?PR?DIGIT7?PAULOBETA
+            CODE    0E80H     000CH     UNIT         ?PR?DIGIT8?PAULOBETA
+            CODE    0E8CH     000CH     UNIT         ?PR?DIGIT9?PAULOBETA
+            CODE    0E98H     000CH     UNIT         ?PR?DIGIT0?PAULOBETA
+            CODE    0EA4H     000AH     UNIT         ?PR?BEEP?PAULOCALCULATOR
+            CODE    0EAEH     000AH     UNIT         ?PR?BEEP?PAULOBETA
+            CODE    0EB8H     0004H     UNIT         ?PR?CHANGESTATE?PAULOCALCULATOR
 
 
 
@@ -109,43 +94,13 @@ SEGMENT                                   DATA_GROUP
   +--> ?C_INITSEG
 
 ?PR?MAIN?PAULOCALCULATOR                -----    -----
-  +--> ?PR?_SEGMENT?PAULOCALCULATOR
+  +--> ?PR?_XSEGMENT?PAULOCALCULATOR
   +--> ?PR?_DIGIT?PAULOCALCULATOR
 
-?PR?_SEGMENT?PAULOCALCULATOR            0074H    0001H
-  +--> ?PR?SEGMENT0?PAULOCALCULATOR
-  +--> ?PR?SEGMENT1?PAULOCALCULATOR
-  +--> ?PR?SEGMENT2?PAULOCALCULATOR
-  +--> ?PR?SEGMENT3?PAULOCALCULATOR
-  +--> ?PR?SEGMENT4?PAULOCALCULATOR
-  +--> ?PR?SEGMENT5?PAULOCALCULATOR
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 3
-
-
-  +--> ?PR?SEGMENT6?PAULOCALCULATOR
-
-?PR?SEGMENT0?PAULOCALCULATOR            -----    -----
+?PR?_XSEGMENT?PAULOCALCULATOR           -----    -----
   +--> ?PR?_DELAY?PAULOCALCULATOR
 
-?PR?SEGMENT1?PAULOCALCULATOR            -----    -----
-  +--> ?PR?_DELAY?PAULOCALCULATOR
-
-?PR?SEGMENT2?PAULOCALCULATOR            -----    -----
-  +--> ?PR?_DELAY?PAULOCALCULATOR
-
-?PR?SEGMENT3?PAULOCALCULATOR            -----    -----
-  +--> ?PR?_DELAY?PAULOCALCULATOR
-
-?PR?SEGMENT4?PAULOCALCULATOR            -----    -----
-  +--> ?PR?_DELAY?PAULOCALCULATOR
-
-?PR?SEGMENT5?PAULOCALCULATOR            -----    -----
-  +--> ?PR?_DELAY?PAULOCALCULATOR
-
-?PR?SEGMENT6?PAULOCALCULATOR            -----    -----
-  +--> ?PR?_DELAY?PAULOCALCULATOR
-
-?PR?_DIGIT?PAULOCALCULATOR              0074H    0001H
+?PR?_DIGIT?PAULOCALCULATOR              0073H    0001H
   +--> ?PR?DIGIT1?PAULOCALCULATOR
   +--> ?PR?DIGIT2?PAULOCALCULATOR
   +--> ?PR?DIGIT3?PAULOCALCULATOR
@@ -164,6 +119,9 @@ SEGMENT                                   DATA_GROUP
   +--> ?PR?_DELAY?PAULOCALCULATOR
 
 ?PR?DIGIT3?PAULOCALCULATOR              -----    -----
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 3
+
+
   +--> ?PR?_DELAY?PAULOCALCULATOR
 
 ?PR?DIGIT4?PAULOCALCULATOR              -----    -----
@@ -179,9 +137,6 @@ SEGMENT                                   DATA_GROUP
   +--> ?PR?_DELAY?PAULOCALCULATOR
 
 ?PR?DIGIT8?PAULOCALCULATOR              -----    -----
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 4
-
-
   +--> ?PR?_DELAY?PAULOCALCULATOR
 
 ?PR?DIGIT9?PAULOCALCULATOR              -----    -----
@@ -224,6 +179,9 @@ IGNORED SYMBOLS:
    DT
    GREEN
    HALFON1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 4
+
+
    HALFON2
    K
    LED1
@@ -239,9 +197,6 @@ IGNORED SYMBOLS:
    LEVEL0
    LEVEL1
    LEVEL2
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 5
-
-
    LEVEL3
    LEVEL4
    LEVEL5
@@ -259,13 +214,6 @@ IGNORED SYMBOLS:
    SEG6
    SEGALL
    SEGDELAY
-   SEGMENT0
-   SEGMENT1
-   SEGMENT2
-   SEGMENT3
-   SEGMENT4
-   SEGMENT5
-   SEGMENT6
    SEGNONE
    WHITE
    XX
@@ -274,7 +222,7 @@ IGNORED SYMBOLS:
    _DIGIT
    _LED
    _SECONDS
-   _SEGMENT
+   _XSEGMENT
 
 
 
@@ -285,12 +233,15 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
 
   -------         MODULE        ?C_STARTUP
   C:0A20H         SEGMENT       ?C_C51STARTUP
-  I:0075H         SEGMENT       ?STACK
+  I:0074H         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
   D:00F0H         SYMBOL        B
   D:0083H         SYMBOL        DPH
   D:0082H         SYMBOL        DPL
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 5
+
+
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
   N:0080H         SYMBOL        IDATALEN
@@ -299,9 +250,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   N:0100H         SYMBOL        PBPSTACKTOP
   N:0000H         SYMBOL        PDATALEN
   N:0000H         SYMBOL        PDATASTART
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 6
-
-
   N:0000H         SYMBOL        PPAGE
   N:0000H         SYMBOL        PPAGEENABLE
   D:00A0H         SYMBOL        PPAGE_SFR
@@ -331,25 +279,18 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   D:0009H         PUBLIC        digitx
   D:000AH         PUBLIC        xdigit
   D:00A8H         PUBLIC        IE
-  C:0F3AH         PUBLIC        changestate
-  C:0D30H         PUBLIC        _delay
+  C:0EB8H         PUBLIC        changestate
+  C:0D56H         PUBLIC        _delay
   C:0B94H         PUBLIC        _digit
   D:000BH         PUBLIC        green
   D:00B8H         PUBLIC        IP
-  C:0F26H         PUBLIC        beep
+  C:0EA4H         PUBLIC        beep
   D:000DH         PUBLIC        yellow
   D:000FH         PUBLIC        levelsdelay
   D:0011H         PUBLIC        white
   B:00A0H.0       PUBLIC        buzzer
-  C:0E4EH         PUBLIC        main
-  C:0D82H         PUBLIC        segment0
-  C:0D8EH         PUBLIC        segment1
-  C:0D9AH         PUBLIC        segment2
-  C:0DA6H         PUBLIC        segment3
-  C:0DB2H         PUBLIC        segment4
-  C:0DBEH         PUBLIC        segment5
+  C:0E20H         PUBLIC        main
   D:0013H         PUBLIC        halfon1
-  C:0DCAH         PUBLIC        segment6
   D:0015H         PUBLIC        halfon2
   D:0017H         PUBLIC        ledalloff
   D:0098H         PUBLIC        SCON
@@ -358,22 +299,22 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   D:0019H         PUBLIC        red
   D:001BH         PUBLIC        pla
   D:001CH         PUBLIC        ans
-  C:0E42H         PUBLIC        digit0
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 7
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 6
 
 
-  C:0DD6H         PUBLIC        digit1
-  C:0DE2H         PUBLIC        digit2
-  C:0DEEH         PUBLIC        digit3
-  C:0DFAH         PUBLIC        digit4
+  C:0E14H         PUBLIC        digit0
+  C:0DA8H         PUBLIC        digit1
+  C:0DB4H         PUBLIC        digit2
+  C:0DC0H         PUBLIC        digit3
+  C:0DCCH         PUBLIC        digit4
   D:001DH         PUBLIC        digdelay
-  C:0E06H         PUBLIC        digit5
-  C:0E12H         PUBLIC        digit6
-  C:0E1EH         PUBLIC        digit7
+  C:0DD8H         PUBLIC        digit5
+  C:0DE4H         PUBLIC        digit6
+  C:0DF0H         PUBLIC        digit7
   D:001FH         PUBLIC        level0
-  C:0E2AH         PUBLIC        digit8
+  C:0DFCH         PUBLIC        digit8
   D:0021H         PUBLIC        level1
-  C:0E36H         PUBLIC        digit9
+  C:0E08H         PUBLIC        digit9
   D:0023H         PUBLIC        level2
   D:0025H         PUBLIC        level3
   D:0027H         PUBLIC        level4
@@ -405,211 +346,181 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   D:0055H         PUBLIC        dig8
   D:0057H         PUBLIC        led8
   D:0059H         PUBLIC        dig9
+  C:0C48H         PUBLIC        _xsegment
   D:005BH         PUBLIC        xx
   D:005CH         PUBLIC        seg1
   B:00A0H.7       PUBLIC        segdef
   D:005EH         PUBLIC        seg2
-  C:0D64H         PUBLIC        delayms
-  C:0CECH         PUBLIC        _seconds
+  C:0D8AH         PUBLIC        delayms
+  C:0D12H         PUBLIC        _seconds
   D:0060H         PUBLIC        seg3
   D:0062H         PUBLIC        segnone
   D:0064H         PUBLIC        seg4
   D:0066H         PUBLIC        seg5
   D:0068H         PUBLIC        seg6
-  C:0C48H         PUBLIC        _segment
   D:00D0H         PUBLIC        PSW
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 7
+
+
   D:006AH         PUBLIC        segall
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 8
-
-
   -------         PROC          _LED
   D:0007H         SYMBOL        ld
-  C:0AACH         LINE#         91
-  C:0AACH         LINE#         92
-  C:0AACH         LINE#         93
-  C:0AB7H         LINE#         94
-  C:0AC0H         LINE#         95
-  C:0AC9H         LINE#         96
-  C:0AD2H         LINE#         97
-  C:0ADBH         LINE#         98
-  C:0AE4H         LINE#         99
-  C:0AEDH         LINE#         100
-  C:0AF6H         LINE#         101
-  C:0AFFH         LINE#         102
-  C:0B06H         LINE#         103
-  C:0B0DH         LINE#         104
-  C:0B16H         LINE#         105
-  C:0B1FH         LINE#         106
+  C:0AACH         LINE#         85
+  C:0AACH         LINE#         86
+  C:0AACH         LINE#         87
+  C:0AB7H         LINE#         88
+  C:0AC0H         LINE#         89
+  C:0AC9H         LINE#         90
+  C:0AD2H         LINE#         91
+  C:0ADBH         LINE#         92
+  C:0AE4H         LINE#         93
+  C:0AEDH         LINE#         94
+  C:0AF6H         LINE#         95
+  C:0AFFH         LINE#         96
+  C:0B06H         LINE#         97
+  C:0B0DH         LINE#         98
+  C:0B16H         LINE#         99
+  C:0B1FH         LINE#         100
   -------         ENDPROC       _LED
-  -------         PROC          _SEGMENT
-  D:0074H         SYMBOL        k
-  C:0C48H         LINE#         107
-  C:0C4AH         LINE#         108
-  C:0C4AH         LINE#         109
-  C:0C50H         LINE#         110
-  C:0C59H         LINE#         111
-  C:0C62H         LINE#         112
-  C:0C6BH         LINE#         113
-  C:0C74H         LINE#         114
-  C:0C7DH         LINE#         115
-  C:0C86H         LINE#         117
-  -------         ENDPROC       _SEGMENT
   -------         PROC          _DIGIT
-  D:0074H         SYMBOL        dt
-  C:0B94H         LINE#         118
-  C:0B96H         LINE#         119
-  C:0B96H         LINE#         120
-  C:0B9EH         LINE#         121
-  C:0BA7H         LINE#         122
-  C:0BB0H         LINE#         123
-  C:0BB9H         LINE#         124
-  C:0BC2H         LINE#         125
-  C:0BCBH         LINE#         126
-  C:0BD4H         LINE#         127
-  C:0BDDH         LINE#         128
-  C:0BE6H         LINE#         129
-  C:0BEDH         LINE#         130
+  D:0073H         SYMBOL        dt
+  C:0B94H         LINE#         102
+  C:0B96H         LINE#         103
+  C:0B96H         LINE#         104
+  C:0B9EH         LINE#         105
+  C:0BA7H         LINE#         106
+  C:0BB0H         LINE#         107
+  C:0BB9H         LINE#         108
+  C:0BC2H         LINE#         109
+  C:0BCBH         LINE#         110
+  C:0BD4H         LINE#         111
+  C:0BDDH         LINE#         112
+  C:0BE6H         LINE#         113
+  C:0BEDH         LINE#         114
   -------         ENDPROC       _DIGIT
-  -------         PROC          SEGMENT0
-  C:0D82H         LINE#         132
-  C:0D82H         LINE#         133
-  C:0D85H         LINE#         134
-  C:0D87H         LINE#         135
-  C:0D89H         LINE#         136
-  -------         ENDPROC       SEGMENT0
-  -------         PROC          SEGMENT1
-  C:0D8EH         LINE#         139
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 9
+  -------         PROC          _XSEGMENT
+  D:0007H         SYMBOL        xseg
+  C:0C48H         LINE#         119
+  C:0C48H         LINE#         120
+  C:0C48H         LINE#         121
+  C:0C4AH         LINE#         122
+  C:0C6CH         LINE#         123
+  C:0C6CH         LINE#         124
+  C:0C6CH         LINE#         125
+  C:0C6FH         LINE#         126
+  C:0C71H         LINE#         127
+  C:0C71H         LINE#         128
+  C:0C74H         LINE#         129
+  C:0C76H         LINE#         130
+  C:0C76H         LINE#         131
+  C:0C79H         LINE#         132
+  C:0C7BH         LINE#         133
+  C:0C7BH         LINE#         134
+  C:0C7EH         LINE#         135
+  C:0C80H         LINE#         136
+  C:0C80H         LINE#         137
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 8
 
 
-  C:0D8EH         LINE#         140
-  C:0D91H         LINE#         141
-  C:0D93H         LINE#         142
-  C:0D95H         LINE#         143
-  -------         ENDPROC       SEGMENT1
-  -------         PROC          SEGMENT2
-  C:0D9AH         LINE#         145
-  C:0D9AH         LINE#         146
-  C:0D9DH         LINE#         147
-  C:0D9FH         LINE#         148
-  C:0DA1H         LINE#         149
-  -------         ENDPROC       SEGMENT2
-  -------         PROC          SEGMENT3
-  C:0DA6H         LINE#         151
-  C:0DA6H         LINE#         152
-  C:0DA9H         LINE#         153
-  C:0DABH         LINE#         154
-  C:0DADH         LINE#         155
-  -------         ENDPROC       SEGMENT3
-  -------         PROC          SEGMENT4
-  C:0DB2H         LINE#         157
-  C:0DB2H         LINE#         158
-  C:0DB5H         LINE#         159
-  C:0DB7H         LINE#         160
-  C:0DB9H         LINE#         161
-  -------         ENDPROC       SEGMENT4
-  -------         PROC          SEGMENT5
-  C:0DBEH         LINE#         163
-  C:0DBEH         LINE#         164
-  C:0DC1H         LINE#         165
-  C:0DC3H         LINE#         166
-  C:0DC5H         LINE#         167
-  -------         ENDPROC       SEGMENT5
-  -------         PROC          SEGMENT6
-  C:0DCAH         LINE#         169
-  C:0DCAH         LINE#         170
-  C:0DCDH         LINE#         171
-  C:0DCFH         LINE#         172
-  C:0DD1H         LINE#         173
-  -------         ENDPROC       SEGMENT6
+  C:0C83H         LINE#         138
+  C:0C85H         LINE#         139
+  C:0C85H         LINE#         140
+  C:0C88H         LINE#         141
+  C:0C8AH         LINE#         142
+  C:0C8AH         LINE#         143
+  C:0C8DH         LINE#         144
+  C:0C8FH         LINE#         145
+  C:0C8FH         LINE#         146
+  C:0C92H         LINE#         148
+  C:0C92H         LINE#         149
+  C:0C97H         LINE#         150
+  C:0C99H         LINE#         151
+  -------         ENDPROC       _XSEGMENT
   -------         PROC          DIGIT1
-  C:0DD6H         LINE#         177
-  C:0DD6H         LINE#         178
-  C:0DD9H         LINE#         179
-  C:0DDBH         LINE#         180
-  C:0DDDH         LINE#         181
+  C:0DA8H         LINE#         154
+  C:0DA8H         LINE#         155
+  C:0DABH         LINE#         156
+  C:0DADH         LINE#         157
+  C:0DAFH         LINE#         158
   -------         ENDPROC       DIGIT1
   -------         PROC          DIGIT2
-  C:0DE2H         LINE#         183
-  C:0DE2H         LINE#         184
-  C:0DE4H         LINE#         185
-  C:0DE7H         LINE#         186
-  C:0DE9H         LINE#         187
+  C:0DB4H         LINE#         160
+  C:0DB4H         LINE#         161
+  C:0DB6H         LINE#         162
+  C:0DB9H         LINE#         163
+  C:0DBBH         LINE#         164
   -------         ENDPROC       DIGIT2
   -------         PROC          DIGIT3
-  C:0DEEH         LINE#         190
-  C:0DEEH         LINE#         191
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 10
-
-
-  C:0DF0H         LINE#         192
-  C:0DF3H         LINE#         193
-  C:0DF5H         LINE#         194
+  C:0DC0H         LINE#         167
+  C:0DC0H         LINE#         168
+  C:0DC2H         LINE#         169
+  C:0DC5H         LINE#         170
+  C:0DC7H         LINE#         171
   -------         ENDPROC       DIGIT3
   -------         PROC          DIGIT4
-  C:0DFAH         LINE#         196
-  C:0DFAH         LINE#         197
-  C:0DFCH         LINE#         198
-  C:0DFFH         LINE#         199
-  C:0E01H         LINE#         200
+  C:0DCCH         LINE#         173
+  C:0DCCH         LINE#         174
+  C:0DCEH         LINE#         175
+  C:0DD1H         LINE#         176
+  C:0DD3H         LINE#         177
   -------         ENDPROC       DIGIT4
   -------         PROC          DIGIT5
-  C:0E06H         LINE#         202
-  C:0E06H         LINE#         203
-  C:0E08H         LINE#         204
-  C:0E0BH         LINE#         205
-  C:0E0DH         LINE#         206
+  C:0DD8H         LINE#         179
+  C:0DD8H         LINE#         180
+  C:0DDAH         LINE#         181
+  C:0DDDH         LINE#         182
+  C:0DDFH         LINE#         183
   -------         ENDPROC       DIGIT5
   -------         PROC          DIGIT6
-  C:0E12H         LINE#         208
-  C:0E12H         LINE#         209
-  C:0E14H         LINE#         210
-  C:0E17H         LINE#         211
-  C:0E19H         LINE#         212
+  C:0DE4H         LINE#         185
+  C:0DE4H         LINE#         186
+  C:0DE6H         LINE#         187
+  C:0DE9H         LINE#         188
+  C:0DEBH         LINE#         189
   -------         ENDPROC       DIGIT6
   -------         PROC          DIGIT7
-  C:0E1EH         LINE#         214
-  C:0E1EH         LINE#         215
-  C:0E20H         LINE#         216
-  C:0E23H         LINE#         217
-  C:0E25H         LINE#         218
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 9
+
+
+  C:0DF0H         LINE#         191
+  C:0DF0H         LINE#         192
+  C:0DF2H         LINE#         193
+  C:0DF5H         LINE#         194
+  C:0DF7H         LINE#         195
   -------         ENDPROC       DIGIT7
   -------         PROC          DIGIT8
-  C:0E2AH         LINE#         220
-  C:0E2AH         LINE#         221
-  C:0E2CH         LINE#         222
-  C:0E2FH         LINE#         223
-  C:0E31H         LINE#         224
+  C:0DFCH         LINE#         197
+  C:0DFCH         LINE#         198
+  C:0DFEH         LINE#         199
+  C:0E01H         LINE#         200
+  C:0E03H         LINE#         201
   -------         ENDPROC       DIGIT8
   -------         PROC          DIGIT9
-  C:0E36H         LINE#         226
-  C:0E36H         LINE#         227
-  C:0E38H         LINE#         228
-  C:0E3BH         LINE#         229
-  C:0E3DH         LINE#         230
+  C:0E08H         LINE#         203
+  C:0E08H         LINE#         204
+  C:0E0AH         LINE#         205
+  C:0E0DH         LINE#         206
+  C:0E0FH         LINE#         207
   -------         ENDPROC       DIGIT9
   -------         PROC          DIGIT0
-  C:0E42H         LINE#         232
-  C:0E42H         LINE#         233
-  C:0E44H         LINE#         234
-  C:0E47H         LINE#         235
-  C:0E49H         LINE#         236
+  C:0E14H         LINE#         209
+  C:0E14H         LINE#         210
+  C:0E16H         LINE#         211
+  C:0E19H         LINE#         212
+  C:0E1BH         LINE#         213
   -------         ENDPROC       DIGIT0
   -------         PROC          _SECONDS
   D:006CH         SYMBOL        mm
   -------         DO            
   D:006DH         SYMBOL        mmm
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 11
-
-
   -------         ENDDO         
-  C:0CECH         LINE#         238
-  C:0CEEH         LINE#         239
-  C:0CEEH         LINE#         241
-  C:0D06H         LINE#         242
-  C:0D06H         LINE#         243
-  C:0D09H         LINE#         244
-  C:0D0DH         LINE#         245
+  C:0D12H         LINE#         215
+  C:0D14H         LINE#         216
+  C:0D14H         LINE#         218
+  C:0D2CH         LINE#         219
+  C:0D2CH         LINE#         220
+  C:0D2FH         LINE#         221
+  C:0D33H         LINE#         222
   -------         ENDPROC       _SECONDS
   -------         PROC          DELAYMS
   -------         DO            
@@ -617,26 +528,29 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   D:0006H         SYMBOL        jj
   D:0005H         SYMBOL        kk
   -------         ENDDO         
-  C:0D64H         LINE#         246
-  C:0D64H         LINE#         247
-  C:0D64H         LINE#         250
-  C:0D65H         LINE#         251
-  C:0D66H         LINE#         252
-  C:0D68H         LINE#         253
-  C:0D6AH         LINE#         254
-  C:0D6CH         LINE#         256
-  C:0D6CH         LINE#         258
-  C:0D6CH         LINE#         259
-  C:0D6EH         LINE#         260
-  C:0D70H         LINE#         261
-  C:0D72H         LINE#         262
+  C:0D8AH         LINE#         223
+  C:0D8AH         LINE#         224
+  C:0D8AH         LINE#         227
+  C:0D8BH         LINE#         228
+  C:0D8CH         LINE#         229
+  C:0D8EH         LINE#         230
+  C:0D90H         LINE#         231
+  C:0D92H         LINE#         233
+  C:0D92H         LINE#         235
+  C:0D92H         LINE#         236
+  C:0D94H         LINE#         237
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 10
+
+
+  C:0D96H         LINE#         238
+  C:0D98H         LINE#         239
   -------         ENDPROC       DELAYMS
   -------         PROC          BEEP
-  C:0F26H         LINE#         263
-  C:0F26H         LINE#         264
-  C:0F28H         LINE#         265
-  C:0F2DH         LINE#         266
-  C:0F2FH         LINE#         267
+  C:0EA4H         LINE#         240
+  C:0EA4H         LINE#         241
+  C:0EA6H         LINE#         242
+  C:0EABH         LINE#         243
+  C:0EADH         LINE#         244
   -------         ENDPROC       BEEP
   -------         PROC          _DELAY
   D:0007H         SYMBOL        xx
@@ -644,30 +558,27 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   D:0005H         SYMBOL        zx
   D:0006H         SYMBOL        xz
   -------         ENDDO         
-  C:0D30H         LINE#         268
-  C:0D30H         LINE#         270
-  C:0D37H         LINE#         271
-  C:0D46H         LINE#         272
-  C:0D49H         LINE#         273
+  C:0D56H         LINE#         245
+  C:0D56H         LINE#         247
+  C:0D5DH         LINE#         248
+  C:0D6CH         LINE#         249
+  C:0D6FH         LINE#         250
   -------         ENDPROC       _DELAY
   -------         PROC          MAIN
-  C:0E4EH         LINE#         11
-  C:0E4EH         LINE#         12
-  C:0E4EH         LINE#         13
-  C:0E4EH         LINE#         14
-  C:0E53H         LINE#         15
-  C:0E58H         LINE#         16
+  C:0E20H         LINE#         11
+  C:0E20H         LINE#         12
+  C:0E20H         LINE#         13
+  C:0E20H         LINE#         14
+  C:0E25H         LINE#         15
+  C:0E2AH         LINE#         16
   -------         ENDPROC       MAIN
   -------         PROC          CHANGESTATE
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 12
-
-
   -------         DO            
   D:0070H         SYMBOL        paul
   -------         ENDDO         
-  C:0F3AH         LINE#         20
-  C:0F3AH         LINE#         21
-  C:0F3DH         LINE#         22
+  C:0EB8H         LINE#         20
+  C:0EB8H         LINE#         21
+  C:0EBBH         LINE#         22
   -------         ENDPROC       CHANGESTATE
   -------         PROC          GETKEY
   -------         DO            
@@ -688,6 +599,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   C:09C3H         LINE#         35
   C:09C5H         LINE#         36
   C:09C5H         LINE#         37
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 11
+
+
   C:09C8H         LINE#         38
   C:09CBH         LINE#         39
   C:09CBH         LINE#         40
@@ -719,9 +633,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   C:09F5H         LINE#         66
   C:09F5H         LINE#         67
   C:09F8H         LINE#         68
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 13
-
-
   C:09FBH         LINE#         69
   C:09FBH         LINE#         70
   C:09FDH         LINE#         71
@@ -748,6 +659,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   C:0A16H         LINE#         106
   C:0A19H         LINE#         107
   C:0A1CH         LINE#         109
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 12
+
+
   C:0A1CH         LINE#         110
   C:0A1FH         LINE#         111
   C:0A1FH         LINE#         112
@@ -761,46 +675,36 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
   D:00A8H         PUBLIC        IE
-  C:0D4AH         PUBLIC        _delay
+  C:0D70H         PUBLIC        _delay
   C:0BEEH         PUBLIC        _digit
   D:0000H         PUBLIC        green
   D:00B8H         PUBLIC        IP
-  C:0F30H         PUBLIC        beep
+  C:0EAEH         PUBLIC        beep
   D:0002H         PUBLIC        yellow
   D:0004H         PUBLIC        levelsdelay
   D:0006H         PUBLIC        white
   B:00A0H.0       PUBLIC        buzzer
-  C:0E5AH         PUBLIC        segment0
-  C:0E66H         PUBLIC        segment1
-  C:0E72H         PUBLIC        segment2
-  C:0E7EH         PUBLIC        segment3
-  C:0E8AH         PUBLIC        segment4
-  C:0E96H         PUBLIC        segment5
   D:0008H         PUBLIC        halfon1
-  C:0EA2H         PUBLIC        segment6
   D:000AH         PUBLIC        halfon2
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 14
-
-
   D:000CH         PUBLIC        ledalloff
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
   C:0B20H         PUBLIC        _led
   D:000EH         PUBLIC        red
   D:0010H         PUBLIC        pla
-  C:0F1AH         PUBLIC        digit0
-  C:0EAEH         PUBLIC        digit1
-  C:0EBAH         PUBLIC        digit2
-  C:0EC6H         PUBLIC        digit3
-  C:0ED2H         PUBLIC        digit4
+  C:0E98H         PUBLIC        digit0
+  C:0E2CH         PUBLIC        digit1
+  C:0E38H         PUBLIC        digit2
+  C:0E44H         PUBLIC        digit3
+  C:0E50H         PUBLIC        digit4
   D:0011H         PUBLIC        digdelay
-  C:0EDEH         PUBLIC        digit5
-  C:0EEAH         PUBLIC        digit6
-  C:0EF6H         PUBLIC        digit7
+  C:0E5CH         PUBLIC        digit5
+  C:0E68H         PUBLIC        digit6
+  C:0E74H         PUBLIC        digit7
   D:0013H         PUBLIC        level0
-  C:0F02H         PUBLIC        digit8
+  C:0E80H         PUBLIC        digit8
   D:0015H         PUBLIC        level1
-  C:0F0EH         PUBLIC        digit9
+  C:0E8CH         PUBLIC        digit9
   D:0017H         PUBLIC        level2
   D:0019H         PUBLIC        level3
   D:001BH         PUBLIC        level4
@@ -815,6 +719,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   D:002CH         PUBLIC        dig1
   B:00A0H.6       PUBLIC        digdef
   D:002EH         PUBLIC        led1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 13
+
+
   D:0030H         PUBLIC        dig2
   D:00C8H         PUBLIC        T2CON
   D:0032H         PUBLIC        led2
@@ -832,211 +739,181 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   D:0049H         PUBLIC        dig8
   D:004BH         PUBLIC        led8
   D:004DH         PUBLIC        dig9
+  C:0C9AH         PUBLIC        _xsegment
   D:004FH         PUBLIC        xx
   D:0050H         PUBLIC        seg1
   B:00A0H.7       PUBLIC        segdef
   D:0052H         PUBLIC        seg2
-  C:0D73H         PUBLIC        delayms
-  C:0D0EH         PUBLIC        _seconds
+  C:0D99H         PUBLIC        delayms
+  C:0D34H         PUBLIC        _seconds
   D:0054H         PUBLIC        seg3
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 15
-
-
   D:0056H         PUBLIC        segnone
   D:0058H         PUBLIC        seg4
   D:005AH         PUBLIC        seg5
   D:005CH         PUBLIC        seg6
-  C:0C87H         PUBLIC        _segment
   D:00D0H         PUBLIC        PSW
   D:005EH         PUBLIC        segall
   -------         PROC          _LED
   D:0007H         SYMBOL        ld
-  C:0B20H         LINE#         92
-  C:0B20H         LINE#         93
-  C:0B20H         LINE#         94
-  C:0B2BH         LINE#         95
-  C:0B34H         LINE#         96
-  C:0B3DH         LINE#         97
-  C:0B46H         LINE#         98
-  C:0B4FH         LINE#         99
-  C:0B58H         LINE#         100
-  C:0B61H         LINE#         101
-  C:0B6AH         LINE#         102
-  C:0B73H         LINE#         103
-  C:0B7AH         LINE#         104
-  C:0B81H         LINE#         105
-  C:0B8AH         LINE#         106
-  C:0B93H         LINE#         107
+  C:0B20H         LINE#         85
+  C:0B20H         LINE#         86
+  C:0B20H         LINE#         87
+  C:0B2BH         LINE#         88
+  C:0B34H         LINE#         89
+  C:0B3DH         LINE#         90
+  C:0B46H         LINE#         91
+  C:0B4FH         LINE#         92
+  C:0B58H         LINE#         93
+  C:0B61H         LINE#         94
+  C:0B6AH         LINE#         95
+  C:0B73H         LINE#         96
+  C:0B7AH         LINE#         97
+  C:0B81H         LINE#         98
+  C:0B8AH         LINE#         99
+  C:0B93H         LINE#         100
   -------         ENDPROC       _LED
-  -------         PROC          _SEGMENT
-  D:0072H         SYMBOL        k
-  C:0C87H         LINE#         108
-  C:0C89H         LINE#         109
-  C:0C89H         LINE#         110
-  C:0C8FH         LINE#         111
-  C:0C98H         LINE#         112
-  C:0CA1H         LINE#         113
-  C:0CAAH         LINE#         114
-  C:0CB3H         LINE#         115
-  C:0CBCH         LINE#         116
-  C:0CC5H         LINE#         118
-  -------         ENDPROC       _SEGMENT
   -------         PROC          _DIGIT
-  D:0073H         SYMBOL        dt
-  C:0BEEH         LINE#         119
-  C:0BF0H         LINE#         120
-  C:0BF0H         LINE#         121
-  C:0BF8H         LINE#         122
-  C:0C01H         LINE#         123
-  C:0C0AH         LINE#         124
-  C:0C13H         LINE#         125
-  C:0C1CH         LINE#         126
-  C:0C25H         LINE#         127
-  C:0C2EH         LINE#         128
-  C:0C37H         LINE#         129
-  C:0C40H         LINE#         130
-  C:0C47H         LINE#         131
+  D:0072H         SYMBOL        dt
+  C:0BEEH         LINE#         102
+  C:0BF0H         LINE#         103
+  C:0BF0H         LINE#         104
+  C:0BF8H         LINE#         105
+  C:0C01H         LINE#         106
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 14
+
+
+  C:0C0AH         LINE#         107
+  C:0C13H         LINE#         108
+  C:0C1CH         LINE#         109
+  C:0C25H         LINE#         110
+  C:0C2EH         LINE#         111
+  C:0C37H         LINE#         112
+  C:0C40H         LINE#         113
+  C:0C47H         LINE#         114
   -------         ENDPROC       _DIGIT
-  -------         PROC          SEGMENT0
-  C:0E5AH         LINE#         133
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 16
-
-
-  C:0E5AH         LINE#         134
-  C:0E5DH         LINE#         135
-  C:0E5FH         LINE#         136
-  C:0E61H         LINE#         137
-  -------         ENDPROC       SEGMENT0
-  -------         PROC          SEGMENT1
-  C:0E66H         LINE#         140
-  C:0E66H         LINE#         141
-  C:0E69H         LINE#         142
-  C:0E6BH         LINE#         143
-  C:0E6DH         LINE#         144
-  -------         ENDPROC       SEGMENT1
-  -------         PROC          SEGMENT2
-  C:0E72H         LINE#         146
-  C:0E72H         LINE#         147
-  C:0E75H         LINE#         148
-  C:0E77H         LINE#         149
-  C:0E79H         LINE#         150
-  -------         ENDPROC       SEGMENT2
-  -------         PROC          SEGMENT3
-  C:0E7EH         LINE#         152
-  C:0E7EH         LINE#         153
-  C:0E81H         LINE#         154
-  C:0E83H         LINE#         155
-  C:0E85H         LINE#         156
-  -------         ENDPROC       SEGMENT3
-  -------         PROC          SEGMENT4
-  C:0E8AH         LINE#         158
-  C:0E8AH         LINE#         159
-  C:0E8DH         LINE#         160
-  C:0E8FH         LINE#         161
-  C:0E91H         LINE#         162
-  -------         ENDPROC       SEGMENT4
-  -------         PROC          SEGMENT5
-  C:0E96H         LINE#         164
-  C:0E96H         LINE#         165
-  C:0E99H         LINE#         166
-  C:0E9BH         LINE#         167
-  C:0E9DH         LINE#         168
-  -------         ENDPROC       SEGMENT5
-  -------         PROC          SEGMENT6
-  C:0EA2H         LINE#         170
-  C:0EA2H         LINE#         171
-  C:0EA5H         LINE#         172
-  C:0EA7H         LINE#         173
-  C:0EA9H         LINE#         174
-  -------         ENDPROC       SEGMENT6
+  -------         PROC          _XSEGMENT
+  D:0007H         SYMBOL        xseg
+  C:0C9AH         LINE#         119
+  C:0C9AH         LINE#         120
+  C:0C9AH         LINE#         121
+  C:0C9CH         LINE#         122
+  C:0CBEH         LINE#         123
+  C:0CBEH         LINE#         124
+  C:0CBEH         LINE#         125
+  C:0CC1H         LINE#         126
+  C:0CC3H         LINE#         127
+  C:0CC3H         LINE#         128
+  C:0CC6H         LINE#         129
+  C:0CC8H         LINE#         130
+  C:0CC8H         LINE#         131
+  C:0CCBH         LINE#         132
+  C:0CCDH         LINE#         133
+  C:0CCDH         LINE#         134
+  C:0CD0H         LINE#         135
+  C:0CD2H         LINE#         136
+  C:0CD2H         LINE#         137
+  C:0CD5H         LINE#         138
+  C:0CD7H         LINE#         139
+  C:0CD7H         LINE#         140
+  C:0CDAH         LINE#         141
+  C:0CDCH         LINE#         142
+  C:0CDCH         LINE#         143
+  C:0CDFH         LINE#         144
+  C:0CE1H         LINE#         145
+  C:0CE1H         LINE#         146
+  C:0CE4H         LINE#         148
+  C:0CE4H         LINE#         149
+  C:0CE9H         LINE#         150
+  C:0CEBH         LINE#         151
+  -------         ENDPROC       _XSEGMENT
   -------         PROC          DIGIT1
-  C:0EAEH         LINE#         178
-  C:0EAEH         LINE#         179
-  C:0EB1H         LINE#         180
-  C:0EB3H         LINE#         181
-  C:0EB5H         LINE#         182
+  C:0E2CH         LINE#         154
+  C:0E2CH         LINE#         155
+  C:0E2FH         LINE#         156
+  C:0E31H         LINE#         157
+  C:0E33H         LINE#         158
   -------         ENDPROC       DIGIT1
   -------         PROC          DIGIT2
-  C:0EBAH         LINE#         184
-  C:0EBAH         LINE#         185
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 17
+  C:0E38H         LINE#         160
+  C:0E38H         LINE#         161
+  C:0E3AH         LINE#         162
+  C:0E3DH         LINE#         163
+  C:0E3FH         LINE#         164
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 15
 
 
-  C:0EBCH         LINE#         186
-  C:0EBFH         LINE#         187
-  C:0EC1H         LINE#         188
   -------         ENDPROC       DIGIT2
   -------         PROC          DIGIT3
-  C:0EC6H         LINE#         191
-  C:0EC6H         LINE#         192
-  C:0EC8H         LINE#         193
-  C:0ECBH         LINE#         194
-  C:0ECDH         LINE#         195
+  C:0E44H         LINE#         167
+  C:0E44H         LINE#         168
+  C:0E46H         LINE#         169
+  C:0E49H         LINE#         170
+  C:0E4BH         LINE#         171
   -------         ENDPROC       DIGIT3
   -------         PROC          DIGIT4
-  C:0ED2H         LINE#         197
-  C:0ED2H         LINE#         198
-  C:0ED4H         LINE#         199
-  C:0ED7H         LINE#         200
-  C:0ED9H         LINE#         201
+  C:0E50H         LINE#         173
+  C:0E50H         LINE#         174
+  C:0E52H         LINE#         175
+  C:0E55H         LINE#         176
+  C:0E57H         LINE#         177
   -------         ENDPROC       DIGIT4
   -------         PROC          DIGIT5
-  C:0EDEH         LINE#         203
-  C:0EDEH         LINE#         204
-  C:0EE0H         LINE#         205
-  C:0EE3H         LINE#         206
-  C:0EE5H         LINE#         207
+  C:0E5CH         LINE#         179
+  C:0E5CH         LINE#         180
+  C:0E5EH         LINE#         181
+  C:0E61H         LINE#         182
+  C:0E63H         LINE#         183
   -------         ENDPROC       DIGIT5
   -------         PROC          DIGIT6
-  C:0EEAH         LINE#         209
-  C:0EEAH         LINE#         210
-  C:0EECH         LINE#         211
-  C:0EEFH         LINE#         212
-  C:0EF1H         LINE#         213
+  C:0E68H         LINE#         185
+  C:0E68H         LINE#         186
+  C:0E6AH         LINE#         187
+  C:0E6DH         LINE#         188
+  C:0E6FH         LINE#         189
   -------         ENDPROC       DIGIT6
   -------         PROC          DIGIT7
-  C:0EF6H         LINE#         215
-  C:0EF6H         LINE#         216
-  C:0EF8H         LINE#         217
-  C:0EFBH         LINE#         218
-  C:0EFDH         LINE#         219
+  C:0E74H         LINE#         191
+  C:0E74H         LINE#         192
+  C:0E76H         LINE#         193
+  C:0E79H         LINE#         194
+  C:0E7BH         LINE#         195
   -------         ENDPROC       DIGIT7
   -------         PROC          DIGIT8
-  C:0F02H         LINE#         221
-  C:0F02H         LINE#         222
-  C:0F04H         LINE#         223
-  C:0F07H         LINE#         224
-  C:0F09H         LINE#         225
+  C:0E80H         LINE#         197
+  C:0E80H         LINE#         198
+  C:0E82H         LINE#         199
+  C:0E85H         LINE#         200
+  C:0E87H         LINE#         201
   -------         ENDPROC       DIGIT8
   -------         PROC          DIGIT9
-  C:0F0EH         LINE#         227
-  C:0F0EH         LINE#         228
-  C:0F10H         LINE#         229
-  C:0F13H         LINE#         230
-  C:0F15H         LINE#         231
+  C:0E8CH         LINE#         203
+  C:0E8CH         LINE#         204
+  C:0E8EH         LINE#         205
+  C:0E91H         LINE#         206
+  C:0E93H         LINE#         207
   -------         ENDPROC       DIGIT9
   -------         PROC          DIGIT0
-  C:0F1AH         LINE#         233
-  C:0F1AH         LINE#         234
-  C:0F1CH         LINE#         235
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 18
-
-
-  C:0F1FH         LINE#         236
-  C:0F21H         LINE#         237
+  C:0E98H         LINE#         209
+  C:0E98H         LINE#         210
+  C:0E9AH         LINE#         211
+  C:0E9DH         LINE#         212
+  C:0E9FH         LINE#         213
   -------         ENDPROC       DIGIT0
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 16
+
+
   -------         PROC          _SECONDS
   D:006EH         SYMBOL        mm
   -------         DO            
   D:006FH         SYMBOL        mmm
   -------         ENDDO         
-  C:0D0EH         LINE#         239
-  C:0D10H         LINE#         240
-  C:0D10H         LINE#         242
-  C:0D28H         LINE#         243
-  C:0D28H         LINE#         244
-  C:0D2BH         LINE#         245
-  C:0D2FH         LINE#         246
+  C:0D34H         LINE#         215
+  C:0D36H         LINE#         216
+  C:0D36H         LINE#         218
+  C:0D4EH         LINE#         219
+  C:0D4EH         LINE#         220
+  C:0D51H         LINE#         221
+  C:0D55H         LINE#         222
   -------         ENDPROC       _SECONDS
   -------         PROC          DELAYMS
   -------         DO            
@@ -1044,26 +921,26 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   D:0006H         SYMBOL        jj
   D:0005H         SYMBOL        kk
   -------         ENDDO         
-  C:0D73H         LINE#         247
-  C:0D73H         LINE#         248
-  C:0D73H         LINE#         251
-  C:0D74H         LINE#         252
-  C:0D75H         LINE#         253
-  C:0D77H         LINE#         254
-  C:0D79H         LINE#         255
-  C:0D7BH         LINE#         257
-  C:0D7BH         LINE#         259
-  C:0D7BH         LINE#         260
-  C:0D7DH         LINE#         261
-  C:0D7FH         LINE#         262
-  C:0D81H         LINE#         263
+  C:0D99H         LINE#         223
+  C:0D99H         LINE#         224
+  C:0D99H         LINE#         227
+  C:0D9AH         LINE#         228
+  C:0D9BH         LINE#         229
+  C:0D9DH         LINE#         230
+  C:0D9FH         LINE#         231
+  C:0DA1H         LINE#         233
+  C:0DA1H         LINE#         235
+  C:0DA1H         LINE#         236
+  C:0DA3H         LINE#         237
+  C:0DA5H         LINE#         238
+  C:0DA7H         LINE#         239
   -------         ENDPROC       DELAYMS
   -------         PROC          BEEP
-  C:0F30H         LINE#         264
-  C:0F30H         LINE#         265
-  C:0F32H         LINE#         266
-  C:0F37H         LINE#         267
-  C:0F39H         LINE#         268
+  C:0EAEH         LINE#         240
+  C:0EAEH         LINE#         241
+  C:0EB0H         LINE#         242
+  C:0EB5H         LINE#         243
+  C:0EB7H         LINE#         244
   -------         ENDPROC       BEEP
   -------         PROC          _DELAY
   D:0007H         SYMBOL        xx
@@ -1071,20 +948,20 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
   D:0005H         SYMBOL        zx
   D:0006H         SYMBOL        xz
   -------         ENDDO         
-  C:0D4AH         LINE#         269
-  C:0D4AH         LINE#         271
-  C:0D51H         LINE#         272
-  C:0D60H         LINE#         273
-  C:0D63H         LINE#         274
+  C:0D70H         LINE#         245
+  C:0D70H         LINE#         247
+  C:0D77H         LINE#         248
+  C:0D86H         LINE#         249
+  C:0D89H         LINE#         250
   -------         ENDPROC       _DELAY
   -------         ENDMOD        PAULOBETA
 
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 19
-
-
   -------         MODULE        ?C?CCASE
-  C:0CC6H         PUBLIC        ?C?CCASE
+  C:0CECH         PUBLIC        ?C?CCASE
   -------         ENDMOD        ?C?CCASE
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 17
+
+
 
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
     SYMBOL:  SEGALL
@@ -1139,11 +1016,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
     MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
 
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 20
-
-
     SYMBOL:  DIG7
     MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 18
+
 
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
     SYMBOL:  LED6
@@ -1199,12 +1076,12 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
 
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
     SYMBOL:  DIG0
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 21
-
-
     MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
 
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 19
+
+
     SYMBOL:  DT
     MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
 
@@ -1259,12 +1136,12 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
     SYMBOL:  PLA
     MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 22
-
-
 
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
     SYMBOL:  RED
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 20
+
+
     MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
 
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
@@ -1319,12 +1196,12 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
     SYMBOL:  DIGIT9
     MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
 
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 23
-
-
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
     SYMBOL:  DIGIT8
     MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 21
+
+
 
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
     SYMBOL:  DIGIT7
@@ -1355,42 +1232,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
     MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
 
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
-    SYMBOL:  SEGMENT6
-    MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
-
-*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
-    SYMBOL:  SEGMENT5
-    MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
-
-*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
-    SYMBOL:  SEGMENT4
-    MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
-
-*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
-    SYMBOL:  SEGMENT3
-    MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
-
-*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
-    SYMBOL:  SEGMENT2
-    MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
-
-*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
-    SYMBOL:  SEGMENT1
-    MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
-
-*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 24
-
-
-    SYMBOL:  SEGMENT0
+    SYMBOL:  _XSEGMENT
     MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
 
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
     SYMBOL:  _DIGIT
-    MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
-
-*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
-    SYMBOL:  _SEGMENT
     MODULE:  .\Objects\paulobeta.obj (PAULOBETA)
 
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
@@ -1413,10 +1259,13 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
     SEGMENT: ?PR?_LED?PAULOBETA
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_SEGMENT?PAULOBETA
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 22
+
+
+    SEGMENT: ?PR?_DIGIT?PAULOBETA
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_DIGIT?PAULOBETA
+    SEGMENT: ?PR?_XSEGMENT?PAULOBETA
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_SECONDS?PAULOBETA
@@ -1439,9 +1288,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
 
 *** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
     SYMBOL:  SEG5
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 25
-
-
     SEGMENT: ?DT?PAULOBETA
 
 *** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
@@ -1473,6 +1319,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
     SEGMENT: ?DT?PAULOBETA
 
 *** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 23
+
+
     SYMBOL:  LED8
     SEGMENT: ?DT?PAULOBETA
 
@@ -1499,9 +1348,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
 *** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
     SYMBOL:  LED5
     SEGMENT: ?DT?PAULOBETA
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 26
-
-
 
 *** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
     SYMBOL:  K
@@ -1533,6 +1379,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
 
 *** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
     SYMBOL:  DIG2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 24
+
+
     SEGMENT: ?DT?PAULOBETA
 
 *** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
@@ -1558,9 +1407,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
 *** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
     SYMBOL:  LEVEL8
     SEGMENT: ?DT?PAULOBETA
-
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 27
-
 
 *** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
     SYMBOL:  LEVEL7
@@ -1593,6 +1439,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
 *** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
     SYMBOL:  LEVEL1
     SEGMENT: ?DT?PAULOBETA
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  11:44:18  PAGE 25
+
+
 
 *** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
     SYMBOL:  LEVEL0
@@ -1619,9 +1468,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
     SEGMENT: ?DT?PAULOBETA
 
 *** ERROR L105: PUBLIC REFERS TO IGNORED SEGMENT
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/04/2020  00:19:29  PAGE 28
-
-
     SYMBOL:  HALFON1
     SEGMENT: ?DT?PAULOBETA
 
@@ -1642,8 +1488,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\PauloCalculator (?C_STARTUP)
     SEGMENT: ?DT?PAULOBETA
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 069AH BYTE (82%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0618H BYTE (76%) *
 ******************************************************************************
 
-Program Size: data=214.0 xdata=0 code=1857
-LINK/LOCATE RUN COMPLETE.  9 WARNING(S),  125 ERROR(S)
+Program Size: data=213.0 xdata=0 code=1727
+LINK/LOCATE RUN COMPLETE.  9 WARNING(S),  118 ERROR(S)

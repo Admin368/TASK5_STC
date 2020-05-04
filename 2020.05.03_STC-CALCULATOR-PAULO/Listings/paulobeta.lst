@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 11:31:48 PAGE 1   
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 13:09:47 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE PAULOBETA
@@ -22,275 +22,247 @@ line level    source
   12          levelsdelay= 600;
   13          sbit digdef = P2^6;
   14          sbit segdef = P2^7;
-  15          segnone = 0xff;
-  16          seg1 = 0xfe;
-  17          seg2 = 0xfd;
-  18          seg3 = 0xfb;
-  19          seg4 = 0xf7;
-  20          seg5 = 0xef;
-  21          seg6 = 0xdf;
-  22          segall = 0x00;
-  23          dig1 = 0x06;
-  24          dig2 = 0x5b;
-  25          dig3 = 0x4f;
-  26          dig4 = 0x66;
-  27          dig5 = 0x6d;
-  28          dig6 = 0x7d;
-  29          dig7 = 0x07;
-  30          dig8 = 0x7f;
-  31          dig9 = 0x6f;
-  32          dig0 = 0x3f;
-  33          led1 = 0xfe;
-  34          led2 = 0xfd;
-  35          led3 = 0xfb;
-  36          led4 = 0xf7;
-  37          led5 = 0xef;
-  38          led6 = 0xdf;
-  39          led7 = 0xbf;
-  40          led8 = 0x7f;
-  41          ledallon = 0x00;
-  42          ledalloff = 0xff;
-  43          halfon1 = 0x0f;
-  44          halfon2 = 0xf0;
-  45          level8 = 0x00;
-  46          level7 = 0x01;
-  47          level6 = 0x03;
-  48          level5 = 0x07;
-  49          level4 = 0x0f;
-  50          level3 = 0x1f;
-  51          level2 = 0x3f;
-  52          level1 = 0x7f;
-  53          level0 = 0xff;
-  54          red = 0xfc;
-C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 11:31:48 PAGE 2   
+  15          
+  16          /*
+  17          segnone = 0xff;
+  18          seg1 = 0xfe;
+  19          seg2 = 0xfd;
+  20          seg3 = 0xfb;
+  21          seg4 = 0xf7;
+  22          seg5 = 0xef;
+  23          seg6 = 0xdf;
+  24          segall = 0x00;
+  25          dig1 = 0x06;
+  26          dig2 = 0x5b;
+  27          dig3 = 0x4f;
+  28          dig4 = 0x66;
+  29          dig5 = 0x6d;
+  30          dig6 = 0x7d;
+  31          dig7 = 0x07;
+  32          dig8 = 0x7f;
+  33          dig9 = 0x6f;
+  34          dig0 = 0x3f;
+  35          */
+  36          
+  37          led1 = 0xfe;
+  38          led2 = 0xfd;
+  39          led3 = 0xfb;
+  40          led4 = 0xf7;
+  41          led5 = 0xef;
+  42          led6 = 0xdf;
+  43          led7 = 0xbf;
+  44          led8 = 0x7f;
+  45          ledallon = 0x00;
+  46          ledalloff = 0xff;
+  47          halfon1 = 0x0f;
+  48          halfon2 = 0xf0;
+  49          level8 = 0x00;
+  50          level7 = 0x01;
+  51          level6 = 0x03;
+  52          level5 = 0x07;
+  53          level4 = 0x0f;
+  54          level3 = 0x1f;
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 13:09:47 PAGE 2   
 
-  55          green = 0xf3;
-  56          yellow = 0xcf;
-  57          white = 0x3f;
-  58          //VARAIBLE_SELECT>>END
-  59          
-  60          //FUNCTION_CLAIM>>START
-  61          void levels(uchar lvl);
-  62          void levelauto();
-  63          void levelsauto();
-  64          void led(uchar ld);
-  65          void segment(uchar k);
-  66          void segment0();
-  67          void segment1();
-  68          void segment2();
-  69          void segment3();
-  70          void segment4();
-  71          void segment5();
-  72          void segment6();
-  73          void digit(uchar dt);
-  74          void digit1();
-  75          void digit2();
-  76          void digit3();
-  77          void digit4();
-  78          void digit5();
-  79          void digit6();
-  80          void digit7();
-  81          void digit8();
-  82          void digit9();
-  83          void digit0();
-  84          void seconds(uchar mm);
-  85          void delayms();
-  86          void delay(uchar xx);
-  87          void beep();
-  88          //FUNCTION_CLAIM>>END
-  89          
-  90          //FUNCTIONS_MAIN>>START
-  91          
-  92          void led(uchar ld)
-  93          {   
-  94   1              if (ld == 1){P1 = led1;}
-  95   1              if (ld == 2){P1 = led2;}
-  96   1              if (ld == 3){P1 = led3;}
-  97   1              if (ld == 4){P1 = led4;}
-  98   1              if (ld == 5){P1 = led5;}
-  99   1              if (ld == 6){P1 = led6;}
- 100   1              if (ld == 7){P1 = led7;}
- 101   1              if (ld == 8){P1 = led8;}
- 102   1              if (ld == 11){P1 = ledallon;}
- 103   1              if (ld == 0){P1 = ledalloff;}
- 104   1              if (ld == 00){P1 = ledalloff;}
- 105   1              if (ld == 21){P1 = halfon1;}
- 106   1              if (ld == 22){P1 = halfon2;}
- 107   1      }
- 108          void segment(uchar k)
- 109          {   
- 110   1              if (k == 0){segment0();}
- 111   1              if (k == 1){segment1();}
- 112   1              if (k == 2){segment2();}
- 113   1              if (k == 3){segment3();}
- 114   1              if (k == 4){segment4();}
- 115   1              if (k == 5){segment5();}
- 116   1              if (k == 6){segment6();}
-C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 11:31:48 PAGE 3   
+  55          level2 = 0x3f;
+  56          level1 = 0x7f;
+  57          level0 = 0xff;
+  58          red = 0xfc;
+  59          green = 0xf3;
+  60          yellow = 0xcf;
+  61          white = 0x3f;
+  62          //VARAIBLE_SELECT>>END
+  63          
+  64          //FUNCTION_CLAIM>>START
+  65          void levels(uchar lvl);
+  66          void levelauto();
+  67          void levelsauto();
+  68          void led(uchar ld);
+  69          void xsegment(uchar xseg);
+  70          void digit(uchar dt);
+  71          void digit1();
+  72          void digit2();
+  73          void digit3();
+  74          void digit4();
+  75          void digit5();
+  76          void digit6();
+  77          void digit7();
+  78          void digit8();
+  79          void digit9();
+  80          void digit0();
+  81          void seconds(uchar mm);
+  82          void delayms();
+  83          void delay(uchar xx);
+  84          void beep();
+  85          //FUNCTION_CLAIM>>END
+  86          
+  87          //FUNCTIONS_MAIN>>START
+  88          
+  89          void led(uchar ld)
+  90          {   
+  91   1              if (ld == 1){P1 = led1;}
+  92   1              if (ld == 2){P1 = led2;}
+  93   1              if (ld == 3){P1 = led3;}
+  94   1              if (ld == 4){P1 = led4;}
+  95   1              if (ld == 5){P1 = led5;}
+  96   1              if (ld == 6){P1 = led6;}
+  97   1              if (ld == 7){P1 = led7;}
+  98   1              if (ld == 8){P1 = led8;}
+  99   1              if (ld == 11){P1 = ledallon;}
+ 100   1              if (ld == 0){P1 = ledalloff;}
+ 101   1              if (ld == 00){P1 = ledalloff;}
+ 102   1              if (ld == 21){P1 = halfon1;}
+ 103   1              if (ld == 22){P1 = halfon2;}
+ 104   1      }
+ 105          
+ 106          void digit(uchar dt)
+ 107          {   
+ 108   1              if (dt == 1){digit1();}
+ 109   1              if (dt == 2){digit2();}
+ 110   1              if (dt == 3){digit3();}
+ 111   1              if (dt == 4){digit4();}
+ 112   1              if (dt == 5){digit5();}
+ 113   1              if (dt == 6){digit6();}
+ 114   1              if (dt == 7){digit7();}
+ 115   1              if (dt == 8){digit8();}
+ 116   1              if (dt == 9){digit9();}
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 13:09:47 PAGE 3   
 
- 117   1      
+ 117   1              if (dt == 0){digit0();}
  118   1      }
- 119          void digit(uchar dt)
- 120          {   
- 121   1              if (dt == 1){digit1();}
- 122   1              if (dt == 2){digit2();}
- 123   1              if (dt == 3){digit3();}
- 124   1              if (dt == 4){digit4();}
- 125   1              if (dt == 5){digit5();}
- 126   1              if (dt == 6){digit6();}
- 127   1              if (dt == 7){digit7();}
- 128   1              if (dt == 8){digit8();}
- 129   1              if (dt == 9){digit9();}
- 130   1              if (dt == 0){digit0();}
- 131   1      }
- 132          
- 133          
- 134          
- 135          
- 136          void xsegment(uchar xseg)
- 137          {
- 138   1      segdef = 1;
- 139   1      switch(xseg)
- 140   1          {
- 141   2            case 0;
-*** ERROR C141 IN LINE 141 OF paulobeta.c: syntax error near ';', expected ':'
- 142   2              P0 = segnone;
- 143   2              break;
- 144   2            case 1;
-*** ERROR C141 IN LINE 144 OF paulobeta.c: syntax error near ';', expected ':'
- 145   2              P0 = seg1;
- 146   2              break;
- 147   2            case 2;
-*** ERROR C141 IN LINE 147 OF paulobeta.c: syntax error near ';', expected ':'
- 148   2              P0 = seg2;
- 149   2              break;
- 150   2            case 3;
-*** ERROR C141 IN LINE 150 OF paulobeta.c: syntax error near ';', expected ':'
- 151   2              P0 = seg3;
- 152   2              break;
- 153   2            case 4;
-*** ERROR C141 IN LINE 153 OF paulobeta.c: syntax error near ';', expected ':'
- 154   2              P0 = seg4;
- 155   2              break;
- 156   2            case 5;
-*** ERROR C141 IN LINE 156 OF paulobeta.c: syntax error near ';', expected ':'
- 157   2              P0 = seg5;
- 158   2              break;
- 159   2            case 6;
-*** ERROR C141 IN LINE 159 OF paulobeta.c: syntax error near ';', expected ':'
- 160   2              P0 = seg6;
- 161   2              break;
- 162   2            default:
- 163   2              segdef = 0;
- 164   2              return;
- 165   2          }
- 166   1      delay(segdelay);
- 167   1      segdef = 0;
- 168   1      }
- 169          
- 170          
- 171          void digit1(){
-C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 11:31:48 PAGE 4   
+ 119          
+ 120          
+ 121          
+ 122          
+ 123          void xsegment(uchar xseg)
+ 124          {
+ 125   1      switch(xseg)
+ 126   1          {
+ 127   2            case 0:
+ 128   2              P0 = 0xff; //segnone = 0xff;
+ 129   2              break;
+ 130   2            case 1:
+ 131   2              P0 = 0xfe; //seg1 = 0xfe;
+ 132   2              break;
+ 133   2            case 2:
+ 134   2              P0 = 0xfd; //seg2 = 0xfd;
+ 135   2              break;
+ 136   2            case 3:
+ 137   2              P0 = 0xfb; //seg3 = 0xfb;
+ 138   2              break;
+ 139   2            case 4:
+ 140   2              P0 = 0xf7; //seg4 = 0xf7;
+ 141   2              break;
+ 142   2            case 5:
+ 143   2              P0 = 0xef; //seg5 = 0xef;
+ 144   2              break;
+ 145   2            case 6:
+ 146   2              P0 = 0xdf; //seg6 = 0xdf;
+ 147   2              break;
+ 148   2                  case 11:
+ 149   2                      P0 = 0x00; // segall = 0x00;
+ 150   2      
+ 151   2            default:
+ 152   2              segdef = 0;
+ 153   2              return;
+ 154   2          }
+ 155   1      delay(segdelay);
+ 156   1      segdef = 1;
+ 157   1      segdef = 0;
+ 158   1      }
+ 159          
+ 160          void xdigit(uchar xdig)
+ 161          {
+ 162   1      switch(xdig)
+ 163   1      {
+ 164   2          case 0:
+ 165   2              P0 = 0x3f; //dig0 = 0x3f;
+ 166   2              break;
+ 167   2          case 1:
+ 168   2              P0 = 0x06; //dig1 = 0x06;
+ 169   2              break;
+ 170   2          case 2:
+ 171   2              P0 = 0x5b; //dig2 = 0x5b;
+ 172   2              break; 
+ 173   2          case 3:
+ 174   2              P0 = 0x4f; //dig3 = 0x4f;
+ 175   2              break;
+ 176   2          case 4:
+ 177   2              P0 = 0x66; //dig4 = 0x66;
+ 178   2              break;
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 13:09:47 PAGE 4   
 
- 172   1          P0 = dig1;
- 173   1          digdef = 1;
- 174   1          digdef = 0;
- 175   1          delay(digdelay);
- 176   1      }
- 177          void digit2(){
- 178   1          digdef = 1;
- 179   1          P0 = dig2;
- 180   1          digdef = 0;
- 181   1          delay(digdelay);
- 182   1      }
- 183          
- 184          void digit3(){
- 185   1          digdef = 1;
- 186   1          P0 = dig3;
- 187   1          digdef = 0;
- 188   1          delay(digdelay);
- 189   1      }
- 190          void digit4(){
- 191   1          digdef = 1;
- 192   1          P0 = dig4;
- 193   1          digdef = 0;
- 194   1          delay(digdelay);
- 195   1      }
- 196          void digit5(){
- 197   1          digdef = 1;
- 198   1          P0 = dig5;
- 199   1          digdef = 0;
- 200   1          delay(digdelay);
- 201   1      }
- 202          void digit6(){
- 203   1          digdef = 1;
- 204   1          P0 = dig6;
- 205   1          digdef = 0;
- 206   1          delay(digdelay);
- 207   1      }
- 208          void digit7(){
- 209   1          digdef = 1;
- 210   1          P0 = dig7;
- 211   1          digdef = 0;
- 212   1          delay(digdelay);
- 213   1      }
- 214          void digit8(){
- 215   1          digdef = 1;
- 216   1          P0 = dig8;
- 217   1          digdef = 0;
- 218   1          delay(digdelay);
- 219   1      }
- 220          void digit9(){
- 221   1          digdef = 1;
- 222   1          P0 = dig9;
- 223   1          digdef = 0;
- 224   1          delay(digdelay);
- 225   1      }
- 226          void digit0(){
- 227   1          digdef = 1;
- 228   1          P0 = dig0;
- 229   1          digdef = 0;
- 230   1          delay(digdelay);
- 231   1      }
- 232          void seconds(uchar mm)
- 233          {
-C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 11:31:48 PAGE 5   
+ 179   2          case 5:
+ 180   2              P0 = 0x6d; //dig5 = 0x6d;
+ 181   2              break;
+ 182   2          case 6:
+ 183   2              P0 = 0x7d; //dig6 = 0x7d;
+ 184   2              break;
+ 185   2          case 7:
+ 186   2              P0 = 0x07; //dig7 = 0x07;
+ 187   2              break;
+ 188   2          case 8:
+ 189   2              P0 = 0x7f; //dig8 = 0x7f;
+ 190   2              break;
+ 191   2          case 9:
+ 192   2              P0 = 0x6f; //dig9 = 0x6f;
+ 193   2              break;
+ 194   2          default:
+ 195   2              return;
+ 196   2      }
+ 197   1      }
+ 198          
+ 199          void seconds(uchar mm)
+ 200          {
+ 201   1        unsigned char mmm;
+ 202   1        for (mmm=0;mmm<mm+1;mmm++)
+ 203   1        {
+ 204   2            delayms();
+ 205   2        }
+ 206   1      }
+ 207          void delayms()
+ 208          {
+ 209   1        unsigned char ii, jj, kk;
+ 210   1      
+ 211   1        _nop_();
+ 212   1        _nop_();
+ 213   1        ii = 5;
+ 214   1        jj = 52;
+ 215   1        kk = 195;
+ 216   1        do
+ 217   1        {
+ 218   2          do
+ 219   2          {
+ 220   3            while (--kk);
+ 221   3          } while (--jj);
+ 222   2        } while (--ii);
+ 223   1      }
+ 224          void beep(){
+ 225   1          buzzer = 1; // on
+ 226   1          delay(400);
+ 227   1          buzzer = 0;
+ 228   1      }
+ 229          void delay(uchar xx){
+ 230   1          unsigned char zx,xz;
+ 231   1          for (xz=0;xz<xx;xz++){
+ 232   2              for (zx=0;zx<120;zx++){}
+ 233   2          }
+ 234   1      }
+ 235          //FUNCTIONS_MAIN>>END
+ 236          
 
- 234   1        unsigned char mmm;
- 235   1        for (mmm=0;mmm<mm+1;mmm++)
- 236   1        {
- 237   2            delayms();
- 238   2        }
- 239   1      }
- 240          void delayms()
- 241          {
- 242   1        unsigned char ii, jj, kk;
- 243   1      
- 244   1        _nop_();
- 245   1        _nop_();
- 246   1        ii = 5;
- 247   1        jj = 52;
- 248   1        kk = 195;
- 249   1        do
- 250   1        {
- 251   2          do
- 252   2          {
- 253   3            while (--kk);
- 254   3          } while (--jj);
- 255   2        } while (--ii);
- 256   1      }
- 257          void beep(){
- 258   1          buzzer = 1; // on
- 259   1          delay(400);
- 260   1          buzzer = 0;
- 261   1      }
- 262          void delay(uchar xx){
- 263   1          unsigned char zx,xz;
- 264   1          for (xz=0;xz<xx;xz++){
- 265   2              for (zx=0;zx<120;zx++){}
- 266   2          }
- 267   1      }
- 268          //FUNCTIONS_MAIN>>END
- 269          
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  7 ERROR(S)
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    452    ----
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 13:09:47 PAGE 5   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     60       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
