@@ -12,6 +12,8 @@ digdelay = 10;
 levelsdelay= 600;
 sbit digdef = P2^6;
 sbit segdef = P2^7;
+
+/*
 segnone = 0xff;
 seg1 = 0xfe;
 seg2 = 0xfd;
@@ -30,6 +32,8 @@ dig7 = 0x07;
 dig8 = 0x7f;
 dig9 = 0x6f;
 dig0 = 0x3f;
+*/
+
 led1 = 0xfe;
 led2 = 0xfd;
 led3 = 0xfb;
@@ -62,14 +66,7 @@ void levels(uchar lvl);
 void levelauto();
 void levelsauto();
 void led(uchar ld);
-void segment(uchar k);
-void segment0();
-void segment1();
-void segment2();
-void segment3();
-void segment4();
-void segment5();
-void segment6();
+void xsegment(uchar xseg);
 void digit(uchar dt);
 void digit1();
 void digit2();
@@ -105,17 +102,7 @@ void led(uchar ld)
         if (ld == 21){P1 = halfon1;}
         if (ld == 22){P1 = halfon2;}
 }
-void segment(uchar k)
-{   
-        if (k == 0){segment0();}
-        if (k == 1){segment1();}
-        if (k == 2){segment2();}
-        if (k == 3){segment3();}
-        if (k == 4){segment4();}
-        if (k == 5){segment5();}
-        if (k == 6){segment6();}
 
-}
 void digit(uchar dt)
 {   
         if (dt == 1){digit1();}
@@ -135,100 +122,80 @@ void digit(uchar dt)
 
 void xsegment(uchar xseg)
 {
-segdef = 1;
 switch(xseg)
 		{
 			case 0:
-				P0 = segnone;
+				P0 = 0xff; //segnone = 0xff;
 				break;
 			case 1:
-				P0 = seg1;
+				P0 = 0xfe; //seg1 = 0xfe;
 				break;
 			case 2:
-				P0 = seg2;
+				P0 = 0xfd; //seg2 = 0xfd;
 				break;
 			case 3:
-				P0 = seg3;
+				P0 = 0xfb; //seg3 = 0xfb;
 				break;
 			case 4:
-				P0 = seg4;
+				P0 = 0xf7; //seg4 = 0xf7;
 				break;
 			case 5:
-				P0 = seg5;
+				P0 = 0xef; //seg5 = 0xef;
 				break;
 			case 6:
-				P0 = seg6;
+				P0 = 0xdf; //seg6 = 0xdf;
 				break;
+            case 11:
+                P0 = 0x00; // segall = 0x00;
+
 			default:
 				segdef = 0;
 				return;
     }
 delay(segdelay);
+segdef = 1;
 segdef = 0;
 }
 
+void xdigit(uchar xdig)
+{
+switch(xdig)
+{
+    case 0:
+        P0 = 0x3f; //dig0 = 0x3f;
+        break;
+    case 1:
+        P0 = 0x06; //dig1 = 0x06;
+        break;
+    case 2:
+        P0 = 0x5b; //dig2 = 0x5b;
+        break; 
+    case 3:
+        P0 = 0x4f; //dig3 = 0x4f;
+        break;
+    case 4:
+        P0 = 0x66; //dig4 = 0x66;
+        break;
+    case 5:
+        P0 = 0x6d; //dig5 = 0x6d;
+        break;
+    case 6:
+        P0 = 0x7d; //dig6 = 0x7d;
+        break;
+    case 7:
+        P0 = 0x07; //dig7 = 0x07;
+        break;
+    case 8:
+        P0 = 0x7f; //dig8 = 0x7f;
+        break;
+    case 9:
+        P0 = 0x6f; //dig9 = 0x6f;
+        break;
+    default:
+        return;
+}
+}
 
-void digit1(){
-    P0 = dig1;
-    digdef = 1;
-    digdef = 0;
-    delay(digdelay);
-}
-void digit2(){
-    digdef = 1;
-    P0 = dig2;
-    digdef = 0;
-    delay(digdelay);
-}
-
-void digit3(){
-    digdef = 1;
-    P0 = dig3;
-    digdef = 0;
-    delay(digdelay);
-}
-void digit4(){
-    digdef = 1;
-    P0 = dig4;
-    digdef = 0;
-    delay(digdelay);
-}
-void digit5(){
-    digdef = 1;
-    P0 = dig5;
-    digdef = 0;
-    delay(digdelay);
-}
-void digit6(){
-    digdef = 1;
-    P0 = dig6;
-    digdef = 0;
-    delay(digdelay);
-}
-void digit7(){
-    digdef = 1;
-    P0 = dig7;
-    digdef = 0;
-    delay(digdelay);
-}
-void digit8(){
-    digdef = 1;
-    P0 = dig8;
-    digdef = 0;
-    delay(digdelay);
-}
-void digit9(){
-    digdef = 1;
-    P0 = dig9;
-    digdef = 0;
-    delay(digdelay);
-}
-void digit0(){
-    digdef = 1;
-    P0 = dig0;
-    digdef = 0;
-    delay(digdelay);
-}
 void seconds(uchar mm)
 {
   unsigned char mmm;
