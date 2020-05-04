@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 00:19:28 PAGE 1   
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 11:31:48 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE PAULOBETA
@@ -62,7 +62,7 @@ line level    source
   52          level1 = 0x7f;
   53          level0 = 0xff;
   54          red = 0xfc;
-C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 00:19:28 PAGE 2   
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 11:31:48 PAGE 2   
 
   55          green = 0xf3;
   56          yellow = 0xcf;
@@ -126,7 +126,7 @@ line level    source
  114   1              if (k == 4){segment4();}
  115   1              if (k == 5){segment5();}
  116   1              if (k == 6){segment6();}
-C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 00:19:28 PAGE 3   
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 11:31:48 PAGE 3   
 
  117   1      
  118   1      }
@@ -144,165 +144,153 @@ line level    source
  130   1              if (dt == 0){digit0();}
  131   1      }
  132          
- 133          void segment0(){
- 134   1          P0 = segnone;
- 135   1          segdef = 1;
- 136   1        segdef = 0;
- 137   1          delay(segdelay);
- 138   1      }
- 139          
- 140          void segment1(){
- 141   1          P0 = seg1;
- 142   1          segdef = 1;
- 143   1        segdef = 0;
- 144   1          delay(segdelay);
- 145   1      }
- 146          void segment2(){
- 147   1          P0 = seg2;
- 148   1          segdef = 1;
- 149   1        segdef = 0;
- 150   1          delay(segdelay);
- 151   1      }
- 152          void segment3(){
- 153   1          P0 = seg3;
- 154   1          segdef = 1;
- 155   1        segdef = 0;
- 156   1          delay(segdelay);
- 157   1      }
- 158          void segment4(){
- 159   1          P0 = seg4;
- 160   1          segdef = 1;
- 161   1        segdef = 0;
- 162   1          delay(segdelay);
- 163   1      }
- 164          void segment5(){
- 165   1          P0 = seg5;
- 166   1          segdef = 1;
- 167   1        segdef = 0;
- 168   1          delay(segdelay);
- 169   1      }
- 170          void segment6(){
- 171   1          P0 = seg6;
- 172   1          segdef = 1;
- 173   1        segdef = 0;
- 174   1          delay(segdelay);
- 175   1      }
- 176          
- 177          
- 178          void digit1(){
-C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 00:19:28 PAGE 4   
+ 133          
+ 134          
+ 135          
+ 136          void xsegment(uchar xseg)
+ 137          {
+ 138   1      segdef = 1;
+ 139   1      switch(xseg)
+ 140   1          {
+ 141   2            case 0;
+*** ERROR C141 IN LINE 141 OF paulobeta.c: syntax error near ';', expected ':'
+ 142   2              P0 = segnone;
+ 143   2              break;
+ 144   2            case 1;
+*** ERROR C141 IN LINE 144 OF paulobeta.c: syntax error near ';', expected ':'
+ 145   2              P0 = seg1;
+ 146   2              break;
+ 147   2            case 2;
+*** ERROR C141 IN LINE 147 OF paulobeta.c: syntax error near ';', expected ':'
+ 148   2              P0 = seg2;
+ 149   2              break;
+ 150   2            case 3;
+*** ERROR C141 IN LINE 150 OF paulobeta.c: syntax error near ';', expected ':'
+ 151   2              P0 = seg3;
+ 152   2              break;
+ 153   2            case 4;
+*** ERROR C141 IN LINE 153 OF paulobeta.c: syntax error near ';', expected ':'
+ 154   2              P0 = seg4;
+ 155   2              break;
+ 156   2            case 5;
+*** ERROR C141 IN LINE 156 OF paulobeta.c: syntax error near ';', expected ':'
+ 157   2              P0 = seg5;
+ 158   2              break;
+ 159   2            case 6;
+*** ERROR C141 IN LINE 159 OF paulobeta.c: syntax error near ';', expected ':'
+ 160   2              P0 = seg6;
+ 161   2              break;
+ 162   2            default:
+ 163   2              segdef = 0;
+ 164   2              return;
+ 165   2          }
+ 166   1      delay(segdelay);
+ 167   1      segdef = 0;
+ 168   1      }
+ 169          
+ 170          
+ 171          void digit1(){
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 11:31:48 PAGE 4   
 
- 179   1          P0 = dig1;
- 180   1          digdef = 1;
- 181   1          digdef = 0;
- 182   1          delay(digdelay);
- 183   1      }
- 184          void digit2(){
+ 172   1          P0 = dig1;
+ 173   1          digdef = 1;
+ 174   1          digdef = 0;
+ 175   1          delay(digdelay);
+ 176   1      }
+ 177          void digit2(){
+ 178   1          digdef = 1;
+ 179   1          P0 = dig2;
+ 180   1          digdef = 0;
+ 181   1          delay(digdelay);
+ 182   1      }
+ 183          
+ 184          void digit3(){
  185   1          digdef = 1;
- 186   1          P0 = dig2;
+ 186   1          P0 = dig3;
  187   1          digdef = 0;
  188   1          delay(digdelay);
  189   1      }
- 190          
- 191          void digit3(){
- 192   1          digdef = 1;
- 193   1          P0 = dig3;
- 194   1          digdef = 0;
- 195   1          delay(digdelay);
- 196   1      }
- 197          void digit4(){
- 198   1          digdef = 1;
- 199   1          P0 = dig4;
- 200   1          digdef = 0;
- 201   1          delay(digdelay);
- 202   1      }
- 203          void digit5(){
- 204   1          digdef = 1;
- 205   1          P0 = dig5;
- 206   1          digdef = 0;
- 207   1          delay(digdelay);
- 208   1      }
- 209          void digit6(){
- 210   1          digdef = 1;
- 211   1          P0 = dig6;
- 212   1          digdef = 0;
- 213   1          delay(digdelay);
- 214   1      }
- 215          void digit7(){
- 216   1          digdef = 1;
- 217   1          P0 = dig7;
- 218   1          digdef = 0;
- 219   1          delay(digdelay);
- 220   1      }
- 221          void digit8(){
- 222   1          digdef = 1;
- 223   1          P0 = dig8;
- 224   1          digdef = 0;
- 225   1          delay(digdelay);
- 226   1      }
- 227          void digit9(){
- 228   1          digdef = 1;
- 229   1          P0 = dig9;
- 230   1          digdef = 0;
- 231   1          delay(digdelay);
- 232   1      }
- 233          void digit0(){
- 234   1          digdef = 1;
- 235   1          P0 = dig0;
- 236   1          digdef = 0;
- 237   1          delay(digdelay);
- 238   1      }
- 239          void seconds(uchar mm)
- 240          {
-C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 00:19:28 PAGE 5   
+ 190          void digit4(){
+ 191   1          digdef = 1;
+ 192   1          P0 = dig4;
+ 193   1          digdef = 0;
+ 194   1          delay(digdelay);
+ 195   1      }
+ 196          void digit5(){
+ 197   1          digdef = 1;
+ 198   1          P0 = dig5;
+ 199   1          digdef = 0;
+ 200   1          delay(digdelay);
+ 201   1      }
+ 202          void digit6(){
+ 203   1          digdef = 1;
+ 204   1          P0 = dig6;
+ 205   1          digdef = 0;
+ 206   1          delay(digdelay);
+ 207   1      }
+ 208          void digit7(){
+ 209   1          digdef = 1;
+ 210   1          P0 = dig7;
+ 211   1          digdef = 0;
+ 212   1          delay(digdelay);
+ 213   1      }
+ 214          void digit8(){
+ 215   1          digdef = 1;
+ 216   1          P0 = dig8;
+ 217   1          digdef = 0;
+ 218   1          delay(digdelay);
+ 219   1      }
+ 220          void digit9(){
+ 221   1          digdef = 1;
+ 222   1          P0 = dig9;
+ 223   1          digdef = 0;
+ 224   1          delay(digdelay);
+ 225   1      }
+ 226          void digit0(){
+ 227   1          digdef = 1;
+ 228   1          P0 = dig0;
+ 229   1          digdef = 0;
+ 230   1          delay(digdelay);
+ 231   1      }
+ 232          void seconds(uchar mm)
+ 233          {
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/04/2020 11:31:48 PAGE 5   
 
- 241   1        unsigned char mmm;
- 242   1        for (mmm=0;mmm<mm+1;mmm++)
- 243   1        {
- 244   2            delayms();
- 245   2        }
- 246   1      }
- 247          void delayms()
- 248          {
- 249   1        unsigned char ii, jj, kk;
- 250   1      
- 251   1        _nop_();
- 252   1        _nop_();
- 253   1        ii = 5;
- 254   1        jj = 52;
- 255   1        kk = 195;
- 256   1        do
- 257   1        {
- 258   2          do
- 259   2          {
- 260   3            while (--kk);
- 261   3          } while (--jj);
- 262   2        } while (--ii);
- 263   1      }
- 264          void beep(){
- 265   1          buzzer = 1; // on
- 266   1          delay(400);
- 267   1          buzzer = 0;
- 268   1      }
- 269          void delay(uchar xx){
- 270   1          unsigned char zx,xz;
- 271   1          for (xz=0;xz<xx;xz++){
- 272   2              for (zx=0;zx<120;zx++){}
- 273   2          }
- 274   1      }
- 275          //FUNCTIONS_MAIN>>END
- 276          
+ 234   1        unsigned char mmm;
+ 235   1        for (mmm=0;mmm<mm+1;mmm++)
+ 236   1        {
+ 237   2            delayms();
+ 238   2        }
+ 239   1      }
+ 240          void delayms()
+ 241          {
+ 242   1        unsigned char ii, jj, kk;
+ 243   1      
+ 244   1        _nop_();
+ 245   1        _nop_();
+ 246   1        ii = 5;
+ 247   1        jj = 52;
+ 248   1        kk = 195;
+ 249   1        do
+ 250   1        {
+ 251   2          do
+ 252   2          {
+ 253   3            while (--kk);
+ 254   3          } while (--jj);
+ 255   2        } while (--ii);
+ 256   1      }
+ 257          void beep(){
+ 258   1          buzzer = 1; // on
+ 259   1          delay(400);
+ 260   1          buzzer = 0;
+ 261   1      }
+ 262          void delay(uchar xx){
+ 263   1          unsigned char zx,xz;
+ 264   1          for (xz=0;xz<xx;xz++){
+ 265   2              for (zx=0;zx<120;zx++){}
+ 266   2          }
+ 267   1      }
+ 268          //FUNCTIONS_MAIN>>END
+ 269          
 
-
-MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    558    ----
-   CONSTANT SIZE    =   ----    ----
-   XDATA SIZE       =   ----    ----
-   PDATA SIZE       =   ----    ----
-   DATA SIZE        =     96       4
-   IDATA SIZE       =   ----    ----
-   BIT SIZE         =   ----    ----
-END OF MODULE INFORMATION.
-
-
-C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  7 ERROR(S)
