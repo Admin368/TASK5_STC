@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\PauloCalculator.obj",
+".\Objects\paulobeta.obj" 
+TO ".\Objects\PauloCalculator" 
+PRINT(".\Listings\PauloCalculator.m51") RAMSIZE(256) 
