@@ -138,25 +138,25 @@ void xsegment(uchar xseg)
 segdef = 1;
 switch(xseg)
 		{
-			case 0;
+			case 0:
 				P0 = segnone;
 				break;
-			case 1;
+			case 1:
 				P0 = seg1;
 				break;
-			case 2;
+			case 2:
 				P0 = seg2;
 				break;
-			case 3;
+			case 3:
 				P0 = seg3;
 				break;
-			case 4;
+			case 4:
 				P0 = seg4;
 				break;
-			case 5;
+			case 5:
 				P0 = seg5;
 				break;
-			case 6;
+			case 6:
 				P0 = seg6;
 				break;
 			default:
