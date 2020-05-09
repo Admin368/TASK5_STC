@@ -1,10 +1,10 @@
 #include <reg52.h>
-#include "paulobeta.c"
+#include "paulobetax.c"
 #define uchar unsigned char
 	
 //uchar columnCheck = 0xf0;
 //uchar rowCheck = 0x0f;
-uchar xdigit,digitx,xdigity,ans;
+uchar idigit;
 
 void changestate();
 void getkey();
@@ -12,7 +12,7 @@ void main(){
 while (1)
 	{
 		xsegment(1);
-		digit(1);
+		xdigit(1);
 	}
 }
 
@@ -30,52 +30,52 @@ void getkey()
 							{
 								case 0xee:									
 								  P1 = key;  // light LED
-									xdigit = 1;
+									idigit = 1;
 									changestate();
 									break;
 								case 0xde:									
 								  P1 = key;  // light LED
-									xdigit = 2;
+									idigit = 2;
 									changestate();
 									break;								
 								case 0xbe:									
 								  P1 = key;  // light LED
-								  xdigit = 3;
+								  idigit = 3;
 									changestate();
 									break;								
 								case 0x7e:									
 								  P1 = key;  // light LED
-									xdigit = 4;	
+									idigit = 4;	
 									changestate();
 									break;
 								case 0xed:									
 								  P1 = key;  // light LED
-									xdigit = 5;	
+									idigit = 5;	
 									changestate();
 									break;
 								case 0xdd:									
 								  P1 = key;  // light LED
-									xdigit = 6;	
+									idigit = 6;	
 									changestate();
 									break;								
 								case 0xbd:									
 								  P1 = key;  // light LED
-									xdigit = 7;	
+									idigit = 7;	
 									changestate();
 									break;								
 								case 0x7d:									
 								  P1 = key;  // light LED
-									xdigit = 8;	
+									idigit = 8;	
 									changestate();
 									break;									
 								case 0xeb:									
 								  P1 = key;  // light LED
-									xdigit = 9;	
+									idigit = 9;	
 									changestate();
 									break;
 								case 0xdb:									
 								  P1 = key;  // light LED
-									xdigit = 0;	
+									idigit = 0;	
 									changestate();
 									break;								
 								case 0xbb:									
@@ -104,7 +104,7 @@ void getkey()
 									break;								
 								default:
 									P1 = 0xff;// turn off
-									xdigit =0;
+									idigit =0;
 									
 							}
 						}

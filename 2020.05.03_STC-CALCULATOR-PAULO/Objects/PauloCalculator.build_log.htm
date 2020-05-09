@@ -19,25 +19,49 @@ CPU DLL:         S8051.DLL V3.122.0.0
 Dialog DLL:      DP51.DLL V2.67.0.0 
 <h2>Project:</h2>
 X:\Boardtest_X\_TASK5_BOARDTEST\TASK5_STC-github\2020.05.03_STC-CALCULATOR-PAULO\PauloCalculator.uvproj
-Project File Date:  05/03/2020
+Project File Date:  05/04/2020
 
 <h2>Output:</h2>
 Rebuild target 'Target 1'
 assembling STARTUP.A51...
-compiling PauloCalculator.c...
-PauloCalculator.c(7): error C231: '_xdigit': redefinition
-PauloCalculator.c(33): error C183: unmodifiable lvalue
-PauloCalculator.c(38): error C183: unmodifiable lvalue
-PauloCalculator.c(43): error C183: unmodifiable lvalue
-PauloCalculator.c(48): error C183: unmodifiable lvalue
-PauloCalculator.c(53): error C183: unmodifiable lvalue
-PauloCalculator.c(58): error C183: unmodifiable lvalue
-PauloCalculator.c(63): error C183: unmodifiable lvalue
-PauloCalculator.c(68): error C183: unmodifiable lvalue
-PauloCalculator.c(73): error C183: unmodifiable lvalue
-PauloCalculator.c(78): error C183: unmodifiable lvalue
-PauloCalculator.c(107): error C183: unmodifiable lvalue
-compiling paulobeta.c...
+compiling CalculatorPX.c...
+C:\Keil_v5\C51\Inc\paulobetax.h(117): warning C206: 'delayms': missing function-prototype
+compiling paulobetaX.c...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _XDIGIT
+    MODULE:  .\Objects\paulobetaX.obj (PAULOBETAX)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _XSEGMENT
+    MODULE:  .\Objects\paulobetaX.obj (PAULOBETAX)
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _XLED
+    MODULE:  .\Objects\paulobetaX.obj (PAULOBETAX)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XLED?CALCULATORPX
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XSEGMENT?CALCULATORPX
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XDIGIT?CALCULATORPX
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XSECONDS?CALCULATORPX
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?XDELAYMS?CALCULATORPX
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?XBEEP?CALCULATORPX
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CHANGESTATE?CALCULATORPX
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XLED?PAULOBETAX
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XSEGMENT?PAULOBETAX
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_XDIGIT?PAULOBETAX
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SECONDS?PAULOBETAX
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?BEEP?PAULOBETAX
+Program Size: data=18.0 xdata=0 code=913
 Target not created.
 Build Time Elapsed:  00:00:01
 </pre>

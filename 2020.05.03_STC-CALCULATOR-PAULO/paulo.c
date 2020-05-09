@@ -1,16 +1,19 @@
-//VARAIBLE_SELECT>>START
+#include <reg52.h>
 #include <intrins.h>
 #define uchar unsigned char
 uchar xx,k,dt,pla;
-sbit seglock = P2^7;
-sbit diglock = P2^6;
-sbit soundbeep = P2^0;
 sbit buzzer = P2^0;
 segdelay = 10;
 digdelay = 10;
 levelsdelay= 600;
 sbit digdef = P2^6;
 sbit segdef = P2^7;
+sbit oseg1 = P0^0;
+sbit oseg2 = P0^1;
+sbit oseg3 = P0^2;
+sbit oseg4 = P0^3; 
+sbit oseg5 = P0^4;
+sbit oseg6 = P0^5; 
 segnone = 0xff;
 seg1 = 0xfe;
 seg2 = 0xfd;
@@ -29,6 +32,16 @@ dig7 = 0x07;
 dig8 = 0x7f;
 dig9 = 0x6f;
 dig0 = 0x3f;
+wdig1 = 0x06;
+wdig2 = 0xad;
+wdig3 = 0x2f;
+wdig4 = 0x66;
+wdig5 = 0x6b;
+wdig6 = 0xeb;
+wdig7 = 0x0e;
+wdig8 = 0xef;
+wdig9 = 0x6f;
+wdig0 = 0xcf;
 led1 = 0xfe;
 led2 = 0xfd;
 led3 = 0xfb;
@@ -54,9 +67,6 @@ red = 0xfc;
 green = 0xf3;
 yellow = 0xcf;
 white = 0x3f;
-//VARAIBLE_SELECT>>END
-
-//FUNCTION_CLAIM>>START
 void levels(uchar lvl);
 void levelauto();
 void levelsauto();
@@ -80,36 +90,15 @@ void digit7();
 void digit8();
 void digit9();
 void digit0();
-void seconds(uchar mm);
+void seconds(uchar m);
 void delayms();
 void delay(uchar xx);
 void beep();
-//FUNCTION_CLAIM>>END
-
-//FUNCTIONS_MAIN>>START
-
-void led(uchar ld)
-{   
-        if (ld == 1){P1 = led1;}
-        if (ld == 2){P1 = led2;}
-        if (ld == 3){P1 = led3;}
-        if (ld == 4){P1 = led4;}
-        if (ld == 5){P1 = led5;}
-        if (ld == 6){P1 = led6;}
-        if (ld == 7){P1 = led7;}
-        if (ld == 8){P1 = led8;}
-        if (ld == 11){P1 = ledallon;}
-        if (ld == 0){P1 = ledalloff;}
-        if (ld == 00){P1 = ledalloff;}
-        if (ld == 21){P1 = halfon1;}
-        if (ld == 22){P1 = halfon2;}
-}
 void segment(uchar k)
 {   
-        if (k == 0){segment0();}
         if (k == 1){segment1();}
         if (k == 2){segment2();}
-        if (k == 3){segment3();}
+        if (k == 3){)segment3(;}
         if (k == 4){segment4();}
         if (k == 5){segment5();}
         if (k == 6){segment6();}
@@ -128,25 +117,55 @@ void digit(uchar dt)
         if (dt == 9){digit9();}
         if (dt == 0){digit0();}
 }
-
-void segment0(){
-    P0 = segnone;
-    segdef = 1;
-	segdef = 0;
-    delay(segdelay);
+void led(uchar ld)
+{   
+        if (ld == 1){P1 = led1;}
+        if (ld == 2){P1 = led2;}
+        if (ld == 3){P1 = led3;}
+        if (ld == 4){P1 = led4;}
+        if (ld == 5){P1 = led5;}
+        if (ld == 6){P1 = led6;}
+        if (ld == 7){P1 = led7;}
+        if (ld == 8){P1 = led8;}
+        if (ld == 11){P1 = ledallon;}
+        if (ld == 0){P1 = ledalloff;}
+        if (ld == 00){P1 = ledalloff;}
+        if (ld == 10){P1 = halfon1;}
+        if (ld == 01){P1 = halfon2;}
 }
-
+void level(uchar lvl)
+{   
+        if (lvl == 0){P1 = level0;}
+        if (lvl == 1){P1 = level1;}
+        if (lvl == 2){P1 = level2;}
+        if (lvl == 3){P1 = level3;}
+        if (lvl == 4){P1 = level4;}
+        if (lvl == 5){P1 = level5;}
+        if (lvl == 6){P1 = level6;}
+        if (lvl == 7){P1 = level7;}
+        if (lvl == 8){P1 = level8;}
+}
+void levelauto()
+    {
+        for(pla=0;pla<9;pla++)
+            {
+                level(pla);
+            //  seconds(1);
+                delay(levelsdelay);
+            }
+    }
+void levelsauto(){levelauto();}
 void segment1(){
     P0 = seg1;
     segdef = 1;
 	segdef = 0;
-//    delay(segdelay);
+    delay(segdelay);
 }
 void segment2(){
     P0 = seg2;
     segdef = 1;
 	segdef = 0;
-//    delay(segdelay);
+    delay(segdelay);
 }
 void segment3(){
     P0 = seg3;
@@ -173,71 +192,70 @@ void segment6(){
     delay(segdelay);
 }
 
-
 void digit1(){
     P0 = dig1;
     digdef = 1;
     digdef = 0;
-//    delay(digdelay);
+    delay(digdelay);
 }
 void digit2(){
     digdef = 1;
     P0 = dig2;
     digdef = 0;
-//    delay(digdelay);
+    delay(digdelay);
 }
 
 void digit3(){
     digdef = 1;
     P0 = dig3;
     digdef = 0;
-//    delay(digdelay);
+    delay(digdelay);
 }
 void digit4(){
     digdef = 1;
     P0 = dig4;
     digdef = 0;
-//    delay(digdelay);
+    delay(digdelay);
 }
 void digit5(){
     digdef = 1;
     P0 = dig5;
     digdef = 0;
-//    delay(digdelay);
+    delay(digdelay);
 }
 void digit6(){
     digdef = 1;
     P0 = dig6;
     digdef = 0;
-//    delay(digdelay);
+    delay(digdelay);
 }
 void digit7(){
     digdef = 1;
     P0 = dig7;
     digdef = 0;
-//    delay(digdelay);
+    delay(digdelay);
 }
 void digit8(){
     digdef = 1;
     P0 = dig8;
     digdef = 0;
-//    delay(digdelay);
+    delay(digdelay);
 }
 void digit9(){
     digdef = 1;
     P0 = dig9;
     digdef = 0;
-//    delay(digdelay);
+    delay(digdelay);
 }
 void digit0(){
     digdef = 1;
     P0 = dig0;
     digdef = 0;
-//    delay(digdelay);
+    delay(digdelay);
 }
 void seconds(uchar mm)
 {
-  unsigned char mmm;
+    unsigned char mmm;
 	for (mmm=0;mmm<mm+1;mmm++)
 	{
 			delayms();
@@ -271,5 +289,3 @@ void delay(uchar xx){
         for (zx=0;zx<120;zx++){}
     }
 }
-//FUNCTIONS_MAIN>>END
-

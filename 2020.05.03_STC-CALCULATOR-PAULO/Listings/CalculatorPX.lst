@@ -1,0 +1,45 @@
+C51 COMPILER V9.60.0.0   CALCULATORPX                                                      05/06/2020 00:53:29 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE CALCULATORPX
+OBJECT MODULE PLACED IN .\Objects\CalculatorPX.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE CalculatorPX.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\CalculatorPX.lst) TABS(2) OBJECT(.\Objects\CalculatorPX.obj)
+
+line level    source
+
+   1          //#include <reg52.h>
+   2          #include "paulobetax.h"
+*** WARNING C206 IN LINE 117 OF C:\Keil_v5\C51\Inc\paulobetax.h: 'delayms': missing function-prototype
+   3          //#define uchar unsigned char
+   4            
+   5          //uchar columnCheck = 0xf0;
+   6          //uchar rowCheck = 0x0f;
+   7          //uchar idigit;
+   8          
+   9          void changestate();
+  10          void main(){
+  11   1      while (1)
+  12   1        {
+  13   2          P1 = 0xfe;
+  14   2        }
+  15   1      }
+  16          
+  17          
+  18          void changestate(){
+  19   1      uchar paul = 1;
+  20   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    383    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

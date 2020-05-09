@@ -382,14 +382,14 @@
               <FilePath>.\STARTUP.A51</FilePath>
             </File>
             <File>
-              <FileName>PauloCalculator.c</FileName>
+              <FileName>CalculatorPX.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\PauloCalculator.c</FilePath>
+              <FilePath>.\CalculatorPX.c</FilePath>
             </File>
             <File>
-              <FileName>paulobeta.c</FileName>
+              <FileName>paulobetaX.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\paulobeta.c</FilePath>
+              <FilePath>.\paulobetaX.c</FilePath>
             </File>
           </Files>
         </Group>
