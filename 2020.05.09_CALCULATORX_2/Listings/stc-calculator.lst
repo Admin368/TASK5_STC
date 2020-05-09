@@ -1,0 +1,188 @@
+C51 COMPILER V9.60.0.0   STC_CALCULATOR                                                    05/09/2020 23:27:11 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE STC_CALCULATOR
+OBJECT MODULE PLACED IN .\Objects\stc-calculator.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE stc-calculator.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Lis
+                    -tings\stc-calculator.lst) TABS(2) OBJECT(.\Objects\stc-calculator.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include "paulobetax.h"
+*** WARNING C206 IN LINE 117 OF C:\Keil_v5\C51\Inc\paulobetax.h: 'delayms': missing function-prototype
+   3          #define uchar unsigned char
+   4            
+   5          sbit buzzer_ = P2^3;
+   6          //<Declaire_Variables>//
+   7          uchar state = 0;
+   8          uchar inputx = 4;
+   9          uchar inputy = 0;
+  10          uchar effector = '+';
+  11          uchar result = 0;
+  12          
+  13          //<Declare_Functions>//
+  14          void getdigit();
+  15          void display();
+  16          void changestate();
+  17          void calculate();
+  18          
+  19          //<Functions>/////////
+  20          void main(){
+  21   1        buzzer_ = 1;
+  22   1        P3 = 0xf0;
+  23   1        while (1){
+  24   2            //getdigit();
+  25   2            //calculate();
+  26   2            //display();
+  27   2          
+  28   2          if(P3!=0xf0)
+  29   2          {
+  30   3            buzzer_= 0;
+  31   3            while(P3 != 0xf0);
+  32   3            buzzer_ = 1;
+  33   3          }
+  34   2          
+  35   2          
+  36   2        }
+  37   1      
+  38   1      }
+  39          void getdigit(){
+  40   1        uchar button = 0;
+  41   1        uchar input = 0;
+  42   1        xled(01);
+  43   1        if (P3 != 0xff){      //checking button press 
+  44   2          
+  45   2        
+  46   2          while(P3 != 0xff){    //verifying button press 
+  47   3            
+  48   3            while(state==0){
+  49   4              button = P3;
+  50   4              switch(button){
+  51   5                      case 0xee:                  
+  52   5                        xled(11);
+  53   5                        input = 1;
+C51 COMPILER V9.60.0.0   STC_CALCULATOR                                                    05/09/2020 23:27:11 PAGE 2   
+
+  54   5                        changestate();
+  55   5                        break;
+  56   5                      case 0xde:                  
+  57   5                        xled(11);
+  58   5                        input = 2;
+  59   5                        changestate();
+  60   5                        break;                
+  61   5                      case 0xbe:                  
+  62   5                        xled(11);
+  63   5                        input = 3;
+  64   5                        changestate();
+  65   5                        break;                
+  66   5                      case 0x7e:                  
+  67   5                        xled(11);
+  68   5                        input = 4;  
+  69   5                        changestate();
+  70   5                        break;
+  71   5                      case 0xed:                  
+  72   5                        xled(11);
+  73   5                        input = 5;  
+  74   5                        changestate();
+  75   5                        break;
+  76   5                      case 0xdd:                  
+  77   5                        xled(11);
+  78   5                        input = 6;  
+  79   5                        changestate();
+  80   5                        break;                
+  81   5                      case 0xbd:                  
+  82   5                        xled(11);
+  83   5                        input = 7;  
+  84   5                        changestate();
+  85   5                        break;                
+  86   5                      case 0x7d:                  
+  87   5                        xled(11);
+  88   5                        input = 8;  
+  89   5                        changestate();
+  90   5                        break;                  
+  91   5                      case 0xeb:                  
+  92   5                        xled(11);
+  93   5                        input = 9;  
+  94   5                        changestate();
+  95   5                        break;
+  96   5                      case 0xdb:                  
+  97   5                        xled(11);
+  98   5                        input = 0;  
+  99   5                        changestate();
+ 100   5                        break;                
+ 101   5                      case 0xbb:                  
+ 102   5                          xled(11);
+ 103   5                        changestate();
+ 104   5                        break;                
+ 105   5                      case 0x7b:                  
+ 106   5                          xled(11);
+ 107   5                        changestate();
+ 108   5                        break;
+ 109   5                      case 0xe7:                  
+ 110   5                          xled(11);
+ 111   5                        changestate();
+ 112   5                        break;
+ 113   5                      case 0xd7:                  
+ 114   5                          xled(11);
+ 115   5                        changestate();
+C51 COMPILER V9.60.0.0   STC_CALCULATOR                                                    05/09/2020 23:27:11 PAGE 3   
+
+ 116   5                        break;                
+ 117   5                      case 0xb7:                  
+ 118   5                          xled(11);
+ 119   5                        changestate();
+ 120   5                        break;                
+ 121   5                      case 0x77:                  
+ 122   5                          xled(11);
+ 123   5                        changestate();
+ 124   5                        break;                
+ 125   5                      default:
+ 126   5                        P1 = 0xff;// turn off
+ 127   5                        input =0;
+ 128   5                        
+ 129   5                    }
+ 130   4            }
+ 131   3          }
+ 132   2          if (state == 0){inputx = input;}
+ 133   2          if (state == 2){inputy = input;}
+ 134   2        }
+ 135   1        P3 = 0xff;
+ 136   1          //
+ 137   1      }
+ 138          void display(){
+ 139   1        while (state==0){
+ 140   2      //  while ((state==0) || (state==2)){
+ 141   2          xsegment(1);
+ 142   2          xdigit(inputx);
+ 143   2      /*
+ 144   2          xdelay(10);
+ 145   2          xsegment(6);
+ 146   2          xdigit(inputy);
+ 147   2          xdelay(10);
+ 148   2      */
+ 149   2        }
+ 150   1      }
+ 151          void changestate(){
+ 152   1        state = state+1;
+ 153   1        if (state==4){state = 0;}
+ 154   1      }
+ 155          void calculate(){
+ 156   1        while(state==3){
+ 157   2          break;
+ 158   2          }
+ 159   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    670    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      7       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

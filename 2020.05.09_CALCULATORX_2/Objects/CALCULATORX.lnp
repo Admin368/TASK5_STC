@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\stc-calculator.obj" 
+TO ".\Objects\CALCULATORX" 
+PRINT(".\Listings\CALCULATORX.m51") RAMSIZE(256) 
