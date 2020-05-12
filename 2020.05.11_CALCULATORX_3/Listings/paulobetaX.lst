@@ -1,0 +1,175 @@
+C51 COMPILER V9.60.0.0   PAULOBETAX                                                        05/11/2020 06:03:58 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE PAULOBETAX
+OBJECT MODULE PLACED IN .\Objects\paulobetaX.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\_OwnMadeStcHeaderFiles\paulobetaX.c OPTIMIZE(8,SPEED) BROWSE DEBUG OB
+                    -JECTEXTEND PRINT(.\Listings\paulobetaX.lst) TABS(2) OBJECT(.\Objects\paulobetaX.obj)
+
+line level    source
+
+   1          //VARAIBLE_SELECT>>START
+   2          #include <reg52.h>
+   3          #include <intrins.h>
+   4          #define uchar unsigned char
+   5          sbit seglock = P2^7;
+   6          sbit segdef = P2^7;
+   7          sbit diglock = P2^6;
+   8          sbit digdef = P2^6;
+   9          sbit buzzer = P2^0;
+  10          uchar xsegdelay = 10;
+  11          uchar xdigdelay = 10;
+  12          void xled(uchar ld);
+  13          void xsegment(uchar xseg);
+  14          void xdigit(uchar xdig);
+  15          void seconds(uchar mm);
+  16          void xdelayms();
+  17          void xdelay(uchar xx);
+  18          void xbeep();
+  19          //FUNCTION_CLAIM>>END
+  20          
+  21          //FUNCTIONS_MAIN>>START
+  22          
+  23          void xled(uchar ld){   
+  24   1              if (ld == 1){P1 = 0xfe;} //led1 = 0xfe;
+  25   1              if (ld == 2){P1 = 0xfd;} //led2 = 0xfd;
+  26   1              if (ld == 3){P1 = 0xfb;} //led3 = 0xfb;
+  27   1              if (ld == 4){P1 = 0xf7;} //led4 = 0xf7;
+  28   1              if (ld == 5){P1 = 0xef;} //led5 = 0xef;
+  29   1              if (ld == 6){P1 = 0xdf;} //led6 = 0xdf;
+  30   1              if (ld == 7){P1 = 0xbf;} //led7 = 0xbf;
+  31   1              if (ld == 8){P1 = 0x7f;} //led8 = 0x7f;
+  32   1              if (ld == 0){P1 = 0xff;} //ledalloff = 0xff;
+  33   1              if (ld == 00){P1 = 0xff;} //ledalloff = 0xff;
+  34   1              if (ld == 11){P1 = 0x00;} //ledallon = 0x00;
+  35   1              if (ld == 21){P1 = 0x0f;} //halfon1 = 0x0f;
+  36   1              if (ld == 22){P1 = 0x0f;} //halfon2 = 0x0f;
+  37   1      }
+  38          void xsegment(uchar xseg){
+  39   1          switch(xseg)
+  40   1          {
+  41   2            case 0:
+  42   2              P0 = 0xff; //segnone = 0xff;
+  43   2              break;
+  44   2            case 1:
+  45   2              P0 = 0xfe; //seg1 = 0xfe;
+  46   2              break;
+  47   2            case 2:
+  48   2              P0 = 0xfd; //seg2 = 0xfd;
+  49   2              break;
+  50   2            case 3:
+  51   2              P0 = 0xfb; //seg3 = 0xfb;
+  52   2              break;
+  53   2            case 4:
+  54   2              P0 = 0xf7; //seg4 = 0xf7;
+C51 COMPILER V9.60.0.0   PAULOBETAX                                                        05/11/2020 06:03:58 PAGE 2   
+
+  55   2              break;
+  56   2            case 5:
+  57   2              P0 = 0xef; //seg5 = 0xef;
+  58   2              break;
+  59   2            case 6:
+  60   2              P0 = 0xdf; //seg6 = 0xdf;
+  61   2              break;
+  62   2                  case 11:
+  63   2                      P0 = 0x00; // segall = 0x00;
+  64   2      
+  65   2            default:
+  66   2              segdef = 0;
+  67   2              return;
+  68   2              }
+  69   1          xdelay(xsegdelay);
+  70   1          segdef = 1;
+  71   1          segdef = 0;
+  72   1      }
+  73          void xdigit(uchar xdig){
+  74   1          switch(xdig)
+  75   1              {  
+  76   2                  case 0:
+  77   2                      P0 = 0x3f; //dig0 = 0x3f;
+  78   2                      break;
+  79   2                  case 1:
+  80   2                      P0 = 0x06; //dig1 = 0x06;
+  81   2                      break;
+  82   2                  case 2:
+  83   2                      P0 = 0x5b; //dig2 = 0x5b;
+  84   2                      break; 
+  85   2                  case 3:
+  86   2                      P0 = 0x4f; //dig3 = 0x4f;
+  87   2                      break;
+  88   2                  case 4:
+  89   2                      P0 = 0x66; //dig4 = 0x66;
+  90   2                      break;
+  91   2                  case 5: 
+  92   2                      P0 = 0x6d; //dig5 = 0x6d;
+  93   2                      break;
+  94   2                  case 6:
+  95   2                      P0 = 0x7d; //dig6 = 0x7d;
+  96   2                      break;
+  97   2                  case 7:
+  98   2                      P0 = 0x07; //dig7 = 0x07;
+  99   2                      break;
+ 100   2                  case 8:
+ 101   2                      P0 = 0x7f; //dig8 = 0x7f;
+ 102   2                      break;
+ 103   2                  case 9:
+ 104   2                      P0 = 0x6f; //dig9 = 0x6f;
+ 105   2                      break;
+ 106   2                  default:
+ 107   2                      return;
+ 108   2              }
+ 109   1          digdef = 1;
+ 110   1          digdef = 0;
+ 111   1      //    delay(xdigdelay);
+ 112   1      }
+ 113          void xseconds(uchar mm){
+ 114   1          uchar mmm;
+ 115   1        for (mmm=0;mmm<mm+1;mmm++)
+ 116   1        {
+C51 COMPILER V9.60.0.0   PAULOBETAX                                                        05/11/2020 06:03:58 PAGE 3   
+
+ 117   2            xdelayms();
+ 118   2        }
+ 119   1      }
+ 120          void xdelayms(){
+ 121   1          uchar ii,jj,kk;
+ 122   1        _nop_();
+ 123   1        _nop_();
+ 124   1        ii = 5;
+ 125   1        jj = 52;
+ 126   1        kk = 195;
+ 127   1        do
+ 128   1        {
+ 129   2          do
+ 130   2          {
+ 131   3            while (--kk);
+ 132   3          } while (--jj);
+ 133   2        } while (--ii);
+ 134   1      }
+ 135          void xbeep(){
+ 136   1          buzzer = 1; // on
+ 137   1          xdelay(400);
+ 138   1          buzzer = 0;
+ 139   1      }
+ 140          void xdelay(uchar xx){
+ 141   1          uchar xz,zx;
+ 142   1          for (xz=0;xz<xx;xz++){
+ 143   2              for (zx=0;zx<120;zx++){}
+ 144   2          }
+ 145   1      }
+ 146          //FUNCTIONS_MAIN>>END
+ 147          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    374    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

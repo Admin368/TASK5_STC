@@ -1,0 +1,369 @@
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/11/2020 06:04:37 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE PAULOBETA
+OBJECT MODULE PLACED IN .\Objects\paulobeta.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\_OwnMadeStcHeaderFiles\paulobeta.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJ
+                    -ECTEXTEND PRINT(.\Listings\paulobeta.lst) TABS(2) OBJECT(.\Objects\paulobeta.obj)
+
+line level    source
+
+   1          //VARAIBLE_SELECT>>START
+   2          #include <intrins.h>
+   3          #define uchar unsigned char
+   4          uchar xx,k,dt,pla;
+   5          sbit seglock = P2^7;
+*** ERROR C202 IN LINE 5 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P2': undefined identifier
+   6          sbit diglock = P2^6;
+*** ERROR C202 IN LINE 6 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P2': undefined identifier
+   7          sbit soundbeep = P2^0;
+*** ERROR C202 IN LINE 7 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P2': undefined identifier
+   8          sbit buzzer = P2^0;
+*** ERROR C202 IN LINE 8 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P2': undefined identifier
+   9          segdelay = 10;
+  10          digdelay = 10;
+  11          levelsdelay= 600;
+  12          sbit digdef = P2^6;
+*** ERROR C202 IN LINE 12 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P2': undefined identifier
+  13          sbit segdef = P2^7;
+*** ERROR C202 IN LINE 13 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P2': undefined identifier
+  14          segnone = 0xff;
+  15          seg1 = 0xfe;
+  16          seg2 = 0xfd;
+  17          seg3 = 0xfb;
+  18          seg4 = 0xf7;
+  19          seg5 = 0xef;
+  20          seg6 = 0xdf;
+  21          segall = 0x00;
+  22          dig1 = 0x06;
+  23          dig2 = 0x5b;
+  24          dig3 = 0x4f;
+  25          dig4 = 0x66;
+  26          dig5 = 0x6d;
+  27          dig6 = 0x7d;
+  28          dig7 = 0x07;
+  29          dig8 = 0x7f;
+  30          dig9 = 0x6f;
+  31          dig0 = 0x3f;
+  32          led1 = 0xfe;
+  33          led2 = 0xfd;
+  34          led3 = 0xfb;
+  35          led4 = 0xf7;
+  36          led5 = 0xef;
+  37          led6 = 0xdf;
+  38          led7 = 0xbf;
+  39          led8 = 0x7f;
+  40          ledallon = 0x00;
+  41          ledalloff = 0xff;
+  42          halfon1 = 0x0f;
+  43          halfon2 = 0xf0;
+  44          level8 = 0x00;
+  45          level7 = 0x01;
+  46          level6 = 0x03;
+  47          level5 = 0x07;
+  48          level4 = 0x0f;
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/11/2020 06:04:37 PAGE 2   
+
+  49          level3 = 0x1f;
+  50          level2 = 0x3f;
+  51          level1 = 0x7f;
+  52          level0 = 0xff;
+  53          red = 0xfc;
+  54          green = 0xf3;
+  55          yellow = 0xcf;
+  56          white = 0x3f;
+  57          //VARAIBLE_SELECT>>END
+  58          
+  59          //FUNCTION_CLAIM>>START
+  60          void levels(uchar lvl);
+  61          void levelauto();
+  62          void levelsauto();
+  63          void led(uchar ld);
+  64          void segment(uchar k);
+  65          void segment0();
+  66          void segment1();
+  67          void segment2();
+  68          void segment3();
+  69          void segment4();
+  70          void segment5();
+  71          void segment6();
+  72          void digit(uchar dt);
+  73          void digit1();
+  74          void digit2();
+  75          void digit3();
+  76          void digit4();
+  77          void digit5();
+  78          void digit6();
+  79          void digit7();
+  80          void digit8();
+  81          void digit9();
+  82          void digit0();
+  83          void seconds(uchar mm);
+  84          void delayms();
+  85          void delay(uchar xx);
+  86          void beep();
+  87          //FUNCTION_CLAIM>>END
+  88          
+  89          //FUNCTIONS_MAIN>>START
+  90          
+  91          void led(uchar ld)
+  92          {   
+  93   1              if (ld == 1){P1 = led1;}
+*** ERROR C202 IN LINE 93 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P1': undefined identifier
+  94   1              if (ld == 2){P1 = led2;}
+*** ERROR C202 IN LINE 94 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P1': undefined identifier
+  95   1              if (ld == 3){P1 = led3;}
+*** ERROR C202 IN LINE 95 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P1': undefined identifier
+  96   1              if (ld == 4){P1 = led4;}
+*** ERROR C202 IN LINE 96 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P1': undefined identifier
+  97   1              if (ld == 5){P1 = led5;}
+*** ERROR C202 IN LINE 97 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P1': undefined identifier
+  98   1              if (ld == 6){P1 = led6;}
+*** ERROR C202 IN LINE 98 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P1': undefined identifier
+  99   1              if (ld == 7){P1 = led7;}
+*** ERROR C202 IN LINE 99 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P1': undefined identifier
+ 100   1              if (ld == 8){P1 = led8;}
+*** ERROR C202 IN LINE 100 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P1': undefined identifier
+ 101   1              if (ld == 11){P1 = ledallon;}
+*** ERROR C202 IN LINE 101 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P1': undefined identifier
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/11/2020 06:04:37 PAGE 3   
+
+ 102   1              if (ld == 0){P1 = ledalloff;}
+*** ERROR C202 IN LINE 102 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P1': undefined identifier
+ 103   1              if (ld == 00){P1 = ledalloff;}
+*** ERROR C202 IN LINE 103 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P1': undefined identifier
+ 104   1              if (ld == 21){P1 = halfon1;}
+*** ERROR C202 IN LINE 104 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P1': undefined identifier
+ 105   1              if (ld == 22){P1 = halfon2;}
+*** ERROR C202 IN LINE 105 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P1': undefined identifier
+ 106   1      }
+ 107          void segment(uchar k)
+ 108          {   
+ 109   1              if (k == 0){segment0();}
+ 110   1              if (k == 1){segment1();}
+ 111   1              if (k == 2){segment2();}
+ 112   1              if (k == 3){segment3();}
+ 113   1              if (k == 4){segment4();}
+ 114   1              if (k == 5){segment5();}
+ 115   1              if (k == 6){segment6();}
+ 116   1      
+ 117   1      }
+ 118          void digit(uchar dt)
+ 119          {   
+ 120   1              if (dt == 1){digit1();}
+ 121   1              if (dt == 2){digit2();}
+ 122   1              if (dt == 3){digit3();}
+ 123   1              if (dt == 4){digit4();}
+ 124   1              if (dt == 5){digit5();}
+ 125   1              if (dt == 6){digit6();}
+ 126   1              if (dt == 7){digit7();}
+ 127   1              if (dt == 8){digit8();}
+ 128   1              if (dt == 9){digit9();}
+ 129   1              if (dt == 0){digit0();}
+ 130   1      }
+ 131          
+ 132          void segment0(){
+ 133   1          P0 = segnone;
+*** ERROR C202 IN LINE 133 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 134   1          segdef = 1;
+*** ERROR C202 IN LINE 134 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 135   1        segdef = 0;
+*** ERROR C202 IN LINE 135 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 136   1          delay(segdelay);
+ 137   1      }
+ 138          
+ 139          void segment1(){
+ 140   1          P0 = seg1;
+*** ERROR C202 IN LINE 140 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 141   1          segdef = 1;
+*** ERROR C202 IN LINE 141 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 142   1        segdef = 0;
+*** ERROR C202 IN LINE 142 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 143   1          delay(segdelay);
+ 144   1      }
+ 145          void segment2(){
+ 146   1          P0 = seg2;
+*** ERROR C202 IN LINE 146 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 147   1          segdef = 1;
+*** ERROR C202 IN LINE 147 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 148   1        segdef = 0;
+*** ERROR C202 IN LINE 148 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 149   1          delay(segdelay);
+ 150   1      }
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/11/2020 06:04:37 PAGE 4   
+
+ 151          void segment3(){
+ 152   1          P0 = seg3;
+*** ERROR C202 IN LINE 152 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 153   1          segdef = 1;
+*** ERROR C202 IN LINE 153 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 154   1        segdef = 0;
+*** ERROR C202 IN LINE 154 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 155   1          delay(segdelay);
+ 156   1      }
+ 157          void segment4(){
+ 158   1          P0 = seg4;
+*** ERROR C202 IN LINE 158 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 159   1          segdef = 1;
+*** ERROR C202 IN LINE 159 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 160   1        segdef = 0;
+*** ERROR C202 IN LINE 160 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 161   1          delay(segdelay);
+ 162   1      }
+ 163          void segment5(){
+ 164   1          P0 = seg5;
+*** ERROR C202 IN LINE 164 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 165   1          segdef = 1;
+*** ERROR C202 IN LINE 165 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 166   1        segdef = 0;
+*** ERROR C202 IN LINE 166 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 167   1          delay(segdelay);
+ 168   1      }
+ 169          void segment6(){
+ 170   1          P0 = seg6;
+*** ERROR C202 IN LINE 170 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 171   1          segdef = 1;
+*** ERROR C202 IN LINE 171 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 172   1        segdef = 0;
+*** ERROR C202 IN LINE 172 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'segdef': undefined identifier
+ 173   1          delay(segdelay);
+ 174   1      }
+ 175          
+ 176          
+ 177          void digit1(){
+ 178   1          P0 = dig1;
+*** ERROR C202 IN LINE 178 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 179   1          digdef = 1;
+*** ERROR C202 IN LINE 179 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 180   1          digdef = 0;
+*** ERROR C202 IN LINE 180 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 181   1          delay(digdelay);
+ 182   1      }
+ 183          void digit2(){
+ 184   1          digdef = 1;
+*** ERROR C202 IN LINE 184 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 185   1          P0 = dig2;
+*** ERROR C202 IN LINE 185 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 186   1          digdef = 0;
+*** ERROR C202 IN LINE 186 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 187   1          delay(digdelay);
+ 188   1      }
+ 189          
+ 190          void digit3(){
+ 191   1          digdef = 1;
+*** ERROR C202 IN LINE 191 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 192   1          P0 = dig3;
+*** ERROR C202 IN LINE 192 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/11/2020 06:04:37 PAGE 5   
+
+ 193   1          digdef = 0;
+*** ERROR C202 IN LINE 193 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 194   1          delay(digdelay);
+ 195   1      }
+ 196          void digit4(){
+ 197   1          digdef = 1;
+*** ERROR C202 IN LINE 197 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 198   1          P0 = dig4;
+*** ERROR C202 IN LINE 198 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 199   1          digdef = 0;
+*** ERROR C202 IN LINE 199 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 200   1          delay(digdelay);
+ 201   1      }
+ 202          void digit5(){
+ 203   1          digdef = 1;
+*** ERROR C202 IN LINE 203 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 204   1          P0 = dig5;
+*** ERROR C202 IN LINE 204 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 205   1          digdef = 0;
+*** ERROR C202 IN LINE 205 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 206   1          delay(digdelay);
+ 207   1      }
+ 208          void digit6(){
+ 209   1          digdef = 1;
+*** ERROR C202 IN LINE 209 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 210   1          P0 = dig6;
+*** ERROR C202 IN LINE 210 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 211   1          digdef = 0;
+*** ERROR C202 IN LINE 211 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 212   1          delay(digdelay);
+ 213   1      }
+ 214          void digit7(){
+ 215   1          digdef = 1;
+*** ERROR C202 IN LINE 215 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 216   1          P0 = dig7;
+*** ERROR C202 IN LINE 216 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 217   1          digdef = 0;
+*** ERROR C202 IN LINE 217 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 218   1          delay(digdelay);
+ 219   1      }
+ 220          void digit8(){
+ 221   1          digdef = 1;
+*** ERROR C202 IN LINE 221 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 222   1          P0 = dig8;
+*** ERROR C202 IN LINE 222 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 223   1          digdef = 0;
+*** ERROR C202 IN LINE 223 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 224   1          delay(digdelay);
+ 225   1      }
+ 226          void digit9(){
+ 227   1          digdef = 1;
+*** ERROR C202 IN LINE 227 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 228   1          P0 = dig9;
+*** ERROR C202 IN LINE 228 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 229   1          digdef = 0;
+*** ERROR C202 IN LINE 229 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 230   1          delay(digdelay);
+ 231   1      }
+ 232          void digit0(){
+ 233   1          digdef = 1;
+*** ERROR C202 IN LINE 233 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 234   1          P0 = dig0;
+C51 COMPILER V9.60.0.0   PAULOBETA                                                         05/11/2020 06:04:37 PAGE 6   
+
+*** ERROR C202 IN LINE 234 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'P0': undefined identifier
+ 235   1          digdef = 0;
+*** ERROR C202 IN LINE 235 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'digdef': undefined identifier
+ 236   1          delay(digdelay);
+ 237   1      }
+ 238          void seconds(uchar mm)
+ 239          {
+ 240   1        unsigned char mmm;
+ 241   1        for (mmm=0;mmm<mm+1;mmm++)
+ 242   1        {
+ 243   2            delayms();
+ 244   2        }
+ 245   1      }
+ 246          void delayms()
+ 247          {
+ 248   1        unsigned char ii, jj, kk;
+ 249   1      
+ 250   1        _nop_();
+ 251   1        _nop_();
+ 252   1        ii = 5;
+ 253   1        jj = 52;
+ 254   1        kk = 195;
+ 255   1        do
+ 256   1        {
+ 257   2          do
+ 258   2          {
+ 259   3            while (--kk);
+ 260   3          } while (--jj);
+ 261   2        } while (--ii);
+ 262   1      }
+ 263          void beep(){
+ 264   1          buzzer = 1; // on
+*** ERROR C202 IN LINE 264 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'buzzer': undefined identifier
+ 265   1          delay(400);
+ 266   1          buzzer = 0;
+*** ERROR C202 IN LINE 266 OF ..\_OwnMadeStcHeaderFiles\paulobeta.c: 'buzzer': undefined identifier
+ 267   1      }
+ 268          void delay(uchar xx){
+ 269   1          unsigned char zx,xz;
+ 270   1          for (xz=0;xz<xx;xz++){
+ 271   2              for (zx=0;zx<120;zx++){}
+ 272   2          }
+ 273   1      }
+ 274          //FUNCTIONS_MAIN>>END
+ 275          
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  72 ERROR(S)
