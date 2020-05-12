@@ -1,6 +1,8 @@
 #include <reg52.h>
 #include "paulobetax.h"
 #define uchar unsigned char
+	
+sbit buzzer_ = P2^3;
 //<Declaire_Variables>//
 uchar state = 0;
 uchar inputx = 4;
@@ -16,18 +18,33 @@ void calculate();
 
 //<Functions>/////////
 void main(){
+	buzzer_ = 1;
+	P3 = 0xf0;
 	while (1){
-			getdigit();
-			calculate();
-			display();
-			
+			//getdigit();
+			//calculate();
+			//display();
+		
+		if(P3!=0xf0)
+		{
+			buzzer_= 0;
+			while(P3 != 0xf0);
+			buzzer_ = 1;
+		}
+		
+		
 	}
+
 }
 void getdigit(){
 	uchar button = 0;
 	uchar input = 0;
-	if (P3 != 0){
-		while(P3 != 0){
+	xled(01);
+	if (P3 != 0xff){ 			//checking button press 
+		
+	
+		while(P3 != 0xff){		//verifying button press 
+			
 			while(state==0){
 				button = P3;
 				switch(button){
@@ -115,6 +132,7 @@ void getdigit(){
 		if (state == 0){inputx = input;}
 		if (state == 2){inputy = input;}
 	}
+	P3 = 0xff;
 		//
 }
 void display(){
