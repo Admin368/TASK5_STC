@@ -1,5 +1,5 @@
 #include <reg52.h>	
-#include "..\_OwnMadeStcHeaderFiles\paulobetax.c"
+#include "..\_OwnMadeStcHeaderFiles\paulobetax3.c"
 #define uchar unsigned char
 
 void main(){

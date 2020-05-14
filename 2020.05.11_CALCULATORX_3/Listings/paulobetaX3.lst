@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   PAULOBETAX3                                                       05/11/2020 06:17:47 PAGE 1   
+C51 COMPILER V9.60.0.0   PAULOBETAX3                                                       05/15/2020 03:02:27 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE PAULOBETAX3
@@ -41,158 +41,247 @@ line level    source
   31          sbit xbuzzer = P2^0;
   32          uchar xsegdelay = 10;
   33          uchar xdigdelay = 10;
-  34          void xseconds(uchar mm);        //[paulobetaX1.h]
-  35          void xdelayms();                //[paulobetaX1.h]
-  36          void xdelay(uchar xx);          //[paulobetaX1.h]
-  37          void xbeep();                   //[paulobetaX1.h]
-  38          void xled(uchar ld);            //[paulobetaX2.h]
-  39          void xsegment(uchar xseg);      //[paulobetaX2.h]
-  40          void xdigit(uchar xdig);        //[paulobetaX2.h]
-  41          void xgetkey();                  //[paulobetaX3.h]
-  42          void xtranslatekey(uchar key);   //[paulobetaX3.h]
-  43          //FUNCTION_CLAIM>>END
-  44          
-  45          //FUNCTIONS_MAIN>>START
+  34          uchar xkey,xprekey;
+  35          void xbeep();                   //[paulobetaX1.h]
+  36          void xseconds(uchar mm);        //[paulobetaX1.h]
+  37          void xdelayms();                //[paulobetaX1.h]
+  38          void xdelay(uchar xx);          //[paulobetaX1.h]
+  39          void xled(uchar ld);            //[paulobetaX2.h]
+  40          void xsegment(uchar xseg);      //[paulobetaX2.h]
+  41          void xdigit(uchar xdig);        //[paulobetaX2.h]
+  42          void xgetfullkey();             //[paulobetaX2.h]
+  43          void xgetkey();                  //[paulobetaX3.h]
+  44          uchar xtranslatekey(uchar key);   //[paulobetaX3.h]
+  45          //FUNCTION_CLAIM>>END
   46          
-  47          void xled(uchar ld){   
-  48   1              if (ld == 1){P1 = 0xfe;} //led1 = 0xfe;
-  49   1              if (ld == 2){P1 = 0xfd;} //led2 = 0xfd;
-  50   1              if (ld == 3){P1 = 0xfb;} //led3 = 0xfb;
-  51   1              if (ld == 4){P1 = 0xf7;} //led4 = 0xf7;
-  52   1              if (ld == 5){P1 = 0xef;} //led5 = 0xef;
-  53   1              if (ld == 6){P1 = 0xdf;} //led6 = 0xdf;
-  54   1              if (ld == 7){P1 = 0xbf;} //led7 = 0xbf;
-C51 COMPILER V9.60.0.0   PAULOBETAX3                                                       05/11/2020 06:17:47 PAGE 2   
+  47          //FUNCTIONS_MAIN>>START
+  48          void xbeep(){
+  49   1          xbuzzer = 1; // on
+  50   1          xdelay(400);
+  51   1          xbuzzer = 0;
+  52   1      }
+  53          void xseconds(uchar mm){
+  54   1          uchar mmm;
+C51 COMPILER V9.60.0.0   PAULOBETAX3                                                       05/15/2020 03:02:27 PAGE 2   
 
-  55   1              if (ld == 8){P1 = 0x7f;} //led8 = 0x7f;
-  56   1              if (ld == 0){P1 = 0xff;} //ledalloff = 0xff;
-  57   1              if (ld == 00){P1 = 0xff;} //ledalloff = 0xff;
-  58   1              if (ld == 11){P1 = 0x00;} //ledallon = 0x00;
-  59   1              if (ld == 21){P1 = 0x0f;} //halfon1 = 0x0f;
-  60   1              if (ld == 22){P1 = 0x0f;} //halfon2 = 0x0f;
-  61   1      }
-  62          void xsegment(uchar xseg){
-  63   1          switch(xseg)
-  64   1          {
-  65   2            case 0:
-  66   2              P0 = 0xff; //segnone = 0xff;
-  67   2              break;
-  68   2            case 1:
-  69   2              P0 = 0xfe; //seg1 = 0xfe;
-  70   2              break;
-  71   2            case 2:
-  72   2              P0 = 0xfd; //seg2 = 0xfd;
-  73   2              break;
-  74   2            case 3:
-  75   2              P0 = 0xfb; //seg3 = 0xfb;
-  76   2              break;
-  77   2            case 4:
-  78   2              P0 = 0xf7; //seg4 = 0xf7;
-  79   2              break;
-  80   2            case 5:
-  81   2              P0 = 0xef; //seg5 = 0xef;
-  82   2              break;
-  83   2            case 6:
-  84   2              P0 = 0xdf; //seg6 = 0xdf;
-  85   2              break;
-  86   2                  case 11:
-  87   2                      P0 = 0x00; // segall = 0x00;
-  88   2      
-  89   2            default:
-  90   2              xsegdef = 0;
-  91   2              return;
-  92   2              }
-  93   1          xdelay(xsegdelay);
-  94   1          xsegdef = 1;
-  95   1          xsegdef = 0;
-  96   1      }
-  97          void xdigit(uchar xdig){
-  98   1          switch(xdig)
-  99   1              {  
- 100   2                  case 0:
- 101   2                      P0 = 0x3f; //dig0 = 0x3f;
- 102   2                      break;
- 103   2                  case 1:
- 104   2                      P0 = 0x06; //dig1 = 0x06;
- 105   2                      break;
- 106   2                  case 2:
- 107   2                      P0 = 0x5b; //dig2 = 0x5b;
- 108   2                      break; 
- 109   2                  case 3:
- 110   2                      P0 = 0x4f; //dig3 = 0x4f;
- 111   2                      break;
- 112   2                  case 4:
- 113   2                      P0 = 0x66; //dig4 = 0x66;
- 114   2                      break;
- 115   2                  case 5: 
- 116   2                      P0 = 0x6d; //dig5 = 0x6d;
-C51 COMPILER V9.60.0.0   PAULOBETAX3                                                       05/11/2020 06:17:47 PAGE 3   
+  55   1        for (mmm=0;mmm<mm+1;mmm++)
+  56   1        {
+  57   2            xdelayms();
+  58   2        }
+  59   1      }
+  60          void xdelayms(){
+  61   1          uchar ii,jj,kk;
+  62   1        _nop_();
+  63   1        _nop_();
+  64   1        ii = 5;
+  65   1        jj = 52;
+  66   1        kk = 195;
+  67   1        do
+  68   1        {
+  69   2          do
+  70   2          {
+  71   3            while (--kk);
+  72   3          } while (--jj);
+  73   2        } while (--ii);
+  74   1      }
+  75          void xdelay(uchar xx){
+  76   1          uchar xz,zx;
+  77   1          for (xz=0;xz<xx;xz++){
+  78   2              for (zx=0;zx<120;zx++){}
+  79   2          }
+  80   1      }
+  81          void xled(uchar ld){   
+  82   1              if (ld == 1){P1 = 0xfe;} //led1 = 0xfe;
+  83   1              if (ld == 2){P1 = 0xfd;} //led2 = 0xfd;
+  84   1              if (ld == 3){P1 = 0xfb;} //led3 = 0xfb;
+  85   1              if (ld == 4){P1 = 0xf7;} //led4 = 0xf7;
+  86   1              if (ld == 5){P1 = 0xef;} //led5 = 0xef;
+  87   1              if (ld == 6){P1 = 0xdf;} //led6 = 0xdf;
+  88   1              if (ld == 7){P1 = 0xbf;} //led7 = 0xbf;
+  89   1              if (ld == 8){P1 = 0x7f;} //led8 = 0x7f;
+  90   1              if (ld == 0){P1 = 0xff;} //ledalloff = 0xff;
+  91   1              if (ld == 00){P1 = 0xff;} //ledalloff = 0xff;
+  92   1              if (ld == 11){P1 = 0x00;} //ledallon = 0x00;
+  93   1              if (ld == 21){P1 = 0x0f;} //halfon1 = 0x0f;
+  94   1              if (ld == 22){P1 = 0x0f;} //halfon2 = 0x0f;
+  95   1      }
+  96          void xsegment(uchar xseg){
+  97   1          switch(xseg)
+  98   1          {
+  99   2            case 0:
+ 100   2              P0 = 0xff; //segnone = 0xff;
+ 101   2              break;
+ 102   2            case 1:
+ 103   2              P0 = 0xfe; //seg1 = 0xfe;
+ 104   2              break;
+ 105   2            case 2:
+ 106   2              P0 = 0xfd; //seg2 = 0xfd;
+ 107   2              break;
+ 108   2            case 3:
+ 109   2              P0 = 0xfb; //seg3 = 0xfb;
+ 110   2              break;
+ 111   2            case 4:
+ 112   2              P0 = 0xf7; //seg4 = 0xf7;
+ 113   2              break;
+ 114   2            case 5:
+ 115   2              P0 = 0xef; //seg5 = 0xef;
+ 116   2              break;
+C51 COMPILER V9.60.0.0   PAULOBETAX3                                                       05/15/2020 03:02:27 PAGE 3   
 
- 117   2                      break;
- 118   2                  case 6:
- 119   2                      P0 = 0x7d; //dig6 = 0x7d;
- 120   2                      break;
- 121   2                  case 7:
- 122   2                      P0 = 0x07; //dig7 = 0x07;
- 123   2                      break;
- 124   2                  case 8:
- 125   2                      P0 = 0x7f; //dig8 = 0x7f;
- 126   2                      break;
- 127   2                  case 9:
- 128   2                      P0 = 0x6f; //dig9 = 0x6f;
- 129   2                      break;
- 130   2                  default:
- 131   2                      return;
- 132   2              }
- 133   1          xdigdef = 1;
- 134   1          xdigdef = 0;
- 135   1      //    delay(xdigdelay);
- 136   1      }
- 137          void xseconds(uchar mm){
- 138   1          uchar mmm;
- 139   1        for (mmm=0;mmm<mm+1;mmm++)
- 140   1        {
- 141   2            xdelayms();
- 142   2        }
- 143   1      }
- 144          void xdelayms(){
- 145   1          uchar ii,jj,kk;
- 146   1        _nop_();
- 147   1        _nop_();
- 148   1        ii = 5;
- 149   1        jj = 52;
- 150   1        kk = 195;
- 151   1        do
- 152   1        {
- 153   2          do
- 154   2          {
- 155   3            while (--kk);
- 156   3          } while (--jj);
- 157   2        } while (--ii);
- 158   1      }
- 159          void xbeep(){
- 160   1          xbuzzer = 1; // on
- 161   1          xdelay(400);
- 162   1          xbuzzer = 0;
- 163   1      }
- 164          void xdelay(uchar xx){
- 165   1          uchar xz,zx;
- 166   1          for (xz=0;xz<xx;xz++){
- 167   2              for (zx=0;zx<120;zx++){}
- 168   2          }
- 169   1      }
- 170          //FUNCTIONS_MAIN>>END
- 171          
+ 117   2            case 6:
+ 118   2              P0 = 0xdf; //seg6 = 0xdf;
+ 119   2              break;
+ 120   2                  case 11:
+ 121   2                      P0 = 0x00; // segall = 0x00;
+ 122   2      
+ 123   2            default:
+ 124   2              xsegdef = 0;
+ 125   2              return;
+ 126   2              }
+ 127   1          xdelay(xsegdelay);
+ 128   1          xsegdef = 1;
+ 129   1          xsegdef = 0;
+ 130   1      }
+ 131          
+ 132          void xdigit(uchar xdig){
+ 133   1          switch(xdig)
+ 134   1              {  
+ 135   2                  case 0:
+ 136   2                      P0 = 0x3f; //dig0 = 0x3f;
+ 137   2                      break;
+ 138   2                  case 1:
+ 139   2                      P0 = 0x06; //dig1 = 0x06;
+ 140   2                      break;
+ 141   2                  case 2:
+ 142   2                      P0 = 0x5b; //dig2 = 0x5b;
+ 143   2                      break; 
+ 144   2                  case 3:
+ 145   2                      P0 = 0x4f; //dig3 = 0x4f;
+ 146   2                      break;
+ 147   2                  case 4:
+ 148   2                      P0 = 0x66; //dig4 = 0x66;
+ 149   2                      break;
+ 150   2                  case 5: 
+ 151   2                      P0 = 0x6d; //dig5 = 0x6d;
+ 152   2                      break;
+ 153   2                  case 6:
+ 154   2                      P0 = 0x7d; //dig6 = 0x7d;
+ 155   2                      break;
+ 156   2                  case 7:
+ 157   2                      P0 = 0x07; //dig7 = 0x07;
+ 158   2                      break;
+ 159   2                  case 8:
+ 160   2                      P0 = 0x7f; //dig8 = 0x7f;
+ 161   2                      break;
+ 162   2                  case 9:
+ 163   2                      P0 = 0x6f; //dig9 = 0x6f;
+ 164   2                      break;
+ 165   2                  default:
+ 166   2                      return;
+ 167   2              }
+ 168   1          xdigdef = 1;
+ 169   1          xdigdef = 0;
+ 170   1      //    delay(xdigdelay);
+ 171   1      }
+ 172          void xgetfullkey(){
+ 173   1          xgetkey();
+ 174   1          xtranslatekey(xprekey);
+ 175   1      }
+ 176          void xgetkey(){
+ 177   1          uchar colvalue,rowvalue;
+ 178   1        P3 = 0xf0;//columnCheck //11110000
+C51 COMPILER V9.60.0.0   PAULOBETAX3                                                       05/15/2020 03:02:27 PAGE 4   
+
+ 179   1        if(P3 != 0xf0){
+ 180   2          xdelay(10);//verifying button press
+ 181   2          if(P3 != 0xf0){//columnCheck //11110000
+ 182   3            colvalue=~0xf0|P3; //flips the 0to1 and vise vesa
+ 183   3            P3 = 0x0f;//rowCheck //00001111
+ 184   3            rowvalue = ~0x0f|P3;    // checking row
+ 185   3            xprekey = colvalue&rowvalue;  
+ 186   3              }
+ 187   2        }   
+ 188   1      }
+ 189          uchar xtranslatekey(uchar xprekey){
+ 190   1        switch(xprekey)
+ 191   1          {
+ 192   2              case 0xee:
+ 193   2                      P1 = xkey;  // light LED                  
+ 194   2                xkey = 1;
+ 195   2              break;
+ 196   2            case 0xde:                  
+ 197   2              P1 = xkey;  // light LED
+ 198   2              xkey = 2;
+ 199   2              break;                
+ 200   2            case 0xbe:                  
+ 201   2              P1 = xkey;  // light LED
+ 202   2              xkey = 3;
+ 203   2              break;                
+ 204   2            case 0x7e:                  
+ 205   2                P1 = xkey;  // light LED
+ 206   2              xkey = 4; 
+ 207   2              break;
+ 208   2            case 0xed:                  
+ 209   2              P1 = xkey;  // light LED
+ 210   2              xkey = 5; 
+ 211   2              break;
+ 212   2            case 0xdd:                  
+ 213   2              P1 = xkey;  // light LED
+ 214   2              xkey = 6; 
+ 215   2              break;                
+ 216   2            case 0xbd:                  
+ 217   2              P1 = xkey;  // light LED
+ 218   2              xkey = 7; 
+ 219   2                  break;                
+ 220   2            case 0x7d:                  
+ 221   2                P1 = xkey;  // light LED
+ 222   2              xkey = 8; 
+ 223   2              break;                  
+ 224   2            case 0xeb:                  
+ 225   2              P1 = xkey;  // light LED
+ 226   2              xkey = 9; 
+ 227   2              break;
+ 228   2            case 0xdb:                  
+ 229   2              P1 = xkey;  // light LED
+ 230   2              xkey = 0; 
+ 231   2              break;                
+ 232   2            case 0xbb:                  
+ 233   2              P1 = xkey;  // light LED
+ 234   2              break;                
+ 235   2            case 0x7b:                  
+ 236   2              P1 = xkey;  // light LED
+ 237   2              break;
+ 238   2            case 0xe7:                  
+ 239   2              P1 = xkey;  // light LED
+ 240   2              break;
+C51 COMPILER V9.60.0.0   PAULOBETAX3                                                       05/15/2020 03:02:27 PAGE 5   
+
+ 241   2            case 0xd7:                  
+ 242   2              P1 = xkey;  // light LED
+ 243   2              break;                
+ 244   2            case 0xb7:                  
+ 245   2              P1 = xkey;  // light LED
+ 246   2              xkey='+';
+ 247   2              break;                
+ 248   2            case 0x77:                  
+ 249   2              P1 = xkey;  // light LED
+ 250   2              xkey='='; 
+ 251   2              break;                
+ 252   2            default:
+ 253   2              xkey = 0;     
+ 254   2          }     
+ 255   1        return xkey;
+ 256   1      }
+ 257          //FUNCTIONS_MAIN>>END
+ 258          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    374    ----
+   CODE SIZE        =    580    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-C51 COMPILER V9.60.0.0   PAULOBETAX3                                                       05/11/2020 06:17:47 PAGE 4   
-
-   DATA SIZE        =      2       2
+   DATA SIZE        =      4       2
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
