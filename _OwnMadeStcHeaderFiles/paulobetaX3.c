@@ -31,19 +31,53 @@ sbit xdigdef = P2^6;
 sbit xbuzzer = P2^0;
 uchar xsegdelay = 10;
 uchar xdigdelay = 10;
+uchar xkey,xprekey;
+void xbeep();                   //[paulobetaX1.h]
 void xseconds(uchar mm);        //[paulobetaX1.h]
 void xdelayms();                //[paulobetaX1.h]
 void xdelay(uchar xx);          //[paulobetaX1.h]
-void xbeep();                   //[paulobetaX1.h]
 void xled(uchar ld);            //[paulobetaX2.h]
 void xsegment(uchar xseg);      //[paulobetaX2.h]
 void xdigit(uchar xdig);        //[paulobetaX2.h]
+void xgetfullkey();             //[paulobetaX2.h]
 void xgetkey();                  //[paulobetaX3.h]
-void xtranslatekey(uchar key);   //[paulobetaX3.h]
+uchar xtranslatekey(uchar key);   //[paulobetaX3.h]
 //FUNCTION_CLAIM>>END
 
 //FUNCTIONS_MAIN>>START
-
+void xbeep(){
+    xbuzzer = 1; // on
+    xdelay(400);
+    xbuzzer = 0;
+}
+void xseconds(uchar mm){
+    uchar mmm;
+	for (mmm=0;mmm<mm+1;mmm++)
+	{
+			xdelayms();
+	}
+}
+void xdelayms(){
+    uchar ii,jj,kk;
+	_nop_();
+	_nop_();
+	ii = 5;
+	jj = 52;
+	kk = 195;
+	do
+	{
+		do
+		{
+			while (--kk);
+		} while (--jj);
+	} while (--ii);
+}
+void xdelay(uchar xx){
+    uchar xz,zx;
+    for (xz=0;xz<xx;xz++){
+        for (zx=0;zx<120;zx++){}
+    }
+}
 void xled(uchar ld){   
         if (ld == 1){P1 = 0xfe;} //led1 = 0xfe;
         if (ld == 2){P1 = 0xfd;} //led2 = 0xfd;
@@ -94,6 +128,7 @@ void xsegment(uchar xseg){
     xsegdef = 1;
     xsegdef = 0;
 }
+
 void xdigit(uchar xdig){
     switch(xdig)
         {  
@@ -134,38 +169,90 @@ void xdigit(uchar xdig){
     xdigdef = 0;
 //    delay(xdigdelay);
 }
-void xseconds(uchar mm){
-    uchar mmm;
-	for (mmm=0;mmm<mm+1;mmm++)
-	{
-			xdelayms();
-	}
+void xgetfullkey(){
+    xgetkey();
+    xtranslatekey(xprekey);
 }
-void xdelayms(){
-    uchar ii,jj,kk;
-	_nop_();
-	_nop_();
-	ii = 5;
-	jj = 52;
-	kk = 195;
-	do
-	{
-		do
+void xgetkey(){
+    uchar colvalue,rowvalue;
+	P3 = 0xf0;//columnCheck //11110000
+	if(P3 != 0xf0){
+		xdelay(10);//verifying button press
+		if(P3 != 0xf0){//columnCheck //11110000
+			colvalue=~0xf0|P3; //flips the 0to1 and vise vesa
+			P3 = 0x0f;//rowCheck //00001111
+			rowvalue = ~0x0f|P3;    // checking row
+			xprekey = colvalue&rowvalue;	
+        }
+	}   
+}
+uchar xtranslatekey(uchar xprekey){
+	switch(xprekey)
 		{
-			while (--kk);
-		} while (--jj);
-	} while (--ii);
-}
-void xbeep(){
-    xbuzzer = 1; // on
-    xdelay(400);
-    xbuzzer = 0;
-}
-void xdelay(uchar xx){
-    uchar xz,zx;
-    for (xz=0;xz<xx;xz++){
-        for (zx=0;zx<120;zx++){}
-    }
+		    case 0xee:
+                P1 = xkey;  // light LED									
+			    xkey = 1;
+				break;
+			case 0xde:									
+				P1 = xkey;  // light LED
+				xkey = 2;
+				break;								
+			case 0xbe:									
+				P1 = xkey;  // light LED
+				xkey = 3;
+				break;								
+			case 0x7e:									
+			    P1 = xkey;  // light LED
+				xkey = 4;	
+				break;
+			case 0xed:									
+				P1 = xkey;  // light LED
+				xkey = 5;	
+				break;
+			case 0xdd:									
+				P1 = xkey;  // light LED
+				xkey = 6;	
+				break;								
+			case 0xbd:									
+				P1 = xkey;  // light LED
+				xkey = 7;	
+		        break;								
+			case 0x7d:									
+			    P1 = xkey;  // light LED
+				xkey = 8;	
+				break;									
+			case 0xeb:									
+				P1 = xkey;  // light LED
+				xkey = 9;	
+				break;
+			case 0xdb:									
+				P1 = xkey;  // light LED
+				xkey = 0;	
+				break;								
+			case 0xbb:									
+				P1 = xkey;  // light LED
+				break;								
+			case 0x7b:									
+				P1 = xkey;  // light LED
+				break;
+			case 0xe7:									
+				P1 = xkey;  // light LED
+				break;
+			case 0xd7:									
+				P1 = xkey;  // light LED
+				break;								
+			case 0xb7:									
+				P1 = xkey;  // light LED
+				xkey='+';
+				break;								
+			case 0x77:									
+				P1 = xkey;  // light LED
+				xkey='=';	
+				break;								
+			default:
+				xkey = 0;			
+		}			
+	return xkey;
 }
 //FUNCTIONS_MAIN>>END
 
