@@ -1,153 +1,159 @@
 #include <reg52.h>
-
-	
+#include "paulobetax.h"
 #define uchar unsigned char
-
-sbit digdef = P2^6;
-sbit segdef = P2^7;
-
-uchar sevenSegData[] = {
-0x3f ,
-0x06 ,
-0x5b ,
-0x4f ,
-0x66 ,
-0x6d ,
-0x7d ,
-0x07 ,
-0x7f ,
-0x6f 
-
-};              
-							 
-uchar columnCheck = 0xf0;
-uchar rowCheck = 0x0f;
-uchar digit;
-uchar digit2;
-uchar ans;
-uchar segValue;
-uchar chooseSeg;
-
-
-uchar temp1, temp2, key;
-
-
-
-uchar flag_o1=0; //flag operand 1
-uchar flag_o2=1; //flag operand 2
-uchar o1,o2,sol;
-
-void delay(uchar x);   // to create time delays
-uchar translatekey(uchar key); 
-void display7seg(uchar  _code);
- main(){
-    uchar colvalue,rowvalue;
-	while(1){
-		P3 = 0xf0;//columnCheck //11110000
-		if(P3 != 0xf0){
-			delay(10);//verifying button press
-			if(P3 != 0xf0){//columnCheck //11110000
-				colvalue=~0xf0|P3; //flips the 0to1 and vise vesa
-				P3 = 0x0f;//rowCheck //00001111
-				rowvalue = ~0x0f|P3;    // checking row
-				key = colvalue&rowvalue;
-				translatekey(key);		
- 			}
-		}
-	}
-}
-
-void delay(uchar x)
-{
-	uchar i=0;
 	
-	while(x--)
-	{
-			for(i =0; i<120; i++);
-	}
-	
-}
+sbit buzzer_ = P2^3;
+//<Declaire_Variables>//
+uchar state = 0;
+uchar inputx = 4;
+uchar inputy = 0;
+uchar effector = '+';
+uchar result = 0;
 
-uchar translatekey(uchar key)
-{
-	switch(key)
+//<Declare_Functions>//
+void getdigit();
+void display();
+void changestate();
+void calculate();
+
+//<Functions>/////////
+void main(){
+	buzzer_ = 1;
+	P3 = 0xf0;
+	while (1){
+			//getdigit();
+			//calculate();
+			//display();
+		
+		if(P3!=0xf0)
 		{
+			buzzer_= 0;
+			while(P3 != 0xf0);
+			buzzer_ = 1;
+		}
+		
+		
+	}
+
+}
+void getdigit(){
+	uchar button = 0;
+	uchar input = 0;
+	xled(01);
+	if (P3 != 0xff){ 			//checking button press 
+		
+	
+		while(P3 != 0xff){		//verifying button press 
+			
+			while(state==0){
+				button = P3;
+				switch(button){
 								case 0xee:									
-								  P1 = key;  // light LED
-									digit = 1;
+								  xled(11);
+									input = 1;
+									changestate();
 									break;
 								case 0xde:									
-								  P1 = key;  // light LED
-									digit = 2;
+								  xled(11);
+									input = 2;
+									changestate();
 									break;								
 								case 0xbe:									
-								  P1 = key;  // light LED
-								  digit = 3;
+								  xled(11);
+								  input = 3;
+									changestate();
 									break;								
 								case 0x7e:									
-								  P1 = key;  // light LED
-								digit = 4;	
-								break;
+								  xled(11);
+									input = 4;	
+									changestate();
+									break;
 								case 0xed:									
-								  P1 = key;  // light LED
-								digit = 5;	
-								break;
+								 	xled(11);
+									input = 5;	
+									changestate();
+									break;
 								case 0xdd:									
-								  P1 = key;  // light LED
-								digit = 6;	
-								break;								
+								  xled(11);
+									input = 6;	
+									changestate();
+									break;								
 								case 0xbd:									
-								  P1 = key;  // light LED
-								digit = 7;	
-								break;								
+								  xled(11);
+									input = 7;	
+									changestate();
+									break;								
 								case 0x7d:									
-								  P1 = key;  // light LED
-								digit = 8;	
-								break;									
+								  xled(11);
+									input = 8;	
+									changestate();
+									break;									
 								case 0xeb:									
-								  P1 = key;  // light LED
-								digit = 9;	
-								break;
+								  xled(11);
+									input = 9;	
+									changestate();
+									break;
 								case 0xdb:									
-								  P1 = key;  // light LED
-								digit = 0;	
-								break;								
+								  xled(11);
+									input = 0;	
+									changestate();
+									break;								
 								case 0xbb:									
-								  P1 = key;  // light LED
+								  	xled(11);
+									changestate();
 									break;								
 								case 0x7b:									
-								  P1 = key;  // light LED
+								  	xled(11);
+									changestate();
 									break;
 								case 0xe7:									
-								  P1 = key;  // light LED
+								  	xled(11);
+									changestate();
 									break;
 								case 0xd7:									
-								  P1 = key;  // light LED
+								  	xled(11);
+									changestate();
 									break;								
 								case 0xb7:									
-								  P1 = key;  // light LED
-								digit='+';
+								  	xled(11);
+									changestate();
 									break;								
 								case 0x77:									
-								  P1 = key;  // light LED
-								digit='=';	
-								break;								
+								  	xled(11);
+									changestate();
+									break;								
 								default:
 									P1 = 0xff;// turn off
-									digit =0;
+									input =0;
 									
+							}
+			}
 		}
-							
-	return digit;
+		if (state == 0){inputx = input;}
+		if (state == 2){inputy = input;}
+	}
+	P3 = 0xff;
+		//
 }
-
-void display7seg(uchar  _code)
-{
-		P0 = 0xfe;
-		segdef = 1;
-		segdef = 0;
-
-		P0 = sevenSegData[_code];
-		digdef = 1;
-		digdef = 0;		
+void display(){
+	while (state==0){
+//	while ((state==0) || (state==2)){
+		xsegment(1);
+		xdigit(inputx);
+/*
+		xdelay(10);
+		xsegment(6);
+		xdigit(inputy);
+		xdelay(10);
+*/
+	}
+}
+void changestate(){
+	state = state+1;
+	if (state==4){state = 0;}
+}
+void calculate(){
+	while(state==3){
+		break;
+		}
 }
