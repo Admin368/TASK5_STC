@@ -1,0 +1,11 @@
+state0>Reserved
+state1>selecting inputx
+state2>selecting effector
+state3>selecting inputy
+state4>calculating
+state5>showing result
+
+e1: // addition +
+e2: // subtraction -
+e3: // division /
+e4: // multiplication *
