@@ -3,6 +3,7 @@
 Projects based on STC chips:
 - 89C52
 - 89C52RC
+
 Tested compatible boards:
 - GTX TX-1C
 - YF-K1
