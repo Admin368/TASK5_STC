@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1590121159 source:x:\boardtest_x\_task5_boardtest\task5_stc-github\2020.05.15_calculatorx_4\testucharstring\main.c
+	<stdio.h>
+	<stdlib.h>
+

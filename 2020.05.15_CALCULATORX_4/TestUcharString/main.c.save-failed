@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define uchar unsigned char
+
+//uchar x;
+// fix just make it int
+long x;
+int answer,remender;
+int value(){
+    printf("enter value of X\n");
+    scanf("%d",&x);
+    return x;
+}
+void main(){
+while(1){
+    x=value();
+    int max = 5;
+    int tmax;
+    int figure[max+1];
+    for(tmax=max;tmax>0;tmax--){
+        /*
+        ######################## #
+        # hey i got it the uchar #
+        # can only store numbers #
+        # from 0 to 255 (4 bits) #
+        ##########################
+        */
+        //if(x==0){break;}
+        remender = x%10;
+        printf("%d\n",x);
+        figure[tmax] = remender;
+        x = x/10;
+        printf("%d\n",x);
+        printf("the value of index %d is %d\n",tmax,remender);
+    }
+//if(x==0){break;}
+uchar index;
+    printf("The individual values are ");
+for(index=1;index<=max;index++){
+    printf("[%d]",figure[index]);
+}
+}
+}
