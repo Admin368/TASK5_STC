@@ -4,6 +4,7 @@ state2>selecting effector
 state3>selecting inputy
 state4>calculating
 state5>showing result
+state6>error
 
 e1: // addition +
 e2: // subtraction -
