@@ -49,7 +49,7 @@ sbit xbuzzer = P2^0;
 uchar xsegdelay = 10;
 uchar xdigdelay = 10;
 uchar xkey,xprekey,xeffector,xletter;
-uchar xgeteffector,xgetletter;
+//uchar xgeteffector,xgetletter;
 void xbeep();                   //[paulobetaX1.h]
 void xseconds(uchar mm);        //[paulobetaX1.h]
 void xdelayms();                //[paulobetaX1.h]
@@ -60,6 +60,7 @@ void xdisplay(uchar xdisp);     //[paulobetaX2.h]
 void xgetfullkey();             //[paulobetaX2.h]
 void xgetkey();                 //[paulobetaX3.h]
 uchar xtranslatekey(uchar key); //[paulobetaX3.h]
+void xtranslateeffector();      //[paulobetaX4.h]
 void xresetkey();   			//[paulobetaX4.h]
 //FUNCTION_CLAIM>>END
 
@@ -138,7 +139,6 @@ void xsegment(uchar xseg){
 				break;
             case 11:
                 P0 = 0x00; // segall = 0x00;
-
 			default:
 				xsegdef = 0;
 				return;
@@ -149,7 +149,8 @@ void xsegment(uchar xseg){
 }
 
 void xdisplay(uchar xdisp){
-    switch(xdisp)
+		char x2disp = xdisp;
+    switch(x2disp)
         {  
             case 0:
                 P0 = 0x3f; //dig0 = 0x3f;
@@ -181,9 +182,9 @@ void xdisplay(uchar xdisp){
             case 9:
                 P0 = 0x6f; //dig9 = 0x6f;
                 break;
-			case n; //display 
-				P0 = 0x00; // switch all 8-bit seg off
-				break;
+						case 'n': //displays nothing 
+								P0 = 0x08;
+								break;
 			default:
                 return;
         }
@@ -209,9 +210,9 @@ void xgetkey(){
 	}   
 }
 uchar xtranslatekey(uchar xprekey){
-	uchar xletter[6] = {e0, e1, e2, e3, e4, e5}
-	uchar xeffector[4] = {a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z}
-	switch(xprekey)
+	//uchar xletter[6] = {a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z}
+	//uchar xeffector[4] = {e0, e1, e2, e3, e4, e5}
+switch(xprekey)
 		{
 		    case 0xee:									
 			    xkey = 1;
@@ -264,44 +265,53 @@ uchar xtranslatekey(uchar xprekey){
 				break;								
 			default:
 				xkey = 0;			
-		}			
-	//return xkey;
-	if (xgeteffector==yes){
-			if (xkey>12){
-				switch(xkey)
-					case 12:// addition +
-						xeffector = e1;
-						break;
-					case 13:// subtraction -
-						xeffector = e2;
-						break;
-					case 14:// division /
-						xeffector = e3;
-					case 15:// get result
-						xeffector = e4;
-			}
-			else {break;}
-	if (xgetletter==yes){
-			xletter = xkey;
 		}
+return xkey;
 }
+
+void xgeteffector(){
+			xgetkey();
+			xtranslateeffector();
+}	
+void xtranslateeffector(){
+			if (xprekey>0){
+				switch(xkey){
+					case 1:// addition +
+						xeffector = 1;
+						break;
+					case 2:// subtraction -
+						xeffector = 2;
+						break;
+					case 3:// division /
+						xeffector = 3;
+						break;
+					case 4:// get result
+						xeffector = 4;
+						break;
+					default:
+						break;
+				}
+			}
+}
+
 
 void xresetkey(){
 	P3 = 0x00;
 	xprekey = 0;
 	xkey = 0;
-	xgeteffector = no;
-	xgetletter = no;
+	//xgeteffector = 0;
+	//xgetletter = 0;
 }
 
-void xgetletter{}
+//void xgetletter(){}
+/*
 void xdisplayletter(){
 	switch(xletter)
 		case 1:
 		P0 = 0x00;
 		default:
 }
-
+*/
 void xgetsidekeys(){}
 //FUNCTIONS_MAIN>>END
 
