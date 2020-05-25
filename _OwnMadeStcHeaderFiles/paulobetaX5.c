@@ -35,6 +35,9 @@
 	- add xletter
 	- add getletter = true and use
 		xgetkey
+	- IO_Spliter function(input output separator)
+	- added xnewkey boleen to flag when new key pressed
+	- fixed wrong key translation of button 12;
 	-
 */
 //FUNCTION_CLAIM>>START
@@ -46,9 +49,18 @@ sbit xsegdef = P2^7;
 sbit xdiglock = P2^6;
 sbit xdigdef = P2^6;
 sbit xbuzzer = P2^0;
-uchar xsegdelay = 10;
-uchar xdigdelay = 10;
+uchar xsegdelay = 1;
+uchar xdigdelay = 1;
 uchar xkey,xprekey,xeffector,xletter;
+
+int unsplit;
+uchar splitlimit = 4; // dont count 0;
+int split[7+1];
+
+//enum bol {no, yes};
+//enum bol xnewkey;
+int xnewkey = 0;
+
 //uchar xgeteffector,xgetletter;
 void xbeep();                   //[paulobetaX1.h]
 void xseconds(uchar mm);        //[paulobetaX1.h]
@@ -61,7 +73,8 @@ void xgetfullkey();             //[paulobetaX2.h]
 void xgetkey();                 //[paulobetaX3.h]
 uchar xtranslatekey(uchar key); //[paulobetaX3.h]
 void xtranslateeffector();      //[paulobetaX4.h]
-void xresetkey();   			//[paulobetaX4.h]
+void xresetkey();   						//[paulobetaX4.h]
+int xspliter(int unsplit);       //[paulobetaX5.h]
 //FUNCTION_CLAIM>>END
 
 //FUNCTIONS_MAIN>>START
@@ -137,12 +150,12 @@ void xsegment(uchar xseg){
 			case 6:
 				P0 = 0xdf; //seg6 = 0xdf;
 				break;
-            case 11:
-                P0 = 0x00; // segall = 0x00;
+      case 11:
+        P0 = 0x00; // segall = 0x00;
 			default:
 				xsegdef = 0;
 				return;
-        }
+      }
     xdelay(xsegdelay);
     xsegdef = 1;
     xsegdef = 0;
@@ -190,7 +203,7 @@ void xdisplay(uchar xdisp){
         }
     xdigdef = 1;
     xdigdef = 0;
-//    delay(xdigdelay);
+    xdelay(xdigdelay);
 }
 void xgetfullkey(){
     xgetkey();
@@ -212,65 +225,81 @@ void xgetkey(){
 uchar xtranslatekey(uchar xprekey){
 	//uchar xletter[6] = {a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z}
 	//uchar xeffector[4] = {e0, e1, e2, e3, e4, e5}
-switch(xprekey)
-		{
-		    case 0xee:									
-			    xkey = 1;
+	switch(xprekey){
+		  case 0xee:									
+			  xkey = 1;
+				xnewkey = 1;
 				break;
 			case 0xde:									
 				xkey = 2;
+				xnewkey = 1;
 				break;								
 			case 0xbe:									
 				xkey = 3;
+				xnewkey = 1;
 				break;								
 			case 0x7e:									
 				xkey = 4;	
+				xnewkey = 1;
 				break;
 			case 0xed:									
 				xkey = 5;	
+				xnewkey = 1;
 				break;
 			case 0xdd:									
 				xkey = 6;	
+				xnewkey = 1;
 				break;								
 			case 0xbd:									
 				xkey = 7;	
-		        break;								
+		    xnewkey = 1;
+				break;								
 			case 0x7d:									
 				xkey = 8;	
+				xnewkey = 1;
 				break;									
 			case 0xeb:									
-				xkey = 9;	
+				xkey = 9;
+				xnewkey = 1;
 				break;
 			case 0xdb:									
-				xkey = 10;	
+				xkey = 0;	
+				xnewkey = 1;
 				break;								
 			case 0xbb:
-				xkey = 10;									
+				xkey = 11;									
+				xnewkey = 1;
 				break;								
 			case 0x7b:
-				xkey = 11;									
-				break;
 				xkey = 12;
+				xnewkey = 1;
+				break;
 			case 0xe7:
-				xkey = 13;									
+				xkey = 13;
+				xnewkey = 1;
 				break;
 			case 0xd7:
 				xkey = 14;									
-				break;								
+				xnewkey = 1;
+			  break;								
 			case 0xb7:									
 				xkey= 15;
+				xnewkey = 1;
 				break;								
 			case 0x77:									
-				xkey= 16;	
+				xkey= 16;
+				xnewkey = 1;
 				break;								
 			default:
-				xkey = 0;			
+				//xkey = 0;
+				xnewkey = 0;
+				 break;
 		}
 return xkey;
 }
 
 void xgeteffector(){
-			xgetkey();
+			xgetkey(); 
 			xtranslateeffector();
 }	
 void xtranslateeffector(){
@@ -313,6 +342,16 @@ void xdisplayletter(){
 }
 */
 void xgetsidekeys(){}
+
+int xspliter(int unsplit){
+	int limit = splitlimit;
+    for(limit=limit;limit>0;limit--){
+        int remender = unsplit%10;
+        split[limit] = remender;
+        unsplit = unsplit/10;
+}
+return split;
+}
 //FUNCTIONS_MAIN>>END
 
 // REFERENCE //
